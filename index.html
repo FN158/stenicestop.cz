@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OCHRADOM — Deratizace a dezinsekce pro Rokycansko a Berounsko</title>
+<meta name="description" content="Profesionální deratizace, dezinsekce a ochrana proti škůdcům pro Rokycany, Beroun, Zbiroh, Hořovice, Radnice a celé okolí. Zásah do 24 hodin, diskrétně a bez zbytečných průtahů.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16211a;
+    --ink-soft:#1f2e23;
+    --moss:#3f5a3d;
+    --moss-light:#6b8a63;
+    --amber:#c97a2b;
+    --amber-dark:#a8621e;
+    --stone:#ece7dc;
+    --paper:#f8f6f1;
+    --charcoal:#23281f;
+    --line:rgba(22,33,26,0.12);
+    --line-on-dark:rgba(248,246,241,0.18);
+    --shadow:0 18px 40px -20px rgba(22,33,26,0.35);
+    --radius-s:4px;
+    --radius-m:10px;
+    --ff-display:'Big Shoulders Display', sans-serif;
+    --ff-body:'Inter', sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  body{
+    margin:0;
+    font-family:var(--ff-body);
+    color:var(--charcoal);
+    background:var(--paper);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,h4{
+    font-family:var(--ff-display);
+    font-weight:700;
+    line-height:0.98;
+    margin:0;
+    color:var(--ink);
+    letter-spacing:0.2px;
+  }
+
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  ul{margin:0;padding:0;list-style:none;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;}
+
+  :focus-visible{outline:3px solid var(--amber);outline-offset:3px;}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+  section{position:relative;}
+
+  .icon{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:inline-block;vertical-align:-0.15em;}
+
+  /* ---------- BUTTONS ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:15px 28px;
+    border-radius:3px;
+    font-weight:600;
+    font-size:0.98rem;
+    border:1.5px solid transparent;
+    cursor:pointer;
+    transition:transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--amber);color:var(--paper);}
+  .btn-primary:hover{background:var(--amber-dark);}
+  .btn-ghost{background:transparent;color:var(--paper);border-color:var(--line-on-dark);}
+  .btn-ghost:hover{border-color:var(--paper);}
+  .btn-outline{background:transparent;color:var(--ink);border-color:var(--ink);}
+  .btn-outline:hover{background:var(--ink);color:var(--paper);}
+  .btn-block{width:100%;justify-content:center;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:22px 0;
+    transition:padding 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  }
+  header.scrolled{
+    padding:12px 0;
+    background:rgba(22,33,26,0.94);
+    backdrop-filter:blur(6px);
+    box-shadow:0 8px 30px -12px rgba(0,0,0,0.4);
+  }
+  nav.wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;}
+  .logo{
+    font-family:var(--ff-display);
+    font-weight:800;
+    font-size:1.55rem;
+    color:var(--paper);
+    letter-spacing:0.5px;
+    display:flex;align-items:baseline;gap:8px;
+  }
+  .logo span{
+    display:inline-block;width:9px;height:9px;border-radius:50%;
+    background:var(--amber);transform:translateY(-2px);
+  }
+  .nav-links{display:flex;align-items:center;gap:34px;}
+  .nav-links a{
+    color:var(--paper);opacity:0.82;font-size:0.96rem;font-weight:500;
+    position:relative;padding:4px 0;
+    transition:opacity 0.2s ease;
+  }
+  .nav-links a:hover{opacity:1;}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;right:100%;bottom:-2px;height:2px;background:var(--amber);
+    transition:right 0.25s ease;
+  }
+  .nav-links a:hover::after{right:0;}
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .nav-phone{
+    color:var(--paper);font-weight:600;font-size:0.95rem;display:flex;align-items:center;gap:8px;
+  }
+  .nav-phone .icon{color:var(--amber);}
+  .burger{display:none;background:none;border:none;color:var(--paper);padding:6px;cursor:pointer;}
+  .burger .icon{width:26px;height:26px;}
+
+  .mobile-panel{
+    display:none;position:fixed;inset:0;z-index:99;
+    background:var(--ink);
+    padding:100px 28px 40px;
+    flex-direction:column;gap:26px;
+  }
+  .mobile-panel.open{display:flex;}
+  .mobile-panel a{color:var(--paper);font-size:1.3rem;font-family:var(--ff-display);font-weight:700;}
+  .mobile-panel .nav-phone{margin-top:10px;font-size:1.05rem;}
+
+  @media (max-width:900px){
+    .nav-links{display:none;}
+    .nav-cta .nav-phone{display:none;}
+    .burger{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100vh;
+    display:flex;align-items:center;
+    padding:150px 0 130px;
+    background:
+      linear-gradient(115deg, rgba(15,23,17,0.92) 10%, rgba(22,33,26,0.72) 45%, rgba(22,33,26,0.35) 78%),
+      url('https://images.unsplash.com/photo-1756155017513-6fceb5ace3ba?auto=format&fit=crop&w=1920&q=80') center 30%/cover no-repeat;
+    color:var(--paper);
+    overflow:hidden;
+  }
+  .hero .wrap{position:relative;z-index:2;}
+  .hero-content{max-width:680px;}
+  .hero-kicker{
+    font-size:0.98rem;color:var(--paper);opacity:0.85;font-weight:500;
+    margin-bottom:18px;max-width:480px;
+  }
+  .hero h1{
+    font-size:clamp(2.7rem, 6vw, 4.6rem);
+    color:var(--paper);
+    margin-bottom:22px;
+  }
+  .hero h1 em{
+    font-style:normal;color:var(--amber);
+  }
+  .hero-sub{
+    font-size:1.14rem;color:rgba(248,246,241,0.86);max-width:520px;margin-bottom:36px;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:52px;}
+  .hero-trust{
+    display:flex;flex-wrap:wrap;gap:28px 40px;
+    padding-top:30px;border-top:1px solid var(--line-on-dark);
+  }
+  .hero-trust li{display:flex;align-items:center;gap:10px;font-size:0.94rem;color:rgba(248,246,241,0.9);}
+  .hero-trust .icon{color:var(--amber);width:19px;height:19px;flex-shrink:0;}
+
+  .hero [data-reveal]{
+    opacity:0;transform:translateY(22px);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+  .hero.loaded [data-reveal]{opacity:1;transform:translateY(0);}
+  .hero.loaded [data-reveal="1"]{transition-delay:0.05s;}
+  .hero.loaded [data-reveal="2"]{transition-delay:0.18s;}
+  .hero.loaded [data-reveal="3"]{transition-delay:0.32s;}
+  .hero.loaded [data-reveal="4"]{transition-delay:0.46s;}
+  .hero.loaded [data-reveal="5"]{transition-delay:0.6s;}
+
+  .hill-divider{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:auto;z-index:3;display:block;}
+  .hill-divider path{fill:var(--paper);}
+
+  /* ---------- SECTION HEADS ---------- */
+  .section-pad{padding:110px 0;}
+  .section-head{max-width:620px;margin-bottom:64px;}
+  .section-head h2{font-size:clamp(2rem, 3.6vw, 2.9rem);margin-bottom:18px;}
+  .section-head p{color:#4b5347;font-size:1.08rem;}
+  .on-dark .section-head h2, .on-dark .section-head p{color:var(--paper);}
+  .on-dark .section-head p{color:rgba(248,246,241,0.78);}
+
+  /* ---------- SERVICES ---------- */
+  .services{background:var(--paper);}
+
+  .service-featured{
+    display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;
+  }
+  .feature-card{
+    padding:46px 42px;color:var(--paper);position:relative;overflow:hidden;
+    display:flex;flex-direction:column;
+  }
+  .feature-card.dark{background:var(--ink);}
+  .feature-card.moss{background:var(--moss);}
+  .feature-card .feature-tag{
+    font-size:0.86rem;font-weight:600;color:var(--amber);
+    margin-bottom:16px;
+  }
+  .feature-card h3{color:var(--paper);font-size:1.9rem;margin-bottom:16px;max-width:320px;}
+  .feature-card p{color:rgba(248,246,241,0.78);font-size:1rem;margin-bottom:26px;max-width:400px;}
+  .feature-pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:auto;}
+  .feature-pills span{
+    font-size:0.85rem;padding:7px 14px;border:1px solid var(--line-on-dark);
+    border-radius:20px;color:rgba(248,246,241,0.85);
+  }
+  .feature-mark{
+    position:absolute;right:-18px;top:-18px;width:150px;height:150px;
+    opacity:0.14;color:var(--paper);
+  }
+  .feature-mark .icon{width:100%;height:100%;stroke-width:0.9;}
+
+  .service-list{
+    border-top:1px solid var(--line);
+  }
+  .service-row{
+    display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:flex-start;
+    padding:30px 4px;border-bottom:1px solid var(--line);
+    transition:background 0.2s ease;
+  }
+  .service-row:hover{background:var(--stone);}
+  .service-row-head{display:flex;align-items:center;gap:16px;}
+  .service-row-icon{
+    width:44px;height:44px;border-radius:50%;flex-shrink:0;
+    background:var(--stone);color:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .service-row-icon .icon{width:20px;height:20px;}
+  .service-row-head h4{font-family:var(--ff-body);font-weight:600;font-size:1.06rem;color:var(--ink);}
+  .service-row p{color:#4b5347;font-size:0.96rem;padding-top:2px;}
+
+  @media (max-width:880px){
+    .service-featured{grid-template-columns:1fr;}
+    .service-row{grid-template-columns:1fr;gap:12px;}
+  }
+
+  /* ---------- PROCESS ---------- */
+  .process{background:var(--ink);color:var(--paper);}
+  .process-list{display:grid;grid-template-columns:repeat(4,1fr);gap:44px;}
+  .process-item{position:relative;padding-top:26px;border-top:2px solid var(--line-on-dark);}
+  .process-num{
+    font-family:var(--ff-display);font-weight:800;font-size:1.1rem;
+    color:var(--amber);display:block;margin-bottom:14px;
+  }
+  .process-item h3{color:var(--paper);font-size:1.2rem;margin-bottom:10px;}
+  .process-item p{color:rgba(248,246,241,0.72);font-size:0.95rem;}
+  @media (max-width:900px){.process-list{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.process-list{grid-template-columns:1fr;}}
+
+  /* ---------- STATS ---------- */
+  .stats-wrap{
+    background:var(--moss);color:var(--paper);
+    padding:56px 0;position:relative;overflow:hidden;
+  }
+  .stats-wrap .contour{position:absolute;inset:0;opacity:0.18;width:100%;height:100%;}
+  .stats-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:left;}
+  .stat b{
+    display:block;font-family:var(--ff-display);font-weight:800;
+    font-size:clamp(2.1rem,4vw,3.1rem);color:var(--paper);line-height:1;
+  }
+  .stat span{font-size:0.92rem;color:rgba(248,246,241,0.82);}
+  @media (max-width:760px){.stats-grid{grid-template-columns:repeat(2,1fr);row-gap:34px;}}
+
+  /* ---------- OBLAST PUSOBENI ---------- */
+  .oblast{background:var(--paper);}
+  .oblast-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .oblast-image{
+    border-radius:var(--radius-m);overflow:hidden;box-shadow:var(--shadow);
+    aspect-ratio:4/3.1;
+  }
+  .oblast-image img{width:100%;height:100%;object-fit:cover;}
+  #oblastMap{display:block;width:100%;height:100%;background:var(--stone);border:0;filter:grayscale(0.15) contrast(1.02);}
+  .town-chip-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+  .town-chip{
+    padding:9px 18px;border:1.5px solid var(--line);border-radius:24px;
+    font-size:0.92rem;font-weight:500;color:var(--charcoal);
+    background:var(--stone);
+  }
+  .town-chip.main{background:var(--ink);color:var(--paper);border-color:var(--ink);font-weight:600;}
+  .oblast-note{
+    display:flex;gap:12px;align-items:flex-start;margin-top:28px;
+    padding:18px 20px;background:var(--stone);border-radius:var(--radius-s);
+    border-left:3px solid var(--amber);
+  }
+  .oblast-note .icon{color:var(--amber-dark);width:20px;height:20px;flex-shrink:0;margin-top:2px;}
+  .oblast-note p{font-size:0.95rem;color:#3d4436;}
+  @media (max-width:880px){.oblast-layout{grid-template-columns:1fr;gap:40px;}.oblast-image{order:-1;}}
+
+  /* ---------- REFERENCE ---------- */
+  .reference{background:var(--stone);}
+  .ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .ref-card{
+    background:var(--paper);padding:34px 30px;border-radius:var(--radius-m);
+    box-shadow:0 14px 30px -22px rgba(22,33,26,0.4);
+  }
+  .ref-card p.quote{font-size:1.02rem;color:var(--charcoal);margin-bottom:22px;}
+  .ref-person{display:flex;align-items:center;gap:12px;}
+  .ref-avatar{
+    width:42px;height:42px;border-radius:50%;background:var(--moss);color:var(--paper);
+    display:flex;align-items:center;justify-content:center;font-family:var(--ff-display);font-weight:700;
+  }
+  .ref-person span{display:block;font-size:0.88rem;color:#5b6151;}
+  .ref-person b{font-size:0.95rem;color:var(--ink);}
+  @media (max-width:900px){.ref-grid{grid-template-columns:1fr;}}
+
+  /* ---------- CTA BANNER ---------- */
+  .cta-banner{
+    background:var(--ink);color:var(--paper);
+    padding:90px 0;text-align:left;position:relative;overflow:hidden;
+  }
+  .cta-banner .wrap{display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;position:relative;z-index:1;}
+  .cta-banner h2{color:var(--paper);font-size:clamp(1.9rem,3.6vw,2.7rem);max-width:560px;}
+  .cta-banner-actions{display:flex;gap:16px;flex-wrap:wrap;}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--paper);}
+  .contact-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:60px;}
+  .contact-info h2{font-size:clamp(1.9rem,3.4vw,2.6rem);margin-bottom:18px;}
+  .contact-info > p{color:#4b5347;margin-bottom:34px;font-size:1.03rem;}
+  .contact-detail{display:flex;gap:16px;align-items:flex-start;margin-bottom:24px;}
+  .contact-detail .icon-wrap{
+    width:40px;height:40px;border-radius:50%;background:var(--stone);color:var(--ink);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .contact-detail .icon{width:18px;height:18px;}
+  .contact-detail b{display:block;font-size:0.98rem;color:var(--ink);margin-bottom:2px;}
+  .contact-detail span{font-size:0.93rem;color:#5b6151;}
+
+  .form-card{
+    background:var(--ink);color:var(--paper);
+    border-radius:var(--radius-m);padding:44px;
+    box-shadow:var(--shadow);
+  }
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .field{margin-bottom:20px;}
+  .field label{
+    display:block;font-size:0.86rem;color:rgba(248,246,241,0.75);margin-bottom:8px;font-weight:500;
+  }
+  .field input, .field select, .field textarea{
+    width:100%;padding:13px 15px;border-radius:3px;border:1.5px solid var(--line-on-dark);
+    background:rgba(248,246,241,0.06);color:var(--paper);font-family:inherit;font-size:0.96rem;
+    transition:border-color 0.2s ease, background 0.2s ease;
+  }
+  .field select{color:var(--paper);}
+  .field select option{color:var(--charcoal);}
+  .field input::placeholder, .field textarea::placeholder{color:rgba(248,246,241,0.4);}
+  .field input:focus, .field select:focus, .field textarea:focus{
+    border-color:var(--amber);background:rgba(248,246,241,0.1);outline:none;
+  }
+  .field textarea{resize:vertical;min-height:100px;}
+  .checkline{display:flex;gap:10px;align-items:flex-start;margin-bottom:26px;}
+  .checkline input{margin-top:4px;width:16px;height:16px;flex-shrink:0;accent-color:var(--amber);}
+  .checkline label{font-size:0.85rem;color:rgba(248,246,241,0.72);}
+  .form-msg{
+    display:none;margin-top:18px;padding:14px 16px;border-radius:3px;
+    background:rgba(201,122,43,0.18);border:1px solid var(--amber);
+    font-size:0.92rem;color:var(--paper);
+    align-items:center;gap:10px;
+  }
+  .form-msg.show{display:flex;}
+  .form-msg .icon{color:var(--amber);width:18px;height:18px;flex-shrink:0;}
+  @media (max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+  @media (max-width:560px){.form-row{grid-template-columns:1fr;}.form-card{padding:30px 24px;}}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink-soft);color:rgba(248,246,241,0.72);padding:64px 0 28px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:52px;}
+  .footer-brand .logo{margin-bottom:16px;}
+  .footer-brand p{font-size:0.93rem;max-width:280px;color:rgba(248,246,241,0.6);}
+  footer h4{color:var(--paper);font-size:0.92rem;margin-bottom:18px;font-weight:600;}
+  footer ul li{margin-bottom:11px;font-size:0.92rem;}
+  footer ul a{color:rgba(248,246,241,0.68);transition:color 0.2s ease;}
+  footer ul a:hover{color:var(--amber);}
+  .footer-bottom{
+    border-top:1px solid var(--line-on-dark);padding-top:24px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:0.82rem;color:rgba(248,246,241,0.5);
+  }
+  @media (max-width:760px){.footer-grid{grid-template-columns:1fr 1fr;}.footer-brand{grid-column:1/-1;}}
+
+  @media (max-width:640px){
+    .section-pad{padding:76px 0;}
+    .hero{padding:130px 0 90px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ICON SPRITE -->
+<svg style="display:none">
+  <symbol id="i-rat" viewBox="0 0 24 24"><ellipse cx="11.3" cy="14.3" rx="6.3" ry="4.2"/><circle cx="5.7" cy="11.7" r="3"/><circle cx="4.5" cy="9.7" r=".85" fill="currentColor" stroke="none"/><path d="M17.4 13.2c2 .4 4.1-.4 5.2-2.1-1.7-.7-3.5-.4-4.7.7"/><path d="M8.2 18.3 6.9 20.6M11.6 18.6l-.3 2.4"/></symbol>
+  <symbol id="i-bug" viewBox="0 0 24 24"><ellipse cx="12" cy="13.6" rx="4.3" ry="5.8"/><line x1="12" y1="7.9" x2="12" y2="19.3"/><circle cx="12" cy="6.1" r="1.6"/><path d="M11 4.4 9.8 2.8M13 4.4l1.2-1.6"/><path d="M7.9 9.6 4.1 8.2M7.7 13.6H3.4M7.9 17.6 4.1 19"/><path d="M16.1 9.6l3.8-1.4M16.3 13.6h4.3M16.1 17.6l3.8 1.4"/></symbol>
+  <symbol id="i-bird" viewBox="0 0 24 24"><path d="M6.1 18.6c0-4.1 2.7-7 6.2-7 2.8 0 5 1.9 5.7 4.4.9.1 1.8-.2 2.5-1-.2 1.7-1.5 2.8-3 2.9-.4 1.6-1.9 2.7-3.7 2.7H8.5c-1.3 0-2.4-1-2.4-2Z"/><circle cx="9.5" cy="10.6" r="2.1"/><circle cx="8.8" cy="9.9" r=".5" fill="currentColor" stroke="none"/><path d="M11.4 10.1 13.3 9.4l-1.3 1.5"/><path d="M8.8 18.7v1.6M12.1 18.7v1.6"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5.5" y="10.5" width="13" height="9.5" rx="1.5"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/><circle cx="12" cy="14.8" r="1.3" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.5 19 6.2v5.4c0 4.6-3 7.7-7 9-4-1.3-7-4.4-7-9V6.2L12 3.5Z"/><path d="M8.8 12.2l2.2 2.2 4.2-4.6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.3"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M19 5c.6 7.5-3 13-11 14C7 12.5 11 6.7 19 5Z"/><path d="M8 19c1.5-4 4-7.5 9.5-11.3"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 4h3l1.4 4-2 1.6c.9 2.3 2.7 4.1 5 5l1.6-2 4 1.4v3c0 1-.9 1.7-1.8 1.5C10.8 17.7 6.3 13.2 4.5 7.8 4.3 6.9 5 6 6 6V4Z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M4 6.5 12 12l8-5.5"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11.5A7 7 0 0 0 5 9.5C5 14.6 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.4"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3.5 6.5h17M3.5 12h17M3.5 17.5h17"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5 9 18 20 6"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4 21 19H3L12 4Z"/><path d="M12 10v4M12 16.5v.1"/></symbol>
+</svg>
+
+<!-- NAV -->
+<header id="site-header">
+  <nav class="wrap">
+    <a href="#home" class="logo"><span></span>OCHRADOM</a>
+    <div class="nav-links">
+      <a href="#sluzby">Služby</a>
+      <a href="#proces">Jak pracujeme</a>
+      <a href="#oblast">Oblast působnosti</a>
+      <a href="#reference">Reference</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+    <div class="nav-cta">
+      <a class="nav-phone" href="tel:+420601234567"><svg class="icon"><use href="#i-phone"/></svg>601 234 567</a>
+      <a class="btn btn-primary" href="#kontakt">Nezávazná poptávka</a>
+    </div>
+    <button class="burger" id="burgerBtn" aria-label="Otevřít menu" aria-expanded="false">
+      <svg class="icon"><use href="#i-menu"/></svg>
+    </button>
+  </nav>
+</header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <a href="#sluzby">Služby</a>
+  <a href="#proces">Jak pracujeme</a>
+  <a href="#oblast">Oblast působnosti</a>
+  <a href="#reference">Reference</a>
+  <a href="#kontakt">Kontakt</a>
+  <a class="nav-phone" href="tel:+420601234567"><svg class="icon"><use href="#i-phone"/></svg>601 234 567</a>
+  <a class="btn btn-primary btn-block" href="#kontakt">Nezávazná poptávka</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="hero-content">
+      <p class="hero-kicker" data-reveal="1">Deratizace, dezinsekce a ochrana domácností — Rokycansko, Berounsko a Podbrdsko</p>
+      <h1 data-reveal="2">Klid v domě začíná <em>tím,</em> že škůdci zmizí.</h1>
+      <p class="hero-sub" data-reveal="3">Řešíme myši, potkany, štěnice, švábi, vosy i holuby — rychle, diskrétně a bez zbytečných průtahů. Technik dorazí do 24 hodin od poptávky.</p>
+      <div class="hero-actions" data-reveal="4">
+        <a href="#kontakt" class="btn btn-primary">Objednat prohlídku zdarma</a>
+        <a href="tel:+420601234567" class="btn btn-ghost"><svg class="icon"><use href="#i-phone"/></svg>Zavolat 601 234 567</a>
+      </div>
+      <ul class="hero-trust" data-reveal="5">
+        <li><svg class="icon"><use href="#i-clock"/></svg>Zásah do 24 hodin</li>
+        <li><svg class="icon"><use href="#i-shield"/></svg>Certifikovaní technici</li>
+        <li><svg class="icon"><use href="#i-leaf"/></svg>Šetrné k dětem i zvířatům</li>
+        <li><svg class="icon"><use href="#i-lock"/></svg>Zaručená diskrétnost</li>
+      </ul>
+    </div>
+  </div>
+  <svg class="hill-divider" viewBox="0 0 1440 110" preserveAspectRatio="none">
+    <path d="M0,70 C220,110 400,20 620,52 C860,86 1000,10 1220,44 C1320,60 1400,50 1440,42 L1440,110 L0,110 Z"/>
+  </svg>
+</section>
+
+<!-- SLUZBY -->
+<section class="services section-pad" id="sluzby">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Jedna firma na všechny druhy škůdců</h2>
+      <p>Od drobného zásahu v bytě po servisní smlouvu pro provozovnu — vybíráme řešení podle rozsahu problému, ne podle toho, co zrovna máme na skladu.</p>
+    </div>
+  </div>
+  <div class="wrap">
+
+    <div class="service-featured">
+      <div class="feature-card dark">
+        <svg class="feature-mark"><use href="#i-rat"/></svg>
+        <span class="feature-tag">Nejčastější zásah</span>
+        <h3>Deratizace</h3>
+        <p>Myši, potkani a krysy v domech, sklepích i venkovních prostorách. Najdeme vstupní body, rozmístíme nástrahy a ohnisko bezpečně zlikvidujeme.</p>
+        <div class="feature-pills"><span>Myši</span><span>Potkani</span><span>Krysy</span><span>Monitoring nor</span></div>
+      </div>
+      <div class="feature-card moss">
+        <svg class="feature-mark"><use href="#i-bug"/></svg>
+        <span class="feature-tag">Pro domácnosti i provozy</span>
+        <h3>Dezinsekce</h3>
+        <p>Štěnice, švábi, mravenci, blechy a vosí hnízda. Postup volíme podle druhu hmyzu a typu prostoru — od bytu po restauraci.</p>
+        <div class="feature-pills"><span>Štěnice</span><span>Švábi</span><span>Mravenci</span><span>Vosí hnízda</span></div>
+      </div>
+    </div>
+
+    <div class="service-list">
+      <div class="service-row">
+        <div class="service-row-head">
+          <div class="service-row-icon"><svg class="icon"><use href="#i-bird"/></svg></div>
+          <h4>Ochrana proti ptactvu</h4>
+        </div>
+        <p>Sítě, hroty a odpuzovače proti holubům na fasádách, střechách a průmyslových objektech — bez ublížení zvířatům.</p>
+      </div>
+      <div class="service-row">
+        <div class="service-row-head">
+          <div class="service-row-icon"><svg class="icon"><use href="#i-shield"/></svg></div>
+          <h4>Servisní smlouvy pro firmy</h4>
+        </div>
+        <p>Pravidelný monitoring pro sklady, provozovny a zemědělské objekty s protokolem podle hygienických požadavků HACCP.</p>
+      </div>
+      <div class="service-row">
+        <div class="service-row-head">
+          <div class="service-row-icon"><svg class="icon"><use href="#i-leaf"/></svg></div>
+          <h4>Dezinfekce prostor</h4>
+        </div>
+        <p>Likvidace plísní, virů a bakterií po zásahu škůdců nebo jako samostatná služba pro citlivé provozy.</p>
+      </div>
+      <div class="service-row">
+        <div class="service-row-head">
+          <div class="service-row-icon"><svg class="icon"><use href="#i-clock"/></svg></div>
+          <h4>Havarijní zásah</h4>
+        </div>
+        <p>Akutní výskyt hlodavců nebo hmyzu řešíme přednostně — technik na místě obvykle do 24 hodin.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCES -->
+<section class="process section-pad" id="proces">
+  <div class="wrap">
+    <div class="section-head on-dark">
+      <h2>Jak zásah probíhá</h2>
+      <p>Čtyři kroky od prvního telefonátu po klid v domě. Bez skrytých poplatků a bez tlaku na zbytečné služby.</p>
+    </div>
+    <div class="process-list">
+      <div class="process-item">
+        <span class="process-num">01</span>
+        <h3>Poptávka a konzultace</h3>
+        <p>Zavoláte, napíšete nebo vyplníte formulář. Ozveme se obvykle do 24 hodin a probereme rozsah problému.</p>
+      </div>
+      <div class="process-item">
+        <span class="process-num">02</span>
+        <h3>Prohlídka na místě</h3>
+        <p>Technik posoudí situaci, najde vstupní body škůdců a navrhne konkrétní postup i cenu předem.</p>
+      </div>
+      <div class="process-item">
+        <span class="process-num">03</span>
+        <h3>Samotný zásah</h3>
+        <p>Aplikujeme certifikované přípravky bezpečné pro obyvatele domu i domácí zvířata, včetně preventivních opatření.</p>
+      </div>
+      <div class="process-item">
+        <span class="process-num">04</span>
+        <h3>Kontrola výsledku</h3>
+        <p>Po dohodnuté době provedeme kontrolní návštěvu a ověříme, že je v domě opravdu klid. V případě potřeby doporučíme další preventivní kroky.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-wrap">
+  <svg class="contour" viewBox="0 0 1200 300" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M-20,60 C200,110 350,10 600,55 C850,100 950,20 1220,70" stroke="#f8f6f1" stroke-width="1.4" fill="none"/>
+    <path d="M-20,120 C220,170 380,80 620,115 C860,150 970,90 1220,135" stroke="#f8f6f1" stroke-width="1.4" fill="none"/>
+    <path d="M-20,180 C240,225 400,150 640,180 C870,205 990,155 1220,195" stroke="#f8f6f1" stroke-width="1.4" fill="none"/>
+    <path d="M-20,240 C250,275 420,215 660,240 C880,262 1000,220 1220,252" stroke="#f8f6f1" stroke-width="1.4" fill="none"/>
+  </svg>
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat"><b data-count="12">0</b><span>let praxe v oboru DDD</span></div>
+      <div class="stat"><b data-count="1400">0</b><span>vyřešených zásahů</span></div>
+      <div class="stat"><b data-count="24">0</b><span>hodin do prvního termínu</span></div>
+      <div class="stat"><b data-count="35">0</b><span>obcí v oblasti působnosti</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- OBLAST PUSOBENI -->
+<section class="oblast section-pad" id="oblast">
+  <div class="wrap">
+    <div class="oblast-layout">
+      <div class="oblast-text">
+        <div class="section-head" style="margin-bottom:0;">
+          <h2>Jezdíme po celém Podbrdsku</h2>
+          <p>Sídlíme na pomezí Rokycanska a Berounska a pokrýváme celý region kolem Brd — od menších obcí po průmyslové zóny a zemědělské provozy.</p>
+        </div>
+        <div class="town-chip-list">
+          <span class="town-chip main">Rokycany</span>
+          <span class="town-chip main">Beroun</span>
+          <span class="town-chip">Zbiroh</span>
+          <span class="town-chip">Hořovice</span>
+          <span class="town-chip">Radnice</span>
+          <span class="town-chip">Zdice</span>
+          <span class="town-chip">Mýto</span>
+          <span class="town-chip">Komárov</span>
+          <span class="town-chip">Žebrák</span>
+          <span class="town-chip">Hrádek</span>
+          <span class="town-chip">Strašice</span>
+          <span class="town-chip">Mirošov</span>
+          <span class="town-chip">Králův Dvůr</span>
+          <span class="town-chip">Břasy</span>
+          <span class="town-chip">Hostomice</span>
+          <span class="town-chip">Dobřív</span>
+          <span class="town-chip">Loděnice</span>
+        </div>
+        <div class="oblast-note">
+          <svg class="icon"><use href="#i-pin"/></svg>
+          <p>Nevidíte svou obec v seznamu? Do vzdálenosti přibližně 30 km od Rokycan a Berouna dorazíme bez příplatku za dopravu — stačí napsat do poptávky.</p>
+        </div>
+      </div>
+      <div class="oblast-image">
+        <iframe id="oblastMap" title="Mapa se středem u Zbiroha na Rokycansku" src="https://www.google.com/maps?q=Zbiroh,+Rokycany&z=10&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENCE -->
+<section class="reference section-pad" id="reference">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Co říkají lidé z okolí</h2>
+      <p>Ukázky reakcí od domácností a provozoven, se kterými jsme v regionu spolupracovali.</p>
+    </div>
+    <div class="ref-grid">
+      <div class="ref-card">
+        <p class="quote">„Myši ve sklepě zmizely do týdne a technik nám vysvětlil, kudy se dostávaly dovnitř. Konečně klid.“</p>
+        <div class="ref-person">
+          <div class="ref-avatar">J.</div>
+          <div><b>Jana K.</b><span>Rodinný dům, Zbiroh</span></div>
+        </div>
+      </div>
+      <div class="ref-card">
+        <p class="quote">„Řešili jsme štěnice v penzionu, potřebovali jsme to rychle a diskrétně. Termín drželi a hosté nic nepoznali.“</p>
+        <div class="ref-person">
+          <div class="ref-avatar">P.</div>
+          <div><b>Petr M.</b><span>Penzion, Hořovice</span></div>
+        </div>
+      </div>
+      <div class="ref-card">
+        <p class="quote">„Máme s nimi servisní smlouvu na sklad, chodí pravidelně a protokoly jsou v pořádku i při kontrole hygieny.“</p>
+        <div class="ref-person">
+          <div class="ref-avatar">L.</div>
+          <div><b>Lenka S.</b><span>Provozovna, Beroun</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="wrap">
+    <h2>Čím dřív zavoláte, tím menší je zásah.</h2>
+    <div class="cta-banner-actions">
+      <a href="#kontakt" class="btn btn-primary">Chci nezávaznou nabídku</a>
+      <a href="tel:+420601234567" class="btn btn-ghost"><svg class="icon"><use href="#i-phone"/></svg>601 234 567</a>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="contact section-pad" id="kontakt">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Domluvme si prohlídku</h2>
+        <p>Napište pár slov o tom, co vás trápí, a ozveme se s termínem prohlídky nebo rovnou s cenovým odhadem.</p>
+
+        <div class="contact-detail">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-phone"/></svg></div>
+          <div><b>601 234 567</b><span>Po–Pá 7:00–19:00, havárie i mimo pracovní dobu</span></div>
+        </div>
+        <div class="contact-detail">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-mail"/></svg></div>
+          <div><b>info@ochradom.cz</b><span>Odpovídáme obvykle do jednoho pracovního dne</span></div>
+        </div>
+        <div class="contact-detail">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-pin"/></svg></div>
+          <div><b>Rokycany a okolí</b><span>Zásahy po celém Rokycansku a Berounsku</span></div>
+        </div>
+      </div>
+
+      <form class="form-card" id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="jmeno">Jméno a příjmení</label>
+            <input type="text" id="jmeno" name="jmeno" placeholder="Jan Novák" required>
+          </div>
+          <div class="field">
+            <label for="telefon">Telefon</label>
+            <input type="tel" id="telefon" name="telefon" placeholder="+420 xxx xxx xxx" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="vas@email.cz" required>
+          </div>
+          <div class="field">
+            <label for="obec">Obec</label>
+            <select id="obec" name="obec" required>
+              <option value="" disabled selected>Vyberte obec</option>
+              <option>Rokycany</option>
+              <option>Beroun</option>
+              <option>Zbiroh</option>
+              <option>Hořovice</option>
+              <option>Radnice</option>
+              <option>Zdice</option>
+              <option>Mýto</option>
+              <option>Komárov</option>
+              <option>Žebrák</option>
+              <option>Hrádek</option>
+              <option>Strašice</option>
+              <option>Mirošov</option>
+              <option>Králův Dvůr</option>
+              <option>Břasy</option>
+              <option>Hostomice</option>
+              <option>Dobřív</option>
+              <option>Loděnice</option>
+              <option>Jiná obec</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="typ">Čeho se problém týká</label>
+          <select id="typ" name="typ" required>
+            <option value="" disabled selected>Vyberte možnost</option>
+            <option>Hlodavci (myši, potkani, krysy)</option>
+            <option>Hmyz (štěnice, švábi, mravenci)</option>
+            <option>Vosí nebo sršní hnízdo</option>
+            <option>Ptactvo (holubi)</option>
+            <option>Servisní smlouva pro firmu</option>
+            <option>Nevím, potřebuji poradit</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="zprava">Popis situace</label>
+          <textarea id="zprava" name="zprava" placeholder="Kde se škůdci vyskytují, jak dlouho a jak velký je prostor…"></textarea>
+        </div>
+        <div class="checkline">
+          <input type="checkbox" id="souhlas" name="souhlas" required>
+          <label for="souhlas">Souhlasím se zpracováním osobních údajů za účelem vyřízení poptávky.</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Odeslat poptávku</button>
+        <div class="form-msg" id="formMsg">
+          <svg class="icon"><use href="#i-check"/></svg>
+          <span>Děkujeme, poptávku jsme přijali. Ozveme se vám obvykle do 24 hodin.</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="logo"><span></span>OCHRADOM</a>
+        <p>Deratizace, dezinsekce a ochrana před škůdci pro domácnosti i firmy na Rokycansku a Berounsku.</p>
+      </div>
+      <div>
+        <h4>Navigace</h4>
+        <ul>
+          <li><a href="#sluzby">Služby</a></li>
+          <li><a href="#proces">Jak pracujeme</a></li>
+          <li><a href="#oblast">Oblast působnosti</a></li>
+          <li><a href="#reference">Reference</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li>601 234 567</li>
+          <li>info@ochradom.cz</li>
+          <li>Rokycany a okolí</li>
+          <li>Po–Pá 7:00–19:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 OCHRADOM. Všechna práva vyhrazena.</span>
+      <span>Fotografie: Unsplash License</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Hero entrance
+  var hero = document.querySelector('.hero');
+  requestAnimationFrame(function(){
+    setTimeout(function(){ hero.classList.add('loaded'); }, 60);
+  });
+
+  // Sticky header
+  var header = document.getElementById('site-header');
+  function onScroll(){
+    if(window.scrollY > 40){ header.classList.add('scrolled'); }
+    else{ header.classList.remove('scrolled'); }
+  }
+  document.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // Mobile menu
+  var burger = document.getElementById('burgerBtn');
+  var panel = document.getElementById('mobilePanel');
+  burger.addEventListener('click', function(){
+    var open = panel.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.innerHTML = open
+      ? '<svg class="icon"><use href="#i-close"/></svg>'
+      : '<svg class="icon"><use href="#i-menu"/></svg>';
+  });
+  panel.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      panel.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+      burger.innerHTML = '<svg class="icon"><use href="#i-menu"/></svg>';
+    });
+  });
+
+  // Contour parallax on hero scroll (single deliberate motion)
+  var contour = document.querySelector('.stats-wrap .contour');
+  if(!reduceMotion && contour){
+    document.addEventListener('scroll', function(){
+      var statsSection = document.querySelector('.stats-wrap');
+      var rect = statsSection.getBoundingClientRect();
+      var progress = 1 - Math.min(Math.max(rect.top / window.innerHeight, 0), 1);
+      contour.style.transform = 'translateY(' + (-14 * progress) + 'px)';
+    }, {passive:true});
+  }
+
+  // Animated stat counters
+  var counters = document.querySelectorAll('[data-count]');
+  var counted = false;
+  function animateCounters(){
+    if(counted) return;
+    counted = true;
+    counters.forEach(function(el){
+      var target = parseInt(el.getAttribute('data-count'), 10);
+      if(reduceMotion){ el.textContent = target; return; }
+      var start = 0;
+      var duration = 1200;
+      var startTime = null;
+      function step(ts){
+        if(!startTime) startTime = ts;
+        var progress = Math.min((ts - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target);
+        if(progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  var statsSection = document.querySelector('.stats-wrap');
+  if('IntersectionObserver' in window && statsSection){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ animateCounters(); io.disconnect(); }
+      });
+    }, {threshold:0.4});
+    io.observe(statsSection);
+  } else {
+    animateCounters();
+  }
+
+  // Contact form
+  var form = document.getElementById('contactForm');
+  var msg = document.getElementById('formMsg');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){
+      form.reportValidity();
+      return;
+    }
+    msg.classList.add('show');
+    form.querySelector('button[type="submit"]').textContent = 'Odesláno';
+    form.querySelectorAll('input, select, textarea, button').forEach(function(el){ el.disabled = true; });
+  });
+})();
+</script>
+
+</body>
+</html>
