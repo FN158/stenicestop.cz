@@ -1,6 +1,6 @@
 # stenicestop.cz
 
-Profesionální **deratizace, dezinsekce a ochrana proti škůdcům** pro Rokycansko, Berounsko a Podbrdsko.
+Profesionální **deratizace, dezinsekce a ochrana proti škůdcům** pro Středočeský a Plzeňský kraj.
 
 **Web:** [stenicestop.cz](https://stenicestop.cz)
 
@@ -16,7 +16,7 @@ Profesionální **deratizace, dezinsekce a ochrana proti škůdcům** pro Rokyca
 
 Jednostránkový prezentační web (HTML, CSS a JavaScript) včetně zásad zpracování osobních údajů a cookies.
 
-Služby zahrnují deratizaci, dezinsekci (včetně štěnic), ochranu proti ptactvu, dezinfekci a servisní smlouvy pro firmy. Zásahy probíhají v regionu kolem Rokycan a Berouna.
+Služby zahrnují deratizaci, dezinsekci (včetně štěnic), ochranu proti ptactvu, dezinfekci a servisní smlouvy pro firmy. Zásahy probíhají ve Středočeském a Plzeňském kraji.
 
 ## Právní dokumenty
 

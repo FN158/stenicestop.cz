@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>stenicestop.cz — Deratizace a dezinsekce pro Rokycansko a Berounsko</title>
-<meta name="description" content="Profesionální deratizace, dezinsekce a ochrana proti škůdcům pro Rokycany, Beroun, Zbiroh, Hořovice, Radnice a celé okolí. Zásah do 24 hodin, diskrétně a bez zbytečných průtahů.">
+<title>stenicestop.cz — Deratizace a dezinsekce pro Středočeský a Plzeňský kraj</title>
+<meta name="description" content="Profesionální deratizace, dezinsekce a ochrana proti škůdcům ve Středočeském a Plzeňském kraji. Zásah do 24 hodin, diskrétně a bez zbytečných průtahů.">
 <meta name="author" content="stenicestop.cz">
 <link rel="canonical" href="https://stenicestop.cz/">
 <meta property="og:title" content="stenicestop.cz — Deratizace a dezinsekce">
-<meta property="og:description" content="Profesionální deratizace, dezinsekce a ochrana proti škůdcům pro Rokycansko a Berounsko. Zásah do 24 hodin, diskrétně a bez zbytečných průtahů.">
+<meta property="og:description" content="Profesionální deratizace, dezinsekce a ochrana proti škůdcům ve Středočeském a Plzeňském kraji. Zásah do 24 hodin, diskrétně a bez zbytečných průtahů.">
 <meta property="og:url" content="https://stenicestop.cz/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="cs_CZ">
@@ -29,8 +29,7 @@
     --line:rgba(22,33,26,0.12);
     --line-on-dark:rgba(248,246,241,0.18);
     --shadow:0 18px 40px -20px rgba(22,33,26,0.35);
-    --radius-s:4px;
-    --radius-m:10px;
+    --radius:10px;
     --ff-display:'Big Shoulders Display', sans-serif;
     --ff-body:'Inter', sans-serif;
   }
@@ -77,7 +76,7 @@
   .btn{
     display:inline-flex;align-items:center;gap:10px;
     padding:15px 28px;
-    border-radius:3px;
+    border-radius:var(--radius);
     font-weight:600;
     font-size:0.98rem;
     border:1.5px solid transparent;
@@ -215,8 +214,8 @@
   .section-head{max-width:620px;margin-bottom:64px;}
   .section-head h2{font-size:clamp(2rem, 3.6vw, 2.9rem);margin-bottom:18px;}
   .section-head p{color:#4b5347;font-size:1.08rem;}
-  .on-dark .section-head h2, .on-dark .section-head p{color:var(--paper);}
-  .on-dark .section-head p{color:rgba(248,246,241,0.78);}
+  .section-head.on-dark h2{color:var(--paper);}
+  .section-head.on-dark p{color:rgba(248,246,241,0.78);}
 
   /* ---------- SERVICES ---------- */
   .services{background:var(--paper);}
@@ -227,7 +226,11 @@
   .feature-card{
     padding:46px 42px;color:var(--paper);position:relative;overflow:hidden;
     display:flex;flex-direction:column;
+    border-radius:var(--radius);
+    cursor:pointer;
+    transition:transform 0.18s ease, box-shadow 0.18s ease;
   }
+  .feature-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
   .feature-card.dark{background:var(--ink);}
   .feature-card.moss{background:var(--moss);}
   .feature-card .feature-tag{
@@ -239,8 +242,13 @@
   .feature-pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:auto;}
   .feature-pills span{
     font-size:0.85rem;padding:7px 14px;border:1px solid var(--line-on-dark);
-    border-radius:20px;color:rgba(248,246,241,0.85);
+    border-radius:var(--radius);color:rgba(248,246,241,0.85);
   }
+  .feature-call{
+    display:inline-flex;align-items:center;gap:8px;margin-top:22px;
+    font-weight:600;font-size:0.95rem;color:var(--paper);
+  }
+  .feature-call .icon{color:var(--amber);width:18px;height:18px;}
   .feature-mark{
     position:absolute;right:-18px;top:-18px;width:150px;height:150px;
     opacity:0.14;color:var(--paper);
@@ -302,21 +310,21 @@
   .oblast{background:var(--paper);}
   .oblast-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
   .oblast-image{
-    border-radius:var(--radius-m);overflow:hidden;box-shadow:var(--shadow);
+    border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
     aspect-ratio:4/3.1;
   }
   .oblast-image img{width:100%;height:100%;object-fit:cover;}
   #oblastMap{display:block;width:100%;height:100%;background:var(--stone);border:0;filter:grayscale(0.15) contrast(1.02);}
   .town-chip-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
   .town-chip{
-    padding:9px 18px;border:1.5px solid var(--line);border-radius:24px;
+    padding:9px 18px;border:1.5px solid var(--line);border-radius:var(--radius);
     font-size:0.92rem;font-weight:500;color:var(--charcoal);
     background:var(--stone);
   }
   .town-chip.main{background:var(--ink);color:var(--paper);border-color:var(--ink);font-weight:600;}
   .oblast-note{
     display:flex;gap:12px;align-items:flex-start;margin-top:28px;
-    padding:18px 20px;background:var(--stone);border-radius:var(--radius-s);
+    padding:18px 20px;background:var(--stone);border-radius:var(--radius);
     border-left:3px solid var(--amber);
   }
   .oblast-note .icon{color:var(--amber-dark);width:20px;height:20px;flex-shrink:0;margin-top:2px;}
@@ -327,7 +335,7 @@
   .reference{background:var(--stone);}
   .ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
   .ref-card{
-    background:var(--paper);padding:34px 30px;border-radius:var(--radius-m);
+    background:var(--paper);padding:34px 30px;border-radius:var(--radius);
     box-shadow:0 14px 30px -22px rgba(22,33,26,0.4);
   }
   .ref-card p.quote{font-size:1.02rem;color:var(--charcoal);margin-bottom:22px;}
@@ -367,7 +375,7 @@
 
   .form-card{
     background:var(--ink);color:var(--paper);
-    border-radius:var(--radius-m);padding:44px;
+    border-radius:var(--radius);padding:44px;
     box-shadow:var(--shadow);
   }
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
@@ -376,7 +384,7 @@
     display:block;font-size:0.86rem;color:rgba(248,246,241,0.75);margin-bottom:8px;font-weight:500;
   }
   .field input, .field select, .field textarea{
-    width:100%;padding:13px 15px;border-radius:3px;border:1.5px solid var(--line-on-dark);
+    width:100%;padding:13px 15px;border-radius:var(--radius);border:1.5px solid var(--line-on-dark);
     background:rgba(248,246,241,0.06);color:var(--paper);font-family:inherit;font-size:0.96rem;
     transition:border-color 0.2s ease, background 0.2s ease;
   }
@@ -391,7 +399,7 @@
   .checkline input{margin-top:4px;width:16px;height:16px;flex-shrink:0;accent-color:var(--amber);}
   .checkline label{font-size:0.85rem;color:rgba(248,246,241,0.72);}
   .form-msg{
-    display:none;margin-top:18px;padding:14px 16px;border-radius:3px;
+    display:none;margin-top:18px;padding:14px 16px;border-radius:var(--radius);
     background:rgba(201,122,43,0.18);border:1px solid var(--amber);
     font-size:0.92rem;color:var(--paper);
     align-items:center;gap:10px;
@@ -452,7 +460,7 @@
     position:fixed;left:16px;right:16px;bottom:16px;z-index:200;
     max-width:720px;margin:0 auto;
     background:rgba(22,33,26,0.96);color:var(--paper);
-    border:1px solid var(--line-on-dark);border-radius:10px;
+    border:1px solid var(--line-on-dark);border-radius:var(--radius);
     box-shadow:0 18px 50px -18px rgba(0,0,0,0.55);
     padding:18px 20px;backdrop-filter:blur(10px);
     transform:translateY(16px);opacity:0;pointer-events:none;
@@ -545,11 +553,11 @@
 <section class="hero" id="home">
   <div class="wrap">
     <div class="hero-content">
-      <p class="hero-kicker" data-reveal="1">Deratizace, dezinsekce a ochrana domácností — Rokycansko, Berounsko a Podbrdsko</p>
+      <p class="hero-kicker" data-reveal="1">Deratizace, dezinsekce a ochrana domácností — Středočeský a Plzeňský kraj</p>
       <h1 data-reveal="2">Klid v domě začíná <em>tím,</em> že škůdci zmizí.</h1>
       <p class="hero-sub" data-reveal="3">Řešíme myši, potkany, štěnice, švábi, vosy i holuby — rychle, diskrétně a bez zbytečných průtahů. Technik dorazí do 24 hodin od poptávky.</p>
       <div class="hero-actions" data-reveal="4">
-        <a href="#kontakt" class="btn btn-primary">Objednat prohlídku zdarma</a>
+        <a href="#kontakt" class="btn btn-primary">Objednat prohlídku</a>
         <a href="tel:+420777551917" class="btn btn-ghost"><svg class="icon"><use href="#i-phone"/></svg>Zavolat 777 551 917</a>
       </div>
       <ul class="hero-trust" data-reveal="5">
@@ -576,20 +584,22 @@
   <div class="wrap">
 
     <div class="service-featured">
-      <div class="feature-card dark">
+      <a class="feature-card dark" href="tel:+420777551917" aria-label="Zavolat kvůli deratizaci na 777 551 917">
         <svg class="feature-mark"><use href="#i-rat"/></svg>
         <span class="feature-tag">Nejčastější zásah</span>
         <h3>Deratizace</h3>
         <p>Myši, potkani a krysy v domech, sklepích i venkovních prostorách. Najdeme vstupní body, rozmístíme nástrahy a ohnisko bezpečně zlikvidujeme.</p>
         <div class="feature-pills"><span>Myši</span><span>Potkani</span><span>Krysy</span><span>Monitoring nor</span></div>
-      </div>
-      <div class="feature-card moss">
+        <span class="feature-call"><svg class="icon"><use href="#i-phone"/></svg>Zavolat 777 551 917</span>
+      </a>
+      <a class="feature-card moss" href="tel:+420777551917" aria-label="Zavolat kvůli dezinsekci na 777 551 917">
         <svg class="feature-mark"><use href="#i-bug"/></svg>
         <span class="feature-tag">Pro domácnosti i provozy</span>
         <h3>Dezinsekce</h3>
         <p>Štěnice, švábi, mravenci, blechy a vosí hnízda. Postup volíme podle druhu hmyzu a typu prostoru — od bytu po restauraci.</p>
         <div class="feature-pills"><span>Štěnice</span><span>Švábi</span><span>Mravenci</span><span>Vosí hnízda</span></div>
-      </div>
+        <span class="feature-call"><svg class="icon"><use href="#i-phone"/></svg>Zavolat 777 551 917</span>
+      </a>
     </div>
 
     <div class="service-list">
@@ -671,7 +681,7 @@
       <div class="stat"><b data-count="12">0</b><span>let praxe v oboru DDD</span></div>
       <div class="stat"><b data-count="1400">0</b><span>vyřešených zásahů</span></div>
       <div class="stat"><b data-count="24">0</b><span>hodin do prvního termínu</span></div>
-      <div class="stat"><b data-count="35">0</b><span>obcí v oblasti působnosti</span></div>
+      <div class="stat"><b data-count="2">0</b><span>kraje v oblasti působnosti</span></div>
     </div>
   </div>
 </section>
@@ -682,35 +692,20 @@
     <div class="oblast-layout">
       <div class="oblast-text">
         <div class="section-head" style="margin-bottom:0;">
-          <h2>Jezdíme po celém Podbrdsku</h2>
-          <p>Sídlíme na pomezí Rokycanska a Berounska a pokrýváme celý region kolem Brd — od menších obcí po průmyslové zóny a zemědělské provozy.</p>
+          <h2>Jezdíme po celých středních a západních Čechách</h2>
+          <p>Zasahujeme ve Středočeském a Plzeňském kraji — od domácností po průmyslové a zemědělské provozy.</p>
         </div>
         <div class="town-chip-list">
-          <span class="town-chip main">Rokycany</span>
-          <span class="town-chip main">Beroun</span>
-          <span class="town-chip">Zbiroh</span>
-          <span class="town-chip">Hořovice</span>
-          <span class="town-chip">Radnice</span>
-          <span class="town-chip">Zdice</span>
-          <span class="town-chip">Mýto</span>
-          <span class="town-chip">Komárov</span>
-          <span class="town-chip">Žebrák</span>
-          <span class="town-chip">Hrádek</span>
-          <span class="town-chip">Strašice</span>
-          <span class="town-chip">Mirošov</span>
-          <span class="town-chip">Králův Dvůr</span>
-          <span class="town-chip">Břasy</span>
-          <span class="town-chip">Hostomice</span>
-          <span class="town-chip">Dobřív</span>
-          <span class="town-chip">Loděnice</span>
+          <span class="town-chip main">Středočeský kraj</span>
+          <span class="town-chip main">Plzeňský kraj</span>
         </div>
         <div class="oblast-note">
           <svg class="icon"><use href="#i-pin"/></svg>
-          <p>Nevidíte svou obec v seznamu? Do vzdálenosti přibližně 30 km od Rokycan a Berouna dorazíme bez příplatku za dopravu — stačí napsat do poptávky.</p>
+          <p>Působíme po celém Středočeském a Plzeňském kraji. Stačí napsat obec do poptávky a ozveme se s termínem.</p>
         </div>
       </div>
       <div class="oblast-image">
-        <iframe id="oblastMap" title="Mapa se středem u Zbiroha na Rokycansku" src="https://www.google.com/maps?q=Zbiroh,+Rokycany&z=10&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <iframe id="oblastMap" title="Mapa Středočeského a Plzeňského kraje" src="https://www.google.com/maps?q=Středočeský+kraj,+Plzeňský+kraj&z=8&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -728,21 +723,21 @@
         <p class="quote">„Myši ve sklepě zmizely do týdne a technik nám vysvětlil, kudy se dostávaly dovnitř. Konečně klid.“</p>
         <div class="ref-person">
           <div class="ref-avatar">J.</div>
-          <div><b>Jana K.</b><span>Rodinný dům, Zbiroh</span></div>
+          <div><b>Jana K.</b><span>Rodinný dům, Středočeský kraj</span></div>
         </div>
       </div>
       <div class="ref-card">
         <p class="quote">„Řešili jsme štěnice v penzionu, potřebovali jsme to rychle a diskrétně. Termín drželi a hosté nic nepoznali.“</p>
         <div class="ref-person">
           <div class="ref-avatar">P.</div>
-          <div><b>Petr M.</b><span>Penzion, Hořovice</span></div>
+          <div><b>Petr M.</b><span>Penzion, Plzeňský kraj</span></div>
         </div>
       </div>
       <div class="ref-card">
         <p class="quote">„Máme s nimi servisní smlouvu na sklad, chodí pravidelně a protokoly jsou v pořádku i při kontrole hygieny.“</p>
         <div class="ref-person">
           <div class="ref-avatar">L.</div>
-          <div><b>Lenka S.</b><span>Provozovna, Beroun</span></div>
+          <div><b>Lenka S.</b><span>Provozovna, Středočeský kraj</span></div>
         </div>
       </div>
     </div>
@@ -782,7 +777,7 @@
         </div>
         <div class="contact-detail">
           <div class="icon-wrap"><svg class="icon"><use href="#i-pin"/></svg></div>
-          <div><b>Rokycany a okolí</b><span>Zásahy po celém Rokycansku a Berounsku</span></div>
+          <div><b>Středočeský a Plzeňský kraj</b><span>Zásahy po celých středních a západních Čechách</span></div>
         </div>
       </div>
 
@@ -816,28 +811,8 @@
           </div>
           <div class="field">
             <label for="obec">Obec <span class="req" aria-hidden="true">*</span></label>
-            <select id="obec" name="obec" required>
-              <option value="" disabled selected>Vyberte obec</option>
-              <option>Rokycany</option>
-              <option>Beroun</option>
-              <option>Zbiroh</option>
-              <option>Hořovice</option>
-              <option>Radnice</option>
-              <option>Zdice</option>
-              <option>Mýto</option>
-              <option>Komárov</option>
-              <option>Žebrák</option>
-              <option>Hrádek</option>
-              <option>Strašice</option>
-              <option>Mirošov</option>
-              <option>Králův Dvůr</option>
-              <option>Břasy</option>
-              <option>Hostomice</option>
-              <option>Dobřív</option>
-              <option>Loděnice</option>
-              <option>Jiná obec</option>
-            </select>
-            <span class="field-error" data-for="obec">Vyberte obec zásahu.</span>
+            <input type="text" id="obec" name="obec" placeholder="Obec ve Středočeském nebo Plzeňském kraji" autocomplete="address-level2" required>
+            <span class="field-error" data-for="obec">Uveďte obec zásahu.</span>
           </div>
         </div>
         <div class="field">
@@ -880,7 +855,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="#home" class="logo" aria-label="stenicestop.cz">stenice<span class="stop">stop</span><span class="tld">.cz</span></a>
-        <p>Deratizace, dezinsekce a ochrana před škůdci pro domácnosti i firmy na Rokycansku a Berounsku.</p>
+        <p>Deratizace, dezinsekce a ochrana před škůdci pro domácnosti i firmy ve Středočeském a Plzeňském kraji.</p>
       </div>
       <div>
         <h4>Navigace</h4>
@@ -898,7 +873,7 @@
           <li><a href="tel:+420777551917">777 551 917</a></li>
           <li><a href="mailto:info@stenicestop.cz">info@stenicestop.cz</a></li>
           <li>IČO 47128453</li>
-          <li>Rokycany a okolí</li>
+          <li>Středočeský a Plzeňský kraj</li>
           <li>Po–Pá 7:00–19:00</li>
         </ul>
       </div>
@@ -1060,7 +1035,7 @@
     setFieldError('jmeno', !jmeno.value.trim()); if(!jmeno.value.trim()) ok = false;
     setFieldError('telefon', !validPhone(telefon.value)); if(!validPhone(telefon.value)) ok = false;
     setFieldError('email', !validEmail(email.value)); if(!validEmail(email.value)) ok = false;
-    setFieldError('obec', !obec.value); if(!obec.value) ok = false;
+    setFieldError('obec', !obec.value.trim()); if(!obec.value.trim()) ok = false;
     setFieldError('typ', !typ.value); if(!typ.value) ok = false;
     setFieldError('souhlas', !souhlas.checked); if(!souhlas.checked) ok = false;
     if(!ok){
@@ -1079,7 +1054,7 @@
       jmeno: jmeno.value.trim(),
       telefon: telefon.value.trim(),
       email: email.value.trim(),
-      obec: obec.value,
+      obec: obec.value.trim(),
       typ: typ.value,
       zprava: zprava.value.trim(),
       souhlas: 'ano'
