@@ -3,8 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OCHRADOM — Deratizace a dezinsekce pro Rokycansko a Berounsko</title>
+<title>stenicestop.cz — Deratizace a dezinsekce pro Rokycansko a Berounsko</title>
 <meta name="description" content="Profesionální deratizace, dezinsekce a ochrana proti škůdcům pro Rokycany, Beroun, Zbiroh, Hořovice, Radnice a celé okolí. Zásah do 24 hodin, diskrétně a bez zbytečných průtahů.">
+<meta name="author" content="stenicestop.cz">
+<link rel="canonical" href="https://stenicestop.cz/">
+<meta property="og:title" content="stenicestop.cz — Deratizace a dezinsekce">
+<meta property="og:description" content="Profesionální deratizace, dezinsekce a ochrana proti škůdcům pro Rokycansko a Berounsko. Zásah do 24 hodin, diskrétně a bez zbytečných průtahů.">
+<meta property="og:url" content="https://stenicestop.cz/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="cs_CZ">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -103,14 +110,19 @@
   .logo{
     font-family:var(--ff-display);
     font-weight:800;
-    font-size:1.55rem;
+    font-size:clamp(1.22rem, 2.4vw, 1.55rem);
     color:var(--paper);
-    letter-spacing:0.5px;
-    display:flex;align-items:baseline;gap:8px;
+    letter-spacing:0.35px;
+    display:inline-flex;align-items:baseline;
+    white-space:nowrap;
   }
-  .logo span{
-    display:inline-block;width:9px;height:9px;border-radius:50%;
-    background:var(--amber);transform:translateY(-2px);
+  .logo .stop{
+    color:var(--amber);
+  }
+  .logo .tld{
+    font-weight:700;
+    letter-spacing:0.15px;
+    opacity:0.78;
   }
   .nav-links{display:flex;align-items:center;gap:34px;}
   .nav-links a{
@@ -349,6 +361,8 @@
   }
   .contact-detail .icon{width:18px;height:18px;}
   .contact-detail b{display:block;font-size:0.98rem;color:var(--ink);margin-bottom:2px;}
+  .contact-detail b a{color:inherit;}
+  .contact-detail b a:hover{color:var(--amber);}
   .contact-detail span{font-size:0.93rem;color:#5b6151;}
 
   .form-card{
@@ -426,12 +440,13 @@
   <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5 9 18 20 6"/></symbol>
   <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4 21 19H3L12 4Z"/><path d="M12 10v4M12 16.5v.1"/></symbol>
+  <symbol id="i-id" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><circle cx="8.6" cy="11.2" r="1.7"/><path d="M12.2 14.6c-.2-1.3-1.3-2.2-2.8-2.2s-2.6.9-2.8 2.2"/><path d="M13.6 9.6h5.2M13.6 12.4h4M13.6 15.2h3"/></symbol>
 </svg>
 
 <!-- NAV -->
 <header id="site-header">
   <nav class="wrap">
-    <a href="#home" class="logo"><span></span>OCHRADOM</a>
+    <a href="#home" class="logo" aria-label="stenicestop.cz">stenice<span class="stop">stop</span><span class="tld">.cz</span></a>
     <div class="nav-links">
       <a href="#sluzby">Služby</a>
       <a href="#proces">Jak pracujeme</a>
@@ -440,7 +455,7 @@
       <a href="#kontakt">Kontakt</a>
     </div>
     <div class="nav-cta">
-      <a class="nav-phone" href="tel:+420601234567"><svg class="icon"><use href="#i-phone"/></svg>601 234 567</a>
+      <a class="nav-phone" href="tel:+420777551917"><svg class="icon"><use href="#i-phone"/></svg>777 551 917</a>
       <a class="btn btn-primary" href="#kontakt">Nezávazná poptávka</a>
     </div>
     <button class="burger" id="burgerBtn" aria-label="Otevřít menu" aria-expanded="false">
@@ -455,7 +470,7 @@
   <a href="#oblast">Oblast působnosti</a>
   <a href="#reference">Reference</a>
   <a href="#kontakt">Kontakt</a>
-  <a class="nav-phone" href="tel:+420601234567"><svg class="icon"><use href="#i-phone"/></svg>601 234 567</a>
+  <a class="nav-phone" href="tel:+420777551917"><svg class="icon"><use href="#i-phone"/></svg>777 551 917</a>
   <a class="btn btn-primary btn-block" href="#kontakt">Nezávazná poptávka</a>
 </div>
 
@@ -468,7 +483,7 @@
       <p class="hero-sub" data-reveal="3">Řešíme myši, potkany, štěnice, švábi, vosy i holuby — rychle, diskrétně a bez zbytečných průtahů. Technik dorazí do 24 hodin od poptávky.</p>
       <div class="hero-actions" data-reveal="4">
         <a href="#kontakt" class="btn btn-primary">Objednat prohlídku zdarma</a>
-        <a href="tel:+420601234567" class="btn btn-ghost"><svg class="icon"><use href="#i-phone"/></svg>Zavolat 601 234 567</a>
+        <a href="tel:+420777551917" class="btn btn-ghost"><svg class="icon"><use href="#i-phone"/></svg>Zavolat 777 551 917</a>
       </div>
       <ul class="hero-trust" data-reveal="5">
         <li><svg class="icon"><use href="#i-clock"/></svg>Zásah do 24 hodin</li>
@@ -673,7 +688,7 @@
     <h2>Čím dřív zavoláte, tím menší je zásah.</h2>
     <div class="cta-banner-actions">
       <a href="#kontakt" class="btn btn-primary">Chci nezávaznou nabídku</a>
-      <a href="tel:+420601234567" class="btn btn-ghost"><svg class="icon"><use href="#i-phone"/></svg>601 234 567</a>
+      <a href="tel:+420777551917" class="btn btn-ghost"><svg class="icon"><use href="#i-phone"/></svg>777 551 917</a>
     </div>
   </div>
 </section>
@@ -688,11 +703,15 @@
 
         <div class="contact-detail">
           <div class="icon-wrap"><svg class="icon"><use href="#i-phone"/></svg></div>
-          <div><b>601 234 567</b><span>Po–Pá 7:00–19:00, havárie i mimo pracovní dobu</span></div>
+          <div><b><a href="tel:+420777551917">777 551 917</a></b><span>Po–Pá 7:00–19:00, havárie i mimo pracovní dobu</span></div>
         </div>
         <div class="contact-detail">
           <div class="icon-wrap"><svg class="icon"><use href="#i-mail"/></svg></div>
-          <div><b>info@ochradom.cz</b><span>Odpovídáme obvykle do jednoho pracovního dne</span></div>
+          <div><b><a href="mailto:info@stenicestop.cz">info@stenicestop.cz</a></b><span>Odpovídáme obvykle do jednoho pracovního dne</span></div>
+        </div>
+        <div class="contact-detail">
+          <div class="icon-wrap"><svg class="icon"><use href="#i-id"/></svg></div>
+          <div><b>IČO 47128453</b><span>Oficiální identifikační číslo provozovatele</span></div>
         </div>
         <div class="contact-detail">
           <div class="icon-wrap"><svg class="icon"><use href="#i-pin"/></svg></div>
@@ -776,7 +795,7 @@
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="#home" class="logo"><span></span>OCHRADOM</a>
+        <a href="#home" class="logo" aria-label="stenicestop.cz">stenice<span class="stop">stop</span><span class="tld">.cz</span></a>
         <p>Deratizace, dezinsekce a ochrana před škůdci pro domácnosti i firmy na Rokycansku a Berounsku.</p>
       </div>
       <div>
@@ -792,15 +811,16 @@
       <div>
         <h4>Kontakt</h4>
         <ul>
-          <li>601 234 567</li>
-          <li>info@ochradom.cz</li>
+          <li><a href="tel:+420777551917">777 551 917</a></li>
+          <li><a href="mailto:info@stenicestop.cz">info@stenicestop.cz</a></li>
+          <li>IČO 47128453</li>
           <li>Rokycany a okolí</li>
           <li>Po–Pá 7:00–19:00</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 OCHRADOM. Všechna práva vyhrazena.</span>
+      <span>© 2026 stenicestop.cz. Všechna práva vyhrazena.</span>
       <span>Fotografie: Unsplash License</span>
     </div>
   </div>
