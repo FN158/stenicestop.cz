@@ -751,7 +751,7 @@
       <div class="stat"><b data-count="12">0</b><span>let praxe v oboru DDD</span></div>
       <div class="stat"><b data-count="1400">0</b><span>vyřešených zásahů</span></div>
       <div class="stat"><b data-count="24">0</b><span>hodin do prvního termínu</span></div>
-      <div class="stat"><b data-count="2">0</b><span>kraje v oblasti působnosti</span></div>
+      <div class="stat"><b data-count="15" data-suffix="+">0</b><span>měst v oblasti působnosti</span></div>
     </div>
   </div>
 </section>
@@ -1108,15 +1108,15 @@
     counted = true;
     counters.forEach(function(el){
       var target = parseInt(el.getAttribute('data-count'), 10);
-      if(reduceMotion){ el.textContent = target; return; }
-      var start = 0;
+      var suffix = el.getAttribute('data-suffix') || '';
+      if(reduceMotion){ el.textContent = target + suffix; return; }
       var duration = 1200;
       var startTime = null;
       function step(ts){
         if(!startTime) startTime = ts;
         var progress = Math.min((ts - startTime) / duration, 1);
         var eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.round(eased * target);
+        el.textContent = Math.round(eased * target) + (progress === 1 ? suffix : '');
         if(progress < 1) requestAnimationFrame(step);
       }
       requestAnimationFrame(step);
@@ -1182,17 +1182,44 @@
     submitBtn.textContent = 'Odesílám…';
     track('form_submit', { typ: typ.value });
 
-    var payload = {
-      _subject: 'Poptávka ze stenicestop.cz',
-      _template: 'table',
-      _captcha: 'false',
+    var values = {
       jmeno: jmeno.value.trim(),
       telefon: telefon.value.trim(),
       email: email.value.trim(),
       obec: obec.value.trim(),
       typ: typ.value,
-      zprava: zprava.value.trim(),
-      souhlas: 'ano'
+      zprava: zprava.value.trim()
+    };
+    var mailSubject = 'Poptávka ze stenicestop.cz — ' + values.obec + ' — ' + values.typ;
+    var mailBody = [
+      'Nová poptávka ze stenicestop.cz',
+      '================================',
+      '',
+      'Jméno a příjmení:  ' + values.jmeno,
+      'Telefon:           ' + values.telefon,
+      'E-mail:            ' + values.email,
+      'Obec:              ' + values.obec,
+      'Typ problému:      ' + values.typ,
+      '',
+      'Popis situace',
+      '-------------',
+      values.zprava || 'Neuveden',
+      '',
+      'Souhlas se zpracováním osobních údajů: ano'
+    ].join('\n');
+
+    var payload = {
+      _subject: mailSubject,
+      _template: 'table',
+      _captcha: 'false',
+      _replyto: values.email,
+      'Jméno a příjmení': values.jmeno,
+      'Telefon': values.telefon,
+      'E-mail': values.email,
+      'Obec': values.obec,
+      'Typ problému': values.typ,
+      'Popis situace': values.zprava || 'Neuveden',
+      'Souhlas se zpracováním údajů': 'Ano'
     };
 
     fetch('https://formsubmit.co/ajax/info@stenicestop.cz', {
@@ -1206,8 +1233,8 @@
         form.querySelectorAll('input, select, textarea').forEach(function(el){ el.disabled = true; });
       })
       .catch(function(){
-        window.location.href = 'mailto:info@stenicestop.cz?subject=' + encodeURIComponent('Poptávka ze stenicestop.cz') +
-          '&body=' + encodeURIComponent('Jméno: '+jmeno.value+'\nTelefon: '+telefon.value+'\nE-mail: '+email.value+'\nObec: '+obec.value+'\nTyp: '+typ.value+'\n\n'+zprava.value);
+        window.location.href = 'mailto:info@stenicestop.cz?subject=' + encodeURIComponent(mailSubject) +
+          '&body=' + encodeURIComponent(mailBody);
         submitBtn.disabled = false;
         submitBtn.textContent = 'Odeslat poptávku';
       });
