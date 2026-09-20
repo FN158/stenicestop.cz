@@ -325,18 +325,7 @@
     border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
     aspect-ratio:4/3.1;
   }
-  .oblast-image svg.cz-map{
-    display:block;width:100%;height:100%;background:var(--stone);
-  }
-  .cz-rest{fill:#d4cec0;stroke:rgba(22,33,26,0.18);stroke-width:1.5;}
-  .cz-plzen{fill:var(--moss);}
-  .cz-stred{fill:var(--ink);}
-  .cz-praha{fill:var(--paper);stroke:var(--amber);stroke-width:2;}
-  .cz-map-label{
-    font-family:var(--ff-body);font-size:15px;font-weight:600;fill:var(--paper);
-  }
-  .cz-map-label.muted{fill:var(--ink);font-size:12px;font-weight:500;}
-  .cz-legend{font-family:var(--ff-body);font-size:13px;fill:var(--charcoal);}
+  .oblast-image iframe{display:block;width:100%;height:100%;border:0;}
   .town-chip-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
   .town-chip{
     padding:9px 18px;border:1.5px solid var(--line);border-radius:var(--radius);
@@ -354,11 +343,16 @@
   @media (max-width:880px){.oblast-layout{grid-template-columns:1fr;gap:40px;}.oblast-image{order:-1;}}
 
   /* ---------- REFERENCE ---------- */
-  .reference{background:var(--stone);}
-  .ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .reference{background:var(--stone);overflow:hidden;}
+  .ref-carousel{overflow:hidden;margin-top:8px;}
+  .ref-track{
+    display:flex;gap:28px;width:max-content;
+    animation:ref-marquee 56s linear infinite;
+  }
   .ref-card{
     background:var(--paper);padding:34px 30px;border-radius:var(--radius);
     box-shadow:0 14px 30px -22px rgba(22,33,26,0.4);
+    width:min(360px,78vw);flex:0 0 min(360px,78vw);
   }
   .ref-card p.quote{font-size:1.02rem;color:var(--charcoal);margin-bottom:22px;}
   .ref-person{display:flex;align-items:center;gap:12px;}
@@ -368,7 +362,14 @@
   }
   .ref-person span{display:block;font-size:0.88rem;color:#5b6151;}
   .ref-person b{font-size:0.95rem;color:var(--ink);}
-  @media (max-width:900px){.ref-grid{grid-template-columns:1fr;}}
+  @keyframes ref-marquee{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .ref-track{animation:none;flex-wrap:wrap;width:auto;}
+    .ref-track .ref-card:nth-child(n+7){display:none;}
+  }
 
   /* ---------- CTA BANNER ---------- */
   .cta-banner{
@@ -517,23 +518,6 @@
     .cookie-row{flex-direction:column;align-items:stretch;}
     .cookie-actions .btn{flex:1;justify-content:center;}
   }
-
-  /* ---------- FAQ ---------- */
-  .faq{background:var(--paper);}
-  .faq-list{display:grid;gap:12px;max-width:820px;}
-  .faq-item{
-    background:var(--stone);border-radius:var(--radius);padding:4px 22px;
-  }
-  .faq-item summary{
-    cursor:pointer;list-style:none;padding:16px 0;font-weight:600;color:var(--ink);
-    display:flex;justify-content:space-between;align-items:center;gap:16px;
-  }
-  .faq-item summary::-webkit-details-marker{display:none;}
-  .faq-item summary::after{
-    content:"+";font-family:var(--ff-display);font-size:1.4rem;color:var(--amber);line-height:1;
-  }
-  .faq-item[open] summary::after{content:"–";}
-  .faq-item p{padding:0 0 18px;color:#4b5347;font-size:0.98rem;max-width:640px;}
 </style>
 <script type="application/ld+json">
 {
@@ -578,44 +562,6 @@
       "name": "stenicestop.cz",
       "inLanguage": "cs",
       "publisher": { "@id": "https://stenicestop.cz/#business" }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://stenicestop.cz/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Jak rychle přijedete, když mám štěnice v bytě?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Technik obvykle dorazí do 24 hodin od poptávky ve Středočeském a Plzeňském kraji. Čím dřív se ozvete, tím menší je zásah. Volejte 777 551 917."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Co dělat, když mám myši ve sklepě nebo šváby v kuchyni?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Nečekejte, škůdci se množí rychle. Zavolejte nebo vyplňte poptávku — prohlédneme ohnisko, navrhneme postup i cenu předem a provedeme deratizaci nebo dezinsekci."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Je deratizace a dezinsekce diskrétní?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Ano. Jezdíme bez označení, které by sousedům napovědělo, a o zásahu nehovoříme s nikým mimo vaši domácnost nebo provozovnu."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Působíte ve Středočeském a Plzeňském kraji?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Ano. Zasahujeme po celém Středočeském a Plzeňském kraji, u domácností i firem."
-          }
-        }
-      ]
     }
   ]
 }
@@ -654,8 +600,8 @@
       <a href="#kontakt">Kontakt</a>
     </div>
     <div class="nav-cta">
-      <a class="nav-phone" href="tel:+420777551917"><svg class="icon"><use href="#i-phone"/></svg>777 551 917</a>
-      <a class="btn btn-primary" href="#kontakt">Nezávazná poptávka</a>
+      <a class="nav-phone" href="tel:+420777551917" data-track="call" data-track-loc="nav"><svg class="icon"><use href="#i-phone"/></svg>777 551 917</a>
+      <a class="btn btn-primary" href="#kontakt" data-track="cta" data-track-loc="nav">Nezávazná poptávka</a>
     </div>
     <button class="burger" id="burgerBtn" aria-label="Otevřít menu" aria-expanded="false">
       <svg class="icon"><use href="#i-menu"/></svg>
@@ -669,8 +615,8 @@
   <a href="#oblast">Oblast působnosti</a>
   <a href="#reference">Reference</a>
   <a href="#kontakt">Kontakt</a>
-  <a class="nav-phone" href="tel:+420777551917"><svg class="icon"><use href="#i-phone"/></svg>777 551 917</a>
-  <a class="btn btn-primary btn-block" href="#kontakt">Nezávazná poptávka</a>
+  <a class="nav-phone" href="tel:+420777551917" data-track="call" data-track-loc="mobile"><svg class="icon"><use href="#i-phone"/></svg>777 551 917</a>
+  <a class="btn btn-primary btn-block" href="#kontakt" data-track="cta" data-track-loc="mobile">Nezávazná poptávka</a>
 </div>
 
 <!-- HERO -->
@@ -681,8 +627,8 @@
       <h1 data-reveal="2">Klid v domě začíná <em>tím,</em> že škůdci zmizí.</h1>
       <p class="hero-sub" data-reveal="3">Řešíme myši, potkany, štěnice, šváby, moly i holuby — rychle, diskrétně a bez zbytečných průtahů. Technik dorazí do 24 hodin od poptávky.</p>
       <div class="hero-actions" data-reveal="4">
-        <a href="#kontakt" class="btn btn-primary">Objednat prohlídku</a>
-        <a href="tel:+420777551917" class="btn btn-ghost"><svg class="icon"><use href="#i-phone"/></svg>Zavolat 777 551 917</a>
+        <a href="#kontakt" class="btn btn-primary" data-track="cta" data-track-loc="hero">Objednat prohlídku</a>
+        <a href="tel:+420777551917" class="btn btn-ghost" data-track="call" data-track-loc="hero"><svg class="icon"><use href="#i-phone"/></svg>Zavolat 777 551 917</a>
       </div>
       <ul class="hero-trust" data-reveal="5">
         <li><svg class="icon"><use href="#i-clock"/></svg>Zásah do 24 hodin</li>
@@ -708,7 +654,7 @@
   <div class="wrap">
 
     <div class="service-featured">
-      <a class="feature-card dark" href="tel:+420777551917" aria-label="Zavolat kvůli deratizaci na 777 551 917">
+      <a class="feature-card dark" href="tel:+420777551917" aria-label="Zavolat kvůli deratizaci na 777 551 917" data-track="call" data-track-loc="deratizace">
         <svg class="feature-mark"><use href="#i-rat"/></svg>
         <span class="feature-tag">Nejčastější zásah</span>
         <h3>Deratizace</h3>
@@ -716,7 +662,7 @@
         <div class="feature-pills"><span>Myši</span><span>Potkani</span><span>Krysy</span><span>Monitoring nor</span></div>
         <span class="feature-call"><svg class="icon"><use href="#i-phone"/></svg>Zavolat 777 551 917</span>
       </a>
-      <a class="feature-card moss" href="tel:+420777551917" aria-label="Zavolat kvůli dezinsekci na 777 551 917">
+      <a class="feature-card moss" href="tel:+420777551917" aria-label="Zavolat kvůli dezinsekci na 777 551 917" data-track="call" data-track-loc="dezinsekce">
         <svg class="feature-mark"><use href="#i-bug"/></svg>
         <span class="feature-tag">Pro domácnosti i provozy</span>
         <h3>Dezinsekce</h3>
@@ -829,23 +775,7 @@
         </div>
       </div>
       <div class="oblast-image">
-        <svg class="cz-map" viewBox="0 0 900 480" role="img" aria-labelledby="czMapTitle czMapDesc">
-          <title id="czMapTitle">Mapa působnosti stenicestop.cz</title>
-          <desc id="czMapDesc">Česká republika se zvýrazněným Středočeským krajem a Plzeňským krajem.</desc>
-          <path class="cz-rest" d="M86 228 L74 208 L102 172 L148 158 L196 132 L252 98 L312 84 L372 68 L438 78 L508 96 L572 88 L648 108 L728 128 L808 152 L854 174 L866 208 L836 248 L792 292 L748 338 L698 376 L638 404 L552 418 L468 422 L392 408 L322 386 L248 364 L186 340 L132 300 L98 262 Z"/>
-          <path class="cz-plzen" d="M86 228 L74 208 L102 172 L148 158 L176 168 L198 198 L214 238 L228 286 L242 328 L220 348 L186 340 L132 300 L98 262 Z"/>
-          <path class="cz-stred" d="M268 118 C312 88 372 82 424 98 C470 112 504 144 516 186 C528 228 510 272 468 298 C422 326 358 326 312 300 C274 276 254 230 258 184 C260 150 264 132 268 118 Z"/>
-          <circle class="cz-praha" cx="404" cy="188" r="9"/>
-          <text class="cz-map-label" x="168" y="262" text-anchor="middle">Plzeňský</text>
-          <text class="cz-map-label" x="372" y="208" text-anchor="middle">Středočeský</text>
-          <text class="cz-map-label muted" x="422" y="176">Praha</text>
-          <g transform="translate(36 448)">
-            <rect width="12" height="12" rx="2" fill="#16211a"/>
-            <text class="cz-legend" x="20" y="11">Středočeský kraj</text>
-            <rect x="178" width="12" height="12" rx="2" fill="#3f5a3d"/>
-            <text class="cz-legend" x="198" y="11">Plzeňský kraj</text>
-          </g>
-        </svg>
+        <iframe id="oblastMap" title="Mapa Středočeského a Plzeňského kraje" src="https://maps.google.com/maps?ll=49.85,14.05&z=8&hl=cs&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -858,60 +788,93 @@
       <h2>Co říkají lidé z okolí</h2>
       <p>Ukázky reakcí od domácností a provozoven, se kterými jsme v regionu spolupracovali.</p>
     </div>
-    <div class="ref-grid">
-      <div class="ref-card">
-        <p class="quote">„Myši ve sklepě zmizely do týdne a technik nám vysvětlil, kudy se dostávaly dovnitř. Konečně klid.“</p>
-        <div class="ref-person">
-          <div class="ref-avatar">J.</div>
-          <div><b>Jana K.</b><span>Rodinný dům, Středočeský kraj</span></div>
-        </div>
+    <div class="ref-carousel" aria-label="Reference zákazníků">
+      <div class="ref-track">
+        <article class="ref-card">
+          <p class="quote">„Myši ve sklepě zmizely do týdne a technik nám vysvětlil, kudy se dostávaly dovnitř. Konečně klid.“</p>
+          <div class="ref-person">
+            <div class="ref-avatar">J.</div>
+            <div><b>Jana K.</b><span>Rodinný dům, Středočeský kraj</span></div>
+          </div>
+        </article>
+        <article class="ref-card">
+          <p class="quote">„Řešili jsme štěnice v penzionu, potřebovali jsme to rychle a diskrétně. Termín drželi a hosté nic nepoznali.“</p>
+          <div class="ref-person">
+            <div class="ref-avatar">P.</div>
+            <div><b>Petr M.</b><span>Penzion, Plzeňský kraj</span></div>
+          </div>
+        </article>
+        <article class="ref-card">
+          <p class="quote">„Máme s nimi servisní smlouvu na sklad, chodí pravidelně a protokoly jsou v pořádku i při kontrole hygieny.“</p>
+          <div class="ref-person">
+            <div class="ref-avatar">L.</div>
+            <div><b>Lenka S.</b><span>Provozovna, Středočeský kraj</span></div>
+          </div>
+        </article>
+        <article class="ref-card">
+          <p class="quote">„Štěnice v bytě. Nechtěl jsem, aby o tom věděli sousedi. Přijeli včas a bez řečí.“</p>
+          <div class="ref-person">
+            <div class="ref-avatar">A.</div>
+            <div><b>Anonym</b><span>Byt, Středočeský kraj</span></div>
+          </div>
+        </article>
+        <article class="ref-card">
+          <p class="quote">„Potkani u kontejnerů a pak už i u domu. Zásah byl jasný, cena předem, problém zmizel.“</p>
+          <div class="ref-person">
+            <div class="ref-avatar">A.</div>
+            <div><b>Anonym</b><span>Rodinný dům, Plzeňský kraj</span></div>
+          </div>
+        </article>
+        <article class="ref-card">
+          <p class="quote">„Moly ve skříních ničily oblečení. Po ošetření je klid a poradili i prevenci.“</p>
+          <div class="ref-person">
+            <div class="ref-avatar">M.</div>
+            <div><b>Marie D.</b><span>Byt, Plzeňský kraj</span></div>
+          </div>
+        </article>
+        <article class="ref-card" aria-hidden="true">
+          <p class="quote">„Myši ve sklepě zmizely do týdne a technik nám vysvětlil, kudy se dostávaly dovnitř. Konečně klid.“</p>
+          <div class="ref-person">
+            <div class="ref-avatar">J.</div>
+            <div><b>Jana K.</b><span>Rodinný dům, Středočeský kraj</span></div>
+          </div>
+        </article>
+        <article class="ref-card" aria-hidden="true">
+          <p class="quote">„Řešili jsme štěnice v penzionu, potřebovali jsme to rychle a diskrétně. Termín drželi a hosté nic nepoznali.“</p>
+          <div class="ref-person">
+            <div class="ref-avatar">P.</div>
+            <div><b>Petr M.</b><span>Penzion, Plzeňský kraj</span></div>
+          </div>
+        </article>
+        <article class="ref-card" aria-hidden="true">
+          <p class="quote">„Máme s nimi servisní smlouvu na sklad, chodí pravidelně a protokoly jsou v pořádku i při kontrole hygieny.“</p>
+          <div class="ref-person">
+            <div class="ref-avatar">L.</div>
+            <div><b>Lenka S.</b><span>Provozovna, Středočeský kraj</span></div>
+          </div>
+        </article>
+        <article class="ref-card" aria-hidden="true">
+          <p class="quote">„Štěnice v bytě. Nechtěl jsem, aby o tom věděli sousedi. Přijeli včas a bez řečí.“</p>
+          <div class="ref-person">
+            <div class="ref-avatar">A.</div>
+            <div><b>Anonym</b><span>Byt, Středočeský kraj</span></div>
+          </div>
+        </article>
+        <article class="ref-card" aria-hidden="true">
+          <p class="quote">„Potkani u kontejnerů a pak už i u domu. Zásah byl jasný, cena předem, problém zmizel.“</p>
+          <div class="ref-person">
+            <div class="ref-avatar">A.</div>
+            <div><b>Anonym</b><span>Rodinný dům, Plzeňský kraj</span></div>
+          </div>
+        </article>
+        <article class="ref-card" aria-hidden="true">
+          <p class="quote">„Moly ve skříních ničily oblečení. Po ošetření je klid a poradili i prevenci.“</p>
+          <div class="ref-person">
+            <div class="ref-avatar">M.</div>
+            <div><b>Marie D.</b><span>Byt, Plzeňský kraj</span></div>
+          </div>
+        </article>
       </div>
-      <div class="ref-card">
-        <p class="quote">„Řešili jsme štěnice v penzionu, potřebovali jsme to rychle a diskrétně. Termín drželi a hosté nic nepoznali.“</p>
-        <div class="ref-person">
-          <div class="ref-avatar">P.</div>
-          <div><b>Petr M.</b><span>Penzion, Plzeňský kraj</span></div>
-        </div>
-      </div>
-      <div class="ref-card">
-        <p class="quote">„Máme s nimi servisní smlouvu na sklad, chodí pravidelně a protokoly jsou v pořádku i při kontrole hygieny.“</p>
-        <div class="ref-person">
-          <div class="ref-avatar">L.</div>
-          <div><b>Lenka S.</b><span>Provozovna, Středočeský kraj</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq section-pad" id="faq">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Když škůdci nespí, vy taky ne</h2>
-      <p>Odpovědi na to, co lidé hledají ve tři ráno — štěnice, myši, švábi a další škůdci ve Středočeském a Plzeňském kraji.</p>
-    </div>
-    <div class="faq-list">
-      <details class="faq-item">
-        <summary>Jak rychle přijedete, když mám štěnice v bytě?</summary>
-        <p>Technik obvykle dorazí do 24 hodin od poptávky. Štěnice se šíří rychle, takže čím dřív zavoláte, tím menší je zásah. Volejte <a href="tel:+420777551917">777 551 917</a>.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Co dělat, když mám myši ve sklepě nebo šváby v kuchyni?</summary>
-        <p>Nespoléhejte na pastičky z drogerie, když už je ohnisko v domě. Napište nebo zavolejte — prohlédneme vstupní body, navrhneme deratizaci nebo dezinsekci a cenu řekneme předem.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Je zásah proti štěnicím a hlodavcům diskrétní?</summary>
-        <p>Ano. Přijedeme bez zbytečné pozornosti a o situaci nemluvíme se sousedy. Platí to pro byty, penziony i provozovny.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Děláte deratizaci ve Středočeském a Plzeňském kraji?</summary>
-        <p>Ano, jezdíme po celém Středočeském a Plzeňském kraji — domácnosti, sklady i zemědělské provozy. Obec napište do poptávky.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Umíte i moly, blechy a holuby?</summary>
-        <p>Dezinsekce pokrývá štěnice, šváby, mravence, blechy i moly. Proti holubům dáváme sítě a hroty.</p>
-      </details>
     </div>
   </div>
 </section>
@@ -921,8 +884,8 @@
   <div class="wrap">
     <h2>Čím dřív zavoláte, tím menší je zásah.</h2>
     <div class="cta-banner-actions">
-      <a href="#kontakt" class="btn btn-primary">Chci nezávaznou nabídku</a>
-      <a href="tel:+420777551917" class="btn btn-ghost"><svg class="icon"><use href="#i-phone"/></svg>777 551 917</a>
+      <a href="#kontakt" class="btn btn-primary" data-track="cta" data-track-loc="banner">Chci nezávaznou nabídku</a>
+      <a href="tel:+420777551917" class="btn btn-ghost" data-track="call" data-track-loc="banner"><svg class="icon"><use href="#i-phone"/></svg>777 551 917</a>
     </div>
   </div>
 </section>
@@ -937,11 +900,11 @@
 
         <div class="contact-detail">
           <div class="icon-wrap"><svg class="icon"><use href="#i-phone"/></svg></div>
-          <div><b><a href="tel:+420777551917">777 551 917</a></b><span>Po–Pá 7:00–19:00, havárie i mimo pracovní dobu</span></div>
+          <div><b><a href="tel:+420777551917" data-track="call" data-track-loc="kontakt">777 551 917</a></b><span>Po–Pá 7:00–19:00, havárie i mimo pracovní dobu</span></div>
         </div>
         <div class="contact-detail">
           <div class="icon-wrap"><svg class="icon"><use href="#i-mail"/></svg></div>
-          <div><b><a href="mailto:info@stenicestop.cz">info@stenicestop.cz</a></b><span>Odpovídáme obvykle do jednoho pracovního dne</span></div>
+          <div><b><a href="mailto:info@stenicestop.cz" data-track="email" data-track-loc="kontakt">info@stenicestop.cz</a></b><span>Odpovídáme obvykle do jednoho pracovního dne</span></div>
         </div>
         <div class="contact-detail">
           <div class="icon-wrap"><svg class="icon"><use href="#i-id"/></svg></div>
@@ -1035,15 +998,14 @@
           <li><a href="#proces">Jak pracujeme</a></li>
           <li><a href="#oblast">Oblast působnosti</a></li>
           <li><a href="#reference">Reference</a></li>
-          <li><a href="#faq">Časté dotazy</a></li>
           <li><a href="#kontakt">Kontakt</a></li>
         </ul>
       </div>
       <div>
         <h4>Kontakt</h4>
         <ul>
-          <li><a href="tel:+420777551917">777 551 917</a></li>
-          <li><a href="mailto:info@stenicestop.cz">info@stenicestop.cz</a></li>
+          <li><a href="tel:+420777551917" data-track="call" data-track-loc="footer">777 551 917</a></li>
+          <li><a href="mailto:info@stenicestop.cz" data-track="email" data-track-loc="footer">info@stenicestop.cz</a></li>
           <li>IČO 47128453</li>
           <li>Středočeský a Plzeňský kraj</li>
           <li>Po–Pá 7:00–19:00</li>
@@ -1067,7 +1029,7 @@
   <div class="cookie-row">
     <div class="cookie-copy">
       <p><strong id="cookieTitle">Soubory cookies</strong></p>
-      <p><span id="cookieText">K chodu webu používáme jen nezbytné uložení vaší volby. Měření návštěvnosti zapneme výhradně se souhlasem — pomáhá nám web udržovat srozumitelný a rychlý. <a href="cookies.html">Podrobnosti</a></span></p>
+      <p><span id="cookieText">K chodu webu používáme jen nezbytné uložení vaší volby. Měření návštěvnosti a kliků na telefon, poptávku a formulář zapneme výhradně se souhlasem. <a href="cookies.html">Podrobnosti</a></span></p>
     </div>
     <div class="cookie-actions">
       <button type="button" class="btn btn-ghost" id="cookieNecessary">Pouze nezbytné</button>
@@ -1082,7 +1044,7 @@
     </label>
     <label class="cookie-pref">
       <input type="checkbox" id="cookieAnalyticsPref">
-      <span><b>Analytika</b> Prvotřídní měření návštěvnosti (Vercel Web Analytics a Speed Insights) po vašem souhlasu.</span>
+      <span><b>Analytika</b> Prvotřídní měření návštěvnosti a kliků (Vercel Web Analytics a Speed Insights) po vašem souhlasu.</span>
     </label>
     <div class="cookie-pref-actions">
       <button type="button" class="btn btn-ghost" id="cookieSave">Uložit volbu</button>
@@ -1218,6 +1180,7 @@
 
     submitBtn.disabled = true;
     submitBtn.textContent = 'Odesílám…';
+    track('form_submit', { typ: typ.value });
 
     var payload = {
       _subject: 'Poptávka ze stenicestop.cz',
@@ -1275,9 +1238,24 @@
       ts: new Date().toISOString()
     }));
   }
+  function track(name, data){
+    if(typeof window.va !== 'function') return;
+    var payload = { name: String(name) };
+    if(data){
+      var clean = {};
+      Object.keys(data).forEach(function(k){
+        if(data[k] === undefined || data[k] === null || data[k] === '') return;
+        clean[k] = String(data[k]).slice(0, 255);
+      });
+      if(Object.keys(clean).length) payload.data = clean;
+    }
+    window.va('event', payload);
+  }
   function loadAnalytics(){
     if(analyticsLoaded) return;
     analyticsLoaded = true;
+    window.va = window.va || function(){ (window.vaq = window.vaq || []).push(arguments); };
+    window.si = window.si || function(){ (window.siq = window.siq || []).push(arguments); };
     var a = document.createElement('script');
     a.defer = true;
     a.src = '/_vercel/insights/script.js';
@@ -1287,6 +1265,12 @@
     b.src = '/_vercel/speed-insights/script.js';
     document.head.appendChild(b);
   }
+
+  document.addEventListener('click', function(e){
+    var el = e.target.closest('[data-track]');
+    if(!el) return;
+    track(el.getAttribute('data-track'), { loc: el.getAttribute('data-track-loc') || '' });
+  });
   function hideBar(){ cookieBar.classList.remove('show'); }
   function showBar(){ cookieBar.classList.add('show'); }
 
