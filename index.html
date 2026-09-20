@@ -414,11 +414,78 @@
     border-top:1px solid var(--line-on-dark);padding-top:24px;
     display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:0.82rem;color:rgba(248,246,241,0.5);
   }
+  .footer-bottom a, .footer-bottom button{color:inherit;}
+  .footer-bottom a:hover, .footer-bottom button:hover{color:var(--amber);}
   @media (max-width:760px){.footer-grid{grid-template-columns:1fr 1fr;}.footer-brand{grid-column:1/-1;}}
 
   @media (max-width:640px){
     .section-pad{padding:76px 0;}
     .hero{padding:130px 0 90px;}
+  }
+
+  /* ---------- FORM POLISH ---------- */
+  .form-head{margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid var(--line-on-dark);}
+  .form-kicker{
+    font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--amber);font-weight:600;margin-bottom:8px;
+  }
+  .form-head h3{color:var(--paper);font-size:1.55rem;margin-bottom:8px;}
+  .form-head p{font-size:0.92rem;color:rgba(248,246,241,0.68);max-width:420px;}
+  .field label .req{color:var(--amber);margin-left:2px;}
+  .field label .opt{color:rgba(248,246,241,0.42);font-weight:400;font-size:0.78rem;margin-left:6px;}
+  .field input.invalid, .field select.invalid, .field textarea.invalid{
+    border-color:#d06b4f;background:rgba(208,107,79,0.08);
+  }
+  .field-error{display:none;font-size:0.8rem;color:#e8a090;margin-top:6px;}
+  .field-error.show{display:block;}
+  .honeypot{position:absolute;left:-9999px;height:0;overflow:hidden;}
+  .form-legal{
+    font-size:0.8rem;color:rgba(248,246,241,0.55);line-height:1.5;margin:0 0 16px;
+  }
+  .form-legal a{color:var(--amber);text-decoration:underline;text-underline-offset:2px;}
+  .checkline label a{color:var(--amber);text-decoration:underline;text-underline-offset:2px;}
+  .checkline.invalid label{color:#e8a090;}
+  .form-submit-note{margin-top:12px;font-size:0.78rem;color:rgba(248,246,241,0.45);text-align:center;}
+
+  /* ---------- COOKIE BAR ---------- */
+  .cookie-bar{
+    position:fixed;left:16px;right:16px;bottom:16px;z-index:200;
+    max-width:720px;margin:0 auto;
+    background:rgba(22,33,26,0.96);color:var(--paper);
+    border:1px solid var(--line-on-dark);border-radius:10px;
+    box-shadow:0 18px 50px -18px rgba(0,0,0,0.55);
+    padding:18px 20px;backdrop-filter:blur(10px);
+    transform:translateY(16px);opacity:0;pointer-events:none;
+    transition:opacity 0.28s ease, transform 0.28s ease;
+  }
+  .cookie-bar.show{opacity:1;transform:translateY(0);pointer-events:auto;}
+  .cookie-copy p{margin:0;}
+  .cookie-copy strong{display:block;font-size:0.92rem;font-weight:600;margin-bottom:6px;color:var(--paper);}
+  .cookie-copy span{font-size:0.82rem;color:rgba(248,246,241,0.72);line-height:1.45;}
+  .cookie-copy a{color:var(--amber);text-decoration:underline;text-underline-offset:2px;}
+  .cookie-row{display:flex;align-items:flex-end;gap:16px;justify-content:space-between;}
+  .cookie-actions{display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end;}
+  .cookie-actions .btn{padding:10px 16px;font-size:0.86rem;}
+  .cookie-prefs{
+    display:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--line-on-dark);
+  }
+  .cookie-prefs.open{display:block;}
+  .cookie-pref{
+    display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;
+    font-size:0.82rem;color:rgba(248,246,241,0.78);
+  }
+  .cookie-pref input{margin-top:3px;accent-color:var(--amber);}
+  .cookie-pref b{display:block;color:var(--paper);font-weight:600;margin-bottom:2px;}
+  .cookie-pref-actions{display:flex;gap:8px;margin-top:8px;}
+  .cookie-settings{
+    background:none;border:none;color:rgba(248,246,241,0.55);font:inherit;
+    font-size:0.78rem;cursor:pointer;padding:0;margin-top:10px;text-decoration:underline;text-underline-offset:2px;
+  }
+  .cookie-settings:hover{color:var(--paper);}
+  @media (max-width:640px){
+    .cookie-bar{left:10px;right:10px;bottom:10px;padding:16px;}
+    .cookie-row{flex-direction:column;align-items:stretch;}
+    .cookie-actions .btn{flex:1;justify-content:center;}
   }
 </style>
 </head>
@@ -720,23 +787,35 @@
       </div>
 
       <form class="form-card" id="contactForm" novalidate>
+        <div class="form-head">
+          <p class="form-kicker">Nezávazná poptávka</p>
+          <h3>Napište, co potřebujete vyřešit</h3>
+          <p>Ozveme se obvykle do 24 hodin. Údaje použijeme výhradně k vyřízení vaší poptávky.</p>
+        </div>
+        <div class="honeypot" aria-hidden="true">
+          <label for="website">Web</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
         <div class="form-row">
           <div class="field">
-            <label for="jmeno">Jméno a příjmení</label>
-            <input type="text" id="jmeno" name="jmeno" placeholder="Jan Novák" required>
+            <label for="jmeno">Jméno a příjmení <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="jmeno" name="jmeno" placeholder="Jan Novák" autocomplete="name" required>
+            <span class="field-error" data-for="jmeno">Uveďte prosím jméno.</span>
           </div>
           <div class="field">
-            <label for="telefon">Telefon</label>
-            <input type="tel" id="telefon" name="telefon" placeholder="+420 xxx xxx xxx" required>
+            <label for="telefon">Telefon <span class="req" aria-hidden="true">*</span></label>
+            <input type="tel" id="telefon" name="telefon" placeholder="777 551 917" autocomplete="tel" inputmode="tel" required>
+            <span class="field-error" data-for="telefon">Uveďte telefon, ať se vám můžeme ozvat.</span>
           </div>
         </div>
         <div class="form-row">
           <div class="field">
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" placeholder="vas@email.cz" required>
+            <label for="email">E-mail <span class="req" aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" placeholder="vas@email.cz" autocomplete="email" required>
+            <span class="field-error" data-for="email">Zadejte platný e-mail.</span>
           </div>
           <div class="field">
-            <label for="obec">Obec</label>
+            <label for="obec">Obec <span class="req" aria-hidden="true">*</span></label>
             <select id="obec" name="obec" required>
               <option value="" disabled selected>Vyberte obec</option>
               <option>Rokycany</option>
@@ -758,10 +837,11 @@
               <option>Loděnice</option>
               <option>Jiná obec</option>
             </select>
+            <span class="field-error" data-for="obec">Vyberte obec zásahu.</span>
           </div>
         </div>
         <div class="field">
-          <label for="typ">Čeho se problém týká</label>
+          <label for="typ">Čeho se problém týká <span class="req" aria-hidden="true">*</span></label>
           <select id="typ" name="typ" required>
             <option value="" disabled selected>Vyberte možnost</option>
             <option>Hlodavci (myši, potkani, krysy)</option>
@@ -771,16 +851,20 @@
             <option>Servisní smlouva pro firmu</option>
             <option>Nevím, potřebuji poradit</option>
           </select>
+          <span class="field-error" data-for="typ">Vyberte typ problému.</span>
         </div>
         <div class="field">
-          <label for="zprava">Popis situace</label>
+          <label for="zprava">Popis situace <span class="opt">nepovinné</span></label>
           <textarea id="zprava" name="zprava" placeholder="Kde se škůdci vyskytují, jak dlouho a jak velký je prostor…"></textarea>
         </div>
-        <div class="checkline">
+        <p class="form-legal">Odesláním poptávky berete na vědomí <a href="ochrana-osobnich-udaju.html">zásady zpracování osobních údajů</a>. Právním základem je jednání o smlouvě a odpověď na vaši žádost (čl. 6 odst. 1 písm. b) GDPR).</p>
+        <div class="checkline" id="souhlasLine">
           <input type="checkbox" id="souhlas" name="souhlas" required>
-          <label for="souhlas">Souhlasím se zpracováním osobních údajů za účelem vyřízení poptávky.</label>
+          <label for="souhlas">Potvrzuji, že jsem se seznámil/a se <a href="ochrana-osobnich-udaju.html">zásadami zpracování osobních údajů</a> a souhlasím s použitím uvedených údajů k vyřízení této poptávky.</label>
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Odeslat poptávku</button>
+        <span class="field-error" data-for="souhlas">Pro odeslání je potřeba potvrzení výše.</span>
+        <button type="submit" class="btn btn-primary btn-block" id="formSubmit">Odeslat poptávku</button>
+        <p class="form-submit-note">Odpovídáme v pracovní dny, havárie řešíme i mimo hodiny.</p>
         <div class="form-msg" id="formMsg">
           <svg class="icon"><use href="#i-check"/></svg>
           <span>Děkujeme, poptávku jsme přijali. Ozveme se vám obvykle do 24 hodin.</span>
@@ -821,10 +905,43 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 stenicestop.cz. Všechna práva vyhrazena.</span>
-      <span>Fotografie: Unsplash License</span>
+      <span>
+        <a href="ochrana-osobnich-udaju.html">Ochrana osobních údajů</a>
+        ·
+        <a href="cookies.html">Cookies</a>
+        ·
+        <button type="button" class="cookie-settings" id="cookieReopen" style="margin:0;text-decoration:underline;color:inherit;">Nastavení cookies</button>
+      </span>
     </div>
   </div>
 </footer>
+
+<div class="cookie-bar" id="cookieBar" role="dialog" aria-modal="false" aria-labelledby="cookieTitle" aria-describedby="cookieText">
+  <div class="cookie-row">
+    <div class="cookie-copy">
+      <p><strong id="cookieTitle">Soubory cookies</strong></p>
+      <p><span id="cookieText">K chodu webu používáme jen nezbytné uložení vaší volby. Měření návštěvnosti zapneme výhradně se souhlasem — pomáhá nám web udržovat srozumitelný a rychlý. <a href="cookies.html">Podrobnosti</a></span></p>
+    </div>
+    <div class="cookie-actions">
+      <button type="button" class="btn btn-ghost" id="cookieNecessary">Pouze nezbytné</button>
+      <button type="button" class="btn btn-primary" id="cookieAccept">Souhlasím</button>
+    </div>
+  </div>
+  <button type="button" class="cookie-settings" id="cookieToggle">Nastavení</button>
+  <div class="cookie-prefs" id="cookiePrefs">
+    <label class="cookie-pref">
+      <input type="checkbox" checked disabled>
+      <span><b>Nezbytné</b> Uložení vašeho souhlasu a základní funkce webu. Nelze vypnout.</span>
+    </label>
+    <label class="cookie-pref">
+      <input type="checkbox" id="cookieAnalyticsPref">
+      <span><b>Analytika</b> Prvotřídní měření návštěvnosti (Vercel Web Analytics a Speed Insights) po vašem souhlasu.</span>
+    </label>
+    <div class="cookie-pref-actions">
+      <button type="button" class="btn btn-ghost" id="cookieSave">Uložit volbu</button>
+    </div>
+  </div>
+</div>
 
 <script>
 (function(){
@@ -911,15 +1028,154 @@
   // Contact form
   var form = document.getElementById('contactForm');
   var msg = document.getElementById('formMsg');
+  var submitBtn = document.getElementById('formSubmit');
+
+  function setFieldError(id, on){
+    var el = document.getElementById(id);
+    var err = document.querySelector('.field-error[data-for="'+id+'"]');
+    if(el){ el.classList.toggle('invalid', on); }
+    if(id === 'souhlas'){
+      document.getElementById('souhlasLine').classList.toggle('invalid', on);
+    }
+    if(err){ err.classList.toggle('show', on); }
+  }
+
+  function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+  function validPhone(v){ return v.replace(/\s+/g,'').replace(/^\+?420/, '').length >= 9; }
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    if(!form.checkValidity()){
-      form.reportValidity();
+    var hp = document.getElementById('website');
+    if(hp && hp.value){ return; }
+
+    var jmeno = document.getElementById('jmeno');
+    var telefon = document.getElementById('telefon');
+    var email = document.getElementById('email');
+    var obec = document.getElementById('obec');
+    var typ = document.getElementById('typ');
+    var souhlas = document.getElementById('souhlas');
+    var zprava = document.getElementById('zprava');
+
+    var ok = true;
+    setFieldError('jmeno', !jmeno.value.trim()); if(!jmeno.value.trim()) ok = false;
+    setFieldError('telefon', !validPhone(telefon.value)); if(!validPhone(telefon.value)) ok = false;
+    setFieldError('email', !validEmail(email.value)); if(!validEmail(email.value)) ok = false;
+    setFieldError('obec', !obec.value); if(!obec.value) ok = false;
+    setFieldError('typ', !typ.value); if(!typ.value) ok = false;
+    setFieldError('souhlas', !souhlas.checked); if(!souhlas.checked) ok = false;
+    if(!ok){
+      var first = form.querySelector('.invalid, .checkline.invalid');
+      if(first) first.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth', block: 'center'});
       return;
     }
-    msg.classList.add('show');
-    form.querySelector('button[type="submit"]').textContent = 'Odesláno';
-    form.querySelectorAll('input, select, textarea, button').forEach(function(el){ el.disabled = true; });
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Odesílám…';
+
+    var payload = {
+      _subject: 'Poptávka ze stenicestop.cz',
+      _template: 'table',
+      _captcha: 'false',
+      jmeno: jmeno.value.trim(),
+      telefon: telefon.value.trim(),
+      email: email.value.trim(),
+      obec: obec.value,
+      typ: typ.value,
+      zprava: zprava.value.trim(),
+      souhlas: 'ano'
+    };
+
+    fetch('https://formsubmit.co/ajax/info@stenicestop.cz', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify(payload)
+    }).then(function(res){ return res.json().catch(function(){ return {}; }); })
+      .then(function(){
+        msg.classList.add('show');
+        submitBtn.textContent = 'Odesláno';
+        form.querySelectorAll('input, select, textarea').forEach(function(el){ el.disabled = true; });
+      })
+      .catch(function(){
+        window.location.href = 'mailto:info@stenicestop.cz?subject=' + encodeURIComponent('Poptávka ze stenicestop.cz') +
+          '&body=' + encodeURIComponent('Jméno: '+jmeno.value+'\nTelefon: '+telefon.value+'\nE-mail: '+email.value+'\nObec: '+obec.value+'\nTyp: '+typ.value+'\n\n'+zprava.value);
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Odeslat poptávku';
+      });
+  });
+
+  ['jmeno','telefon','email','obec','typ','souhlas'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    el.addEventListener('input', function(){ setFieldError(id, false); });
+    el.addEventListener('change', function(){ setFieldError(id, false); });
+  });
+
+  // Cookie consent — analytics only after opt-in (ePrivacy / GDPR)
+  var CONSENT_KEY = 'stenice_consent_v1';
+  var cookieBar = document.getElementById('cookieBar');
+  var cookiePrefs = document.getElementById('cookiePrefs');
+  var analyticsPref = document.getElementById('cookieAnalyticsPref');
+  var analyticsLoaded = false;
+
+  function readConsent(){
+    try { return JSON.parse(localStorage.getItem(CONSENT_KEY) || 'null'); }
+    catch(e){ return null; }
+  }
+  function saveConsent(analytics){
+    localStorage.setItem(CONSENT_KEY, JSON.stringify({
+      necessary: true,
+      analytics: !!analytics,
+      ts: new Date().toISOString()
+    }));
+  }
+  function loadAnalytics(){
+    if(analyticsLoaded) return;
+    analyticsLoaded = true;
+    var a = document.createElement('script');
+    a.defer = true;
+    a.src = '/_vercel/insights/script.js';
+    document.head.appendChild(a);
+    var b = document.createElement('script');
+    b.defer = true;
+    b.src = '/_vercel/speed-insights/script.js';
+    document.head.appendChild(b);
+  }
+  function hideBar(){ cookieBar.classList.remove('show'); }
+  function showBar(){ cookieBar.classList.add('show'); }
+
+  function applyConsent(c){
+    if(c && c.analytics) loadAnalytics();
+    hideBar();
+  }
+
+  var existing = readConsent();
+  if(existing && typeof existing.analytics === 'boolean'){
+    applyConsent(existing);
+  } else {
+    setTimeout(function(){ showBar(); }, 600);
+  }
+
+  document.getElementById('cookieAccept').addEventListener('click', function(){
+    saveConsent(true);
+    applyConsent({analytics:true});
+  });
+  document.getElementById('cookieNecessary').addEventListener('click', function(){
+    saveConsent(false);
+    applyConsent({analytics:false});
+  });
+  document.getElementById('cookieToggle').addEventListener('click', function(){
+    cookiePrefs.classList.toggle('open');
+    analyticsPref.checked = !!(readConsent() && readConsent().analytics);
+  });
+  document.getElementById('cookieSave').addEventListener('click', function(){
+    saveConsent(analyticsPref.checked);
+    applyConsent({analytics: analyticsPref.checked});
+  });
+  document.getElementById('cookieReopen').addEventListener('click', function(){
+    var c = readConsent();
+    analyticsPref.checked = !!(c && c.analytics);
+    cookiePrefs.classList.add('open');
+    showBar();
   });
 })();
 </script>

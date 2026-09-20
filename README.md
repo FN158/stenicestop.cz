@@ -14,6 +14,11 @@ Profesionální **deratizace, dezinsekce a ochrana proti škůdcům** pro Rokyca
 
 ## O projektu
 
-Jednostránkový prezentační web (HTML, CSS a JavaScript). Stačí otevřít `index.html` v prohlížeči.
+Jednostránkový prezentační web (HTML, CSS a JavaScript) včetně zásad zpracování osobních údajů a cookies.
 
 Služby zahrnují deratizaci, dezinsekci (včetně štěnic), ochranu proti ptactvu, dezinfekci a servisní smlouvy pro firmy. Zásahy probíhají v regionu kolem Rokycan a Berouna.
+
+## Právní dokumenty
+
+- [Ochrana osobních údajů](ochrana-osobnich-udaju.html)
+- [Cookies](cookies.html)
