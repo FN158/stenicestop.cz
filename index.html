@@ -3,27 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deratizace a dezinsekce — štěnice, myši, švábi | stenicestop.cz</title>
-<meta name="description" content="Štěnice v matraci, myši ve sklepě, švábi v kuchyni? Diskrétní deratizace a dezinsekce ve Středočeském a Plzeňském kraji. Technik do 24 hodin. Volejte 777 551 917.">
+<title>Štěnice, myši, švábi — zásah do 24 hodin | stenicestop.cz</title>
+<meta name="description" content="Štěnice v posteli, myši nebo švábi? Diskrétní dezinsekce a deratizace ve Středočeském a Plzeňském kraji. Technik obvykle do 24 hodin. Zavolejte 777 551 917 nebo pošlete nezávaznou poptávku.">
 <meta name="author" content="stenicestop.cz">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
-<meta name="theme-color" content="#16211a">
+<meta name="theme-color" content="#121a15">
 <meta name="geo.region" content="CZ">
 <meta name="geo.placename" content="Středočeský kraj, Plzeňský kraj">
 <link rel="canonical" href="https://stenicestop.cz/">
 <link rel="alternate" hreflang="cs" href="https://stenicestop.cz/">
 <link rel="alternate" hreflang="x-default" href="https://stenicestop.cz/">
-<meta property="og:title" content="Deratizace a dezinsekce ve Středočeském a Plzeňském kraji">
-<meta property="og:description" content="Štěnice, myši, potkani, švábi, moly. Zásah do 24 hodin, diskrétně. stenicestop.cz — 777 551 917">
+<meta property="og:title" content="Štěnice, myši, švábi — zásah do 24 hodin">
+<meta property="og:description" content="Diskrétní dezinsekce a deratizace ve Středočeském a Plzeňském kraji. Nezávazně, cenu řekneme předem. 777 551 917">
 <meta property="og:url" content="https://stenicestop.cz/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="cs_CZ">
 <meta property="og:site_name" content="stenicestop.cz">
-<meta property="og:image" content="https://images.unsplash.com/photo-1756155017513-6fceb5ace3ba?auto=format&fit=crop&w=1200&q=80">
-<meta property="og:image:alt" content="stenicestop.cz — deratizace a dezinsekce">
+<meta property="og:image" content="https://stenicestop.cz/hero-loznice.jpg">
+<meta property="og:image:alt" content="Upravená ložnice — klid po zásahu proti štěnicím">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Deratizace a dezinsekce | stenicestop.cz">
-<meta name="twitter:description" content="Štěnice, myši, švábi. Zásah do 24 hodin ve Středočeském a Plzeňském kraji. 777 551 917">
+<meta name="twitter:title" content="Štěnice, myši, švábi — zásah do 24 hodin | stenicestop.cz">
+<meta name="twitter:description" content="Diskrétní dezinsekce a deratizace. Technik obvykle do 24 hodin. 777 551 917">
+<meta name="twitter:image" content="https://stenicestop.cz/hero-loznice.jpg">
+<link rel="preload" as="image" href="hero-loznice.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -32,18 +34,23 @@
     --ink:#16211a;
     --ink-soft:#1f2e23;
     --moss:#3f5a3d;
-    --moss-light:#6b8a63;
     --amber:#c97a2b;
-    --amber-dark:#a8621e;
+    --amber-bright:#e0a15a;
+    --amber-btn:#a35c16;
+    --amber-btn-hover:#8a4a10;
+    --amber-text:#8a4510;
     --stone:#ece7dc;
     --paper:#f8f6f1;
     --charcoal:#23281f;
+    --muted:#3d4436;
     --line:rgba(22,33,26,0.12);
-    --line-on-dark:rgba(248,246,241,0.18);
+    --line-on-dark:rgba(248,246,241,0.22);
     --shadow:0 18px 40px -20px rgba(22,33,26,0.35);
     --radius:10px;
+    --header:68px;
     --ff-display:'Big Shoulders Display', sans-serif;
     --ff-body:'Inter', sans-serif;
+    --mail:mailto:info@stenicestop.cz?subject=Popt%C3%A1vka%20ze%20stenicestop.cz&body=Dobr%C3%BD%20den%2C%0A%0APot%C5%99ebuji%20%C5%99e%C5%A1it%3A%20%0AObec%3A%20%0ATelefon%3A%20%0A;
   }
 
   *{box-sizing:border-box;}
@@ -72,451 +79,484 @@
   }
 
   p{margin:0;}
-  a{color:inherit;text-decoration:none;}
+  a{color:inherit;}
   ul{margin:0;padding:0;list-style:none;}
   img{max-width:100%;display:block;}
-  button{font-family:inherit;}
+  button,input,select,textarea{font-family:inherit;}
 
-  :focus-visible{outline:3px solid var(--amber);outline-offset:3px;}
+  :focus-visible{outline:3px solid var(--amber-bright);outline-offset:3px;}
+  .skip:focus{outline-color:#fff;}
+
+  .skip{
+    position:absolute;left:12px;top:-48px;z-index:400;
+    background:var(--amber-btn);color:#fff;font-weight:700;
+    padding:12px 16px;border-radius:var(--radius);text-decoration:none;
+  }
+  .skip:focus{top:12px;}
 
   .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
   section{position:relative;}
+  section[id],#poptavka{scroll-margin-top:calc(var(--header) + 12px);}
 
   .icon{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:inline-block;vertical-align:-0.15em;}
 
-  /* ---------- BUTTONS ---------- */
   .btn{
-    display:inline-flex;align-items:center;gap:10px;
-    padding:15px 28px;
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    min-height:48px;padding:12px 22px;
     border-radius:var(--radius);
-    font-weight:600;
-    font-size:0.98rem;
+    font-weight:700;font-size:1rem;
     border:1.5px solid transparent;
-    cursor:pointer;
-    transition:transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
-    white-space:nowrap;
+    cursor:pointer;text-decoration:none;
+    transition:background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
   }
-  .btn:hover{transform:translateY(-2px);}
-  .btn-primary{background:var(--amber);color:var(--paper);}
-  .btn-primary:hover{background:var(--amber-dark);}
-  .btn-ghost{background:transparent;color:var(--paper);border-color:var(--line-on-dark);}
-  .btn-ghost:hover{border-color:var(--paper);}
+  .btn-primary{background:var(--amber-btn);color:#fff;}
+  .btn-primary:hover{background:var(--amber-btn-hover);}
+  .btn-ghost{background:transparent;color:var(--paper);border-color:rgba(248,246,241,0.55);}
+  .btn-ghost:hover{border-color:#fff;background:rgba(248,246,241,0.08);}
   .btn-outline{background:transparent;color:var(--ink);border-color:var(--ink);}
   .btn-outline:hover{background:var(--ink);color:var(--paper);}
-  .btn-block{width:100%;justify-content:center;}
+  .btn-small{min-height:44px;padding:8px 14px;font-size:0.92rem;}
+  .btn-block{width:100%;}
 
-  /* ---------- NAV ---------- */
   header{
-    position:fixed;top:0;left:0;right:0;z-index:100;
-    padding:22px 0;
-    transition:padding 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    position:fixed;top:0;left:0;right:0;z-index:190;
+    height:var(--header);
+    display:flex;align-items:center;
+    background:rgba(18,26,21,0.94);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(248,246,241,0.08);
   }
-  header.scrolled{
-    padding:12px 0;
-    background:rgba(22,33,26,0.94);
-    backdrop-filter:blur(6px);
-    box-shadow:0 8px 30px -12px rgba(0,0,0,0.4);
-  }
-  nav.wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;}
+  nav.wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%;}
   .logo{
-    font-family:var(--ff-display);
-    font-weight:800;
-    font-size:clamp(1.22rem, 2.4vw, 1.55rem);
-    color:var(--paper);
-    letter-spacing:0.35px;
-    display:inline-flex;align-items:baseline;
-    white-space:nowrap;
+    font-family:var(--ff-display);font-weight:800;
+    font-size:clamp(1.2rem, 2.2vw, 1.5rem);
+    color:var(--paper);letter-spacing:0.35px;
+    display:inline-flex;align-items:baseline;text-decoration:none;white-space:nowrap;
   }
-  .logo .stop{
-    color:var(--amber);
-  }
-  .logo .tld{
-    font-weight:700;
-    letter-spacing:0.15px;
-    opacity:0.78;
-  }
-  .nav-links{display:flex;align-items:center;gap:34px;}
+  .logo .stop{color:var(--amber-bright);}
+  .logo .tld{font-weight:700;letter-spacing:0.15px;opacity:0.78;}
+  .nav-links{display:flex;align-items:center;gap:26px;}
   .nav-links a{
-    color:var(--paper);opacity:0.82;font-size:0.96rem;font-weight:500;
-    position:relative;padding:4px 0;
-    transition:opacity 0.2s ease;
+    color:var(--paper);font-size:0.95rem;font-weight:600;text-decoration:none;
+    padding:6px 0;
   }
-  .nav-links a:hover{opacity:1;}
-  .nav-links a::after{
-    content:"";position:absolute;left:0;right:100%;bottom:-2px;height:2px;background:var(--amber);
-    transition:right 0.25s ease;
-  }
-  .nav-links a:hover::after{right:0;}
-  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .nav-links a:hover{color:var(--amber-bright);}
+  .nav-cta{display:flex;align-items:center;gap:12px;}
   .nav-phone{
-    color:var(--paper);font-weight:600;font-size:0.95rem;display:flex;align-items:center;gap:8px;
+    color:#fff;font-weight:700;font-size:0.98rem;
+    display:inline-flex;align-items:center;gap:8px;
+    text-decoration:none;min-height:44px;
+    background:var(--amber-btn);padding:8px 14px;border-radius:var(--radius);
   }
-  .nav-phone .icon{color:var(--amber);}
-  .burger{display:none;background:none;border:none;color:var(--paper);padding:6px;cursor:pointer;}
-  .burger .icon{width:26px;height:26px;}
+  .nav-phone:hover{background:var(--amber-btn-hover);}
+  .nav-phone .icon{color:#fff;}
+  .burger{
+    display:none;background:none;border:1px solid rgba(248,246,241,0.3);
+    color:var(--paper);width:44px;height:44px;border-radius:var(--radius);cursor:pointer;
+  }
+  .burger .icon{width:22px;height:22px;}
 
   .mobile-panel{
-    display:none;position:fixed;inset:0;z-index:99;
-    background:var(--ink);
-    padding:100px 28px 40px;
-    flex-direction:column;gap:26px;
+    display:none;position:fixed;inset:0;z-index:180;
+    background:#121a15;padding:calc(var(--header) + 28px) 28px 40px;
+    flex-direction:column;gap:8px;overflow:auto;
   }
   .mobile-panel.open{display:flex;}
-  .mobile-panel a{color:var(--paper);font-size:1.3rem;font-family:var(--ff-display);font-weight:700;}
-  .mobile-panel .nav-phone{margin-top:10px;font-size:1.05rem;}
+  .mobile-panel a{
+    color:var(--paper);font-size:1.35rem;font-family:var(--ff-display);
+    font-weight:700;text-decoration:none;padding:10px 0;
+  }
+  .mobile-panel .nav-phone{margin-top:12px;font-size:1.05rem;justify-content:center;}
+  body.menu-open{overflow:hidden;}
 
   @media (max-width:900px){
-    .nav-links{display:none;}
-    .nav-cta .nav-phone{display:none;}
-    .burger{display:block;}
+    .nav-links,.nav-cta .btn{display:none;}
+    .burger{display:inline-flex;align-items:center;justify-content:center;}
+  }
+  @media (max-width:420px){
+    header .nav-phone .num{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+    header .nav-phone::after{content:"Zavolat";}
   }
 
-  /* ---------- HERO ---------- */
-  .hero{
-    min-height:100vh;
-    display:flex;align-items:center;
-    padding:150px 0 130px;
-    background:
-      linear-gradient(115deg, rgba(15,23,17,0.92) 10%, rgba(22,33,26,0.72) 45%, rgba(22,33,26,0.35) 78%),
-      url('https://images.unsplash.com/photo-1756155017513-6fceb5ace3ba?auto=format&fit=crop&w=1920&q=80') center 30%/cover no-repeat;
-    color:var(--paper);
-    overflow:hidden;
+  .dock{
+    display:none;
+    position:fixed;left:0;right:0;bottom:0;z-index:140;
+    grid-template-columns:1.4fr 0.9fr 1.05fr;gap:8px;
+    background:rgba(18,26,21,0.97);
+    border-top:1px solid rgba(248,246,241,0.14);
+    padding:10px 12px calc(10px + env(safe-area-inset-bottom));
   }
-  .hero .wrap{position:relative;z-index:2;}
-  .hero-content{max-width:680px;}
+  .dock a{
+    display:flex;align-items:center;justify-content:center;gap:6px;
+    min-height:48px;border-radius:var(--radius);
+    font-weight:700;font-size:0.92rem;text-decoration:none;
+  }
+  .dock .icon{width:18px;height:18px;}
+  .dock-call{background:var(--amber-btn);color:#fff;}
+  .dock-mail{background:transparent;color:#fff;border:1.5px solid rgba(248,246,241,0.4);}
+  .dock-form{background:var(--paper);color:var(--ink);}
+  @media (max-width:900px){
+    .dock{display:grid;}
+    body{padding-bottom:calc(74px + env(safe-area-inset-bottom));}
+  }
+
+  .hero{
+    position:relative;background:#121a15;color:var(--paper);
+    overflow:hidden;padding:calc(var(--header) + 36px) 0 108px;
+  }
+  .hero-photo{position:absolute;inset:0;z-index:0;overflow:hidden;}
+  .hero-photo img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center 40%;}
+  .hero-photo::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(100deg, rgba(8,12,10,0.92) 0%, rgba(10,16,13,0.84) 46%, rgba(12,18,14,0.72) 100%);
+  }
+  .hero .wrap{
+    position:relative;z-index:2;max-width:1180px;
+    display:grid;grid-template-columns:minmax(0,1.12fr) minmax(320px,420px);
+    gap:48px;align-items:center;
+  }
+  .hero-copy{max-width:560px;grid-column:1;grid-row:1;align-self:center;}
+  #poptavka{grid-column:2;grid-row:1;align-self:center;}
   .hero-kicker{
-    font-size:0.98rem;color:var(--paper);opacity:0.85;font-weight:500;
-    margin-bottom:18px;max-width:480px;
+    font-size:0.95rem;font-weight:600;color:var(--amber-bright);margin-bottom:14px;
   }
   .hero h1{
-    font-size:clamp(2.7rem, 6vw, 4.6rem);
-    color:var(--paper);
-    margin-bottom:22px;
+    font-size:clamp(2.5rem, 5vw, 4.15rem);
+    color:#fff;margin-bottom:16px;max-width:12ch;text-wrap:balance;
   }
-  .hero h1 em{
-    font-style:normal;color:var(--amber);
-  }
-  .hero-sub{
-    font-size:1.14rem;color:rgba(248,246,241,0.86);max-width:520px;margin-bottom:36px;
-  }
-  .hero-actions{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:52px;}
+  .hero h1 em{font-style:normal;color:var(--amber-bright);}
+  .hero-sub{font-size:1.08rem;color:rgba(248,246,241,0.9);max-width:46ch;margin-bottom:22px;}
   .hero-trust{
-    display:flex;flex-wrap:wrap;gap:28px 40px;
-    padding-top:30px;border-top:1px solid var(--line-on-dark);
+    display:grid;grid-template-columns:1fr;gap:8px;
+    margin:0 0 22px;padding:0;
   }
-  .hero-trust li{display:flex;align-items:center;gap:10px;font-size:0.94rem;color:rgba(248,246,241,0.9);}
-  .hero-trust .icon{color:var(--amber);width:19px;height:19px;flex-shrink:0;}
-
-  .hero [data-reveal]{
-    opacity:0;transform:translateY(22px);
-    transition:opacity 0.7s ease, transform 0.7s ease;
+  .hero-trust li{display:flex;align-items:flex-start;gap:8px;font-size:0.92rem;color:rgba(248,246,241,0.92);}
+  .hero-trust .icon{color:var(--amber-bright);width:18px;height:18px;flex-shrink:0;margin-top:2px;}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px;}
+  .chip-label{font-size:0.82rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:rgba(248,246,241,0.72);margin-bottom:8px;}
+  .problem-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
+  .problem-chip{
+    appearance:none;font:inherit;font-size:0.9rem;font-weight:600;color:#fff;
+    background:rgba(248,246,241,0.06);
+    border:1.5px solid rgba(248,246,241,0.32);
+    border-radius:var(--radius);padding:8px 12px;min-height:44px;cursor:pointer;
   }
-  .hero.loaded [data-reveal]{opacity:1;transform:translateY(0);}
-  .hero.loaded [data-reveal="1"]{transition-delay:0.05s;}
-  .hero.loaded [data-reveal="2"]{transition-delay:0.18s;}
-  .hero.loaded [data-reveal="3"]{transition-delay:0.32s;}
-  .hero.loaded [data-reveal="4"]{transition-delay:0.46s;}
-  .hero.loaded [data-reveal="5"]{transition-delay:0.6s;}
+  .problem-chip:hover,.problem-chip.is-on{background:var(--amber-btn);border-color:var(--amber-btn);color:#fff;}
+  .hill-divider{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:72px;z-index:3;display:block;}
+  .hill-divider path{fill:var(--moss);}
 
-  .hill-divider{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:auto;z-index:3;display:block;}
-  .hill-divider path{fill:var(--paper);}
+  @media (max-width:1040px){
+    .hero{padding:0 0 56px;}
+    .hero-photo{
+      position:relative;inset:auto;grid-column:auto;grid-row:auto;height:230px;min-height:0;margin-top:var(--header);
+      width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);border-radius:0;
+    }
+    .hero-photo::after{background:linear-gradient(to bottom, rgba(18,26,21,0.04) 45%, #121a15 100%);}
+    .hero .wrap{display:block;max-width:1180px;padding-top:4px;}
+    #poptavka{grid-column:auto;}
+  }
+  @media (min-width:1041px){
+    .hero-trust{grid-template-columns:1fr 1fr;gap:10px 18px;}
+    .form-card.light{
+      padding:30px 28px 22px;
+      background:rgba(248,246,241,0.97);
+      border:1px solid rgba(255,255,255,0.28);
+      box-shadow:0 28px 64px -22px rgba(0,0,0,0.7);
+    }
+    .form-card.light .field input,
+    .form-card.light .field select{
+      background:#fff;border-color:rgba(22,33,26,0.16);
+    }
+  }
+  @media (max-width:640px){
+    .hero-actions .btn{width:100%;}
+    .hero-photo{height:200px;}
+  }
 
-  /* ---------- SECTION HEADS ---------- */
-  .section-pad{padding:110px 0;}
-  .section-head{max-width:620px;margin-bottom:64px;}
-  .section-head h2{font-size:clamp(2rem, 3.6vw, 2.9rem);margin-bottom:18px;}
-  .section-head p{color:#4b5347;font-size:1.08rem;}
+  .section-pad{padding:88px 0;}
+  .section-head{max-width:640px;margin-bottom:40px;}
+  .section-head h2{font-size:clamp(2rem, 3.6vw, 2.8rem);margin-bottom:14px;text-wrap:balance;}
+  .section-head p{color:var(--muted);font-size:1.05rem;}
   .section-head.on-dark h2{color:var(--paper);}
-  .section-head.on-dark p{color:rgba(248,246,241,0.78);}
+  .section-head.on-dark p{color:rgba(248,246,241,0.8);}
 
-  /* ---------- SERVICES ---------- */
   .services{background:var(--paper);}
-
-  .service-featured{
-    display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;
-  }
+  .service-featured{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:8px;}
   .feature-card{
-    padding:46px 42px;color:var(--paper);position:relative;overflow:hidden;
-    display:flex;flex-direction:column;
-    border-radius:var(--radius);
-    cursor:pointer;
-    transition:transform 0.18s ease, box-shadow 0.18s ease;
+    padding:36px 32px;color:var(--paper);position:relative;overflow:hidden;
+    display:flex;flex-direction:column;border-radius:var(--radius);min-height:100%;
   }
-  .feature-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
   .feature-card.dark{background:var(--ink);}
   .feature-card.moss{background:var(--moss);}
-  .feature-card .feature-tag{
-    font-size:0.86rem;font-weight:600;color:var(--amber);
-    margin-bottom:16px;
-  }
-  .feature-card h3{color:var(--paper);font-size:1.9rem;margin-bottom:16px;max-width:320px;}
-  .feature-card p{color:rgba(248,246,241,0.78);font-size:1rem;margin-bottom:26px;max-width:400px;}
-  .feature-pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:auto;}
+  .feature-card .feature-tag{font-size:0.86rem;font-weight:700;color:var(--amber-bright);margin-bottom:12px;}
+  .feature-card h3{color:#fff;font-size:1.85rem;margin-bottom:12px;}
+  .feature-card p{color:rgba(248,246,241,0.86);font-size:1rem;margin-bottom:18px;max-width:46ch;}
+  .feature-pills{display:flex;flex-wrap:wrap;gap:8px;}
   .feature-pills span{
-    font-size:0.85rem;padding:7px 14px;border:1px solid var(--line-on-dark);
-    border-radius:var(--radius);color:rgba(248,246,241,0.85);
+    font-size:0.84rem;padding:6px 12px;border:1px solid var(--line-on-dark);
+    border-radius:var(--radius);color:rgba(248,246,241,0.9);
   }
+  .feature-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:22px;}
   .feature-call{
-    display:inline-flex;align-items:center;gap:8px;margin-top:22px;
-    font-weight:600;font-size:0.95rem;color:var(--paper);
+    display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:8px 4px;
+    font-weight:700;font-size:0.95rem;color:#fff;text-decoration:underline;text-underline-offset:3px;
   }
-  .feature-call .icon{color:var(--amber);width:18px;height:18px;}
-  .feature-mark{
-    position:absolute;right:-18px;top:-18px;width:150px;height:150px;
-    opacity:0.14;color:var(--paper);
-  }
+  .feature-mark{position:absolute;right:-10px;top:-16px;width:130px;height:130px;opacity:0.12;color:#fff;pointer-events:none;}
   .feature-mark .icon{width:100%;height:100%;stroke-width:0.9;}
 
-  .service-list{
-    border-top:1px solid var(--line);
-  }
+  .service-list{border-top:1px solid var(--line);margin-top:22px;}
   .service-row{
-    display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:flex-start;
-    padding:30px 4px;border-bottom:1px solid var(--line);
-    transition:background 0.2s ease;
+    display:grid;grid-template-columns:minmax(180px,240px) 1fr auto;gap:22px;align-items:center;
+    padding:22px 4px;border-bottom:1px solid var(--line);
   }
-  .service-row:hover{background:var(--stone);}
-  .service-row-head{display:flex;align-items:center;gap:16px;}
+  .service-row-head{display:flex;align-items:center;gap:14px;}
   .service-row-icon{
     width:44px;height:44px;border-radius:50%;flex-shrink:0;
     background:var(--stone);color:var(--ink);
     display:flex;align-items:center;justify-content:center;
   }
   .service-row-icon .icon{width:20px;height:20px;}
-  .service-row-head h4{font-family:var(--ff-body);font-weight:600;font-size:1.06rem;color:var(--ink);}
-  .service-row p{color:#4b5347;font-size:0.96rem;padding-top:2px;}
-
+  .service-row-head h3{font-family:var(--ff-body);font-weight:600;font-size:1.02rem;color:var(--ink);line-height:1.3;}
+  .service-row p{color:var(--muted);font-size:0.96rem;}
   @media (max-width:880px){
     .service-featured{grid-template-columns:1fr;}
-    .service-row{grid-template-columns:1fr;gap:12px;}
+    .service-row{grid-template-columns:1fr;gap:12px;align-items:start;}
   }
 
-  /* ---------- PROCESS ---------- */
   .process{background:var(--ink);color:var(--paper);}
-  .process-list{display:grid;grid-template-columns:repeat(4,1fr);gap:44px;}
-  .process-item{position:relative;padding-top:26px;border-top:2px solid var(--line-on-dark);}
+  .process-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+  .process-item{list-style:none;padding-top:18px;border-top:2px solid var(--line-on-dark);}
+  .process-item::marker{content:none;}
   .process-num{
-    font-family:var(--ff-display);font-weight:800;font-size:1.1rem;
-    color:var(--amber);display:block;margin-bottom:14px;
+    font-family:var(--ff-display);font-weight:800;font-size:1.05rem;
+    color:var(--amber-bright);display:block;margin-bottom:10px;
   }
-  .process-item h3{color:var(--paper);font-size:1.2rem;margin-bottom:10px;}
-  .process-item p{color:rgba(248,246,241,0.72);font-size:0.95rem;}
-  @media (max-width:900px){.process-list{grid-template-columns:repeat(2,1fr);}}
+  .process-item h3{color:#fff;font-size:1.25rem;margin-bottom:8px;}
+  .process-item p{color:rgba(248,246,241,0.8);font-size:0.95rem;}
+  @media (max-width:900px){.process-list{grid-template-columns:1fr 1fr;}}
   @media (max-width:560px){.process-list{grid-template-columns:1fr;}}
 
-  /* ---------- STATS ---------- */
-  .stats-wrap{
-    background:var(--moss);color:var(--paper);
-    padding:56px 0;position:relative;overflow:hidden;
-  }
-  .stats-wrap .contour{position:absolute;inset:0;opacity:0.18;width:100%;height:100%;}
-  .stats-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:left;}
+  .stats-wrap{background:var(--moss);color:#fff;padding:48px 0;}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
   .stat b{
     display:block;font-family:var(--ff-display);font-weight:800;
-    font-size:clamp(2.1rem,4vw,3.1rem);color:var(--paper);line-height:1;
+    font-size:clamp(2.1rem,4vw,3rem);color:#fff;line-height:1;
   }
-  .stat span{font-size:0.92rem;color:rgba(248,246,241,0.82);}
-  @media (max-width:760px){.stats-grid{grid-template-columns:repeat(2,1fr);row-gap:34px;}}
+  .stat span{font-size:0.92rem;color:rgba(248,246,241,0.88);}
+  @media (max-width:760px){.stats-grid{grid-template-columns:1fr 1fr;row-gap:28px;}}
 
-  /* ---------- OBLAST PUSOBENI ---------- */
   .oblast{background:var(--paper);}
-  .oblast-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
-  .oblast-image{
-    border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
-    aspect-ratio:4/3.1;
-  }
+  .oblast-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+  .oblast-image{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3.1;background:var(--stone);}
   .oblast-image iframe{display:block;width:100%;height:100%;border:0;}
-  .town-chip-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
-  .town-chip{
-    padding:9px 18px;border:1.5px solid var(--line);border-radius:var(--radius);
-    font-size:0.92rem;font-weight:500;color:var(--charcoal);
-    background:var(--stone);
-  }
-  .town-chip.main{background:var(--ink);color:var(--paper);border-color:var(--ink);font-weight:600;}
+  .town-chip-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+  .town-chip{padding:9px 16px;border-radius:var(--radius);font-size:0.92rem;font-weight:700;background:var(--ink);color:#fff;}
   .oblast-note{
-    display:flex;gap:12px;align-items:flex-start;margin-top:28px;
-    padding:18px 20px;background:var(--stone);border-radius:var(--radius);
-    border-left:3px solid var(--amber);
+    display:flex;gap:12px;align-items:flex-start;margin-top:22px;
+    padding:16px 18px;background:var(--stone);border-radius:var(--radius);
+    border-left:3px solid var(--amber-btn);
   }
-  .oblast-note .icon{color:var(--amber-dark);width:20px;height:20px;flex-shrink:0;margin-top:2px;}
-  .oblast-note p{font-size:0.95rem;color:#3d4436;}
-  @media (max-width:880px){.oblast-layout{grid-template-columns:1fr;gap:40px;}.oblast-image{order:-1;}}
+  .oblast-note .icon{color:var(--amber-text);width:20px;height:20px;flex-shrink:0;margin-top:2px;}
+  .oblast-note p{font-size:0.95rem;color:var(--muted);}
+  @media (max-width:880px){.oblast-layout{grid-template-columns:1fr;gap:28px;}.oblast-image{order:-1;min-height:240px;}}
 
-  /* ---------- REFERENCE ---------- */
   .reference{background:var(--stone);overflow:hidden;}
-  .ref-carousel{overflow:hidden;margin-top:8px;}
+  .ref-carousel{
+    overflow:hidden;margin-top:8px;
+    padding-left:max(28px, calc((100% - 1180px) / 2 + 28px));
+  }
   .ref-track{
-    display:flex;gap:28px;width:max-content;
+    display:flex;gap:22px;width:max-content;
     animation:ref-marquee 56s linear infinite;
   }
+  .ref-carousel:hover .ref-track,
+  .ref-carousel:focus-within .ref-track{animation-play-state:paused;}
   .ref-card{
-    background:var(--paper);padding:34px 30px;border-radius:var(--radius);
-    box-shadow:0 14px 30px -22px rgba(22,33,26,0.4);
+    background:var(--paper);padding:26px 22px;border-radius:var(--radius);
+    display:flex;flex-direction:column;gap:18px;
     width:min(360px,78vw);flex:0 0 min(360px,78vw);
   }
-  .ref-card p.quote{font-size:1.02rem;color:var(--charcoal);margin-bottom:22px;}
-  .ref-person{display:flex;align-items:center;gap:12px;}
-  .ref-avatar{
-    width:42px;height:42px;border-radius:50%;background:var(--moss);color:var(--paper);
-    display:flex;align-items:center;justify-content:center;font-family:var(--ff-display);font-weight:700;
-  }
-  .ref-person span{display:block;font-size:0.88rem;color:#5b6151;}
-  .ref-person b{font-size:0.95rem;color:var(--ink);}
   @keyframes ref-marquee{
     from{transform:translateX(0);}
     to{transform:translateX(-50%);}
   }
   @media (prefers-reduced-motion: reduce){
-    .ref-track{animation:none;flex-wrap:wrap;width:auto;}
+    .ref-track{animation:none;flex-wrap:wrap;width:auto;max-width:1180px;}
     .ref-track .ref-card:nth-child(n+7){display:none;}
   }
-
-  /* ---------- CTA BANNER ---------- */
-  .cta-banner{
-    background:var(--ink);color:var(--paper);
-    padding:90px 0;text-align:left;position:relative;overflow:hidden;
+  .ref-card .quote{font-size:1.02rem;color:var(--charcoal);}
+  .ref-person{display:flex;align-items:center;gap:12px;margin-top:auto;}
+  .ref-avatar{
+    width:42px;height:42px;border-radius:50%;background:var(--moss);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-family:var(--ff-display);font-weight:700;flex-shrink:0;
   }
-  .cta-banner .wrap{display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;position:relative;z-index:1;}
-  .cta-banner h2{color:var(--paper);font-size:clamp(1.9rem,3.6vw,2.7rem);max-width:560px;}
-  .cta-banner-actions{display:flex;gap:16px;flex-wrap:wrap;}
+  .ref-person span{display:block;font-size:0.86rem;color:#3d4436;}
+  .ref-person b{font-size:0.95rem;color:var(--ink);}
 
-  /* ---------- CONTACT ---------- */
+  .faq{background:var(--paper);}
+  .faq-list{display:flex;flex-direction:column;gap:10px;max-width:820px;}
+  .faq-item{background:#fff;border:1px solid var(--line);border-radius:var(--radius);}
+  .faq-item summary{
+    cursor:pointer;padding:16px 18px;font-weight:600;color:var(--ink);
+    list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;
+    min-height:52px;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{
+    content:"+";font-family:var(--ff-display);font-size:1.5rem;line-height:1;color:var(--amber-text);flex-shrink:0;
+  }
+  .faq-item[open] summary::after{content:"–";}
+  .faq-item p{padding:0 18px 16px;color:var(--muted);max-width:70ch;}
+
+  .cta-banner{background:var(--ink);color:#fff;padding:72px 0;}
+  .cta-banner .wrap{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;}
+  .cta-banner h2{color:#fff;font-size:clamp(1.8rem,3.4vw,2.6rem);max-width:16ch;text-wrap:balance;}
+  .cta-banner-actions{display:flex;gap:10px;flex-wrap:wrap;}
+
   .contact{background:var(--paper);}
-  .contact-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:60px;}
-  .contact-info h2{font-size:clamp(1.9rem,3.4vw,2.6rem);margin-bottom:18px;}
-  .contact-info > p{color:#4b5347;margin-bottom:34px;font-size:1.03rem;}
-  .contact-detail{display:flex;gap:16px;align-items:flex-start;margin-bottom:24px;}
-  .contact-detail .icon-wrap{
-    width:40px;height:40px;border-radius:50%;background:var(--stone);color:var(--ink);
-    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  .contact-grid{display:grid;grid-template-columns:0.82fr 1.18fr;gap:42px;align-items:start;}
+  .contact-info h2{font-size:clamp(1.9rem,3.2vw,2.5rem);margin-bottom:12px;}
+  .contact-info > p{color:var(--muted);margin-bottom:22px;font-size:1.02rem;}
+  .reach{display:flex;flex-direction:column;gap:12px;}
+  .reach-card{
+    display:flex;flex-direction:column;gap:4px;text-decoration:none;
+    background:var(--ink);color:#fff;border-radius:var(--radius);padding:18px 18px 16px;
+    min-height:96px;
   }
-  .contact-detail .icon{width:18px;height:18px;}
-  .contact-detail b{display:block;font-size:0.98rem;color:var(--ink);margin-bottom:2px;}
-  .contact-detail b a{color:inherit;}
-  .contact-detail b a:hover{color:var(--amber);}
-  .contact-detail span{font-size:0.93rem;color:#5b6151;}
+  .reach-card.mail{background:#fff;color:var(--ink);border:1.5px solid var(--ink);}
+  .reach-kicker{font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber-bright);}
+  .reach-card.mail .reach-kicker{color:var(--amber-text);}
+  .reach-card strong{font-size:1.25rem;line-height:1.2;}
+  .reach-card span:last-child{font-size:0.88rem;color:rgba(248,246,241,0.78);}
+  .reach-card.mail span:last-child{color:var(--muted);}
+  .contact-meta{margin-top:16px;font-size:0.88rem;color:#3d4436;}
 
   .form-card{
     background:var(--ink);color:var(--paper);
-    border-radius:var(--radius);padding:44px;
+    border-radius:var(--radius);padding:28px 26px 22px;
     box-shadow:var(--shadow);
   }
-  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
-  .field{margin-bottom:20px;}
-  .field label{
-    display:block;font-size:0.86rem;color:rgba(248,246,241,0.75);margin-bottom:8px;font-weight:500;
+  .form-card.light{
+    background:rgba(248,246,241,0.98);color:var(--charcoal);
+    box-shadow:0 22px 50px -24px rgba(0,0,0,0.65);
   }
-  .field input, .field select, .field textarea{
-    width:100%;padding:13px 15px;border-radius:var(--radius);border:1.5px solid var(--line-on-dark);
-    background:rgba(248,246,241,0.06);color:var(--paper);font-family:inherit;font-size:0.96rem;
-    transition:border-color 0.2s ease, background 0.2s ease;
+  .form-head{margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--line-on-dark);}
+  .form-card.light .form-head{border-bottom-color:var(--line);}
+  .form-kicker{font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber-bright);font-weight:700;margin-bottom:6px;}
+  .form-card.light .form-kicker{color:var(--amber-text);}
+  .form-head h2,.form-head h3{color:#fff;font-size:1.7rem;margin-bottom:6px;}
+  .form-card.light .form-head h2,.form-card.light .form-head h3{color:var(--ink);}
+  .form-head p{font-size:0.92rem;color:rgba(248,246,241,0.78);}
+  .form-card.light .form-head p{color:var(--muted);}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .field{margin-bottom:14px;}
+  .field label{display:block;font-size:0.86rem;font-weight:600;color:rgba(248,246,241,0.86);margin-bottom:6px;}
+  .form-card.light .field label{color:var(--ink);}
+  .field label .req{color:var(--amber-bright);margin-left:2px;}
+  .form-card.light .field label .req{color:var(--amber-text);}
+  .field label .opt{color:rgba(248,246,241,0.55);font-weight:500;font-size:0.78rem;margin-left:6px;}
+  .form-card.light .field label .opt{color:#5c574f;}
+  .field input,.field select,.field textarea{
+    width:100%;min-height:48px;padding:12px 14px;border-radius:var(--radius);
+    border:1.5px solid var(--line-on-dark);
+    background:rgba(248,246,241,0.06);color:#fff;font-size:16px;
   }
-  .field select{color:var(--paper);}
+  .form-card.light .field input,
+  .form-card.light .field select,
+  .form-card.light .field textarea{
+    background:#fff;color:var(--ink);border-color:rgba(22,33,26,0.22);
+  }
   .field select option{color:var(--charcoal);}
-  .field input::placeholder, .field textarea::placeholder{color:rgba(248,246,241,0.4);}
-  .field input:focus, .field select:focus, .field textarea:focus{
-    border-color:var(--amber);background:rgba(248,246,241,0.1);outline:none;
-  }
-  .field textarea{resize:vertical;min-height:100px;}
-  .checkline{display:flex;gap:10px;align-items:flex-start;margin-bottom:26px;}
-  .checkline input{margin-top:4px;width:16px;height:16px;flex-shrink:0;accent-color:var(--amber);}
-  .checkline label{font-size:0.85rem;color:rgba(248,246,241,0.72);}
-  .form-msg{
-    display:none;margin-top:18px;padding:14px 16px;border-radius:var(--radius);
-    background:rgba(201,122,43,0.18);border:1px solid var(--amber);
-    font-size:0.92rem;color:var(--paper);
-    align-items:center;gap:10px;
-  }
-  .form-msg.show{display:flex;}
-  .form-msg .icon{color:var(--amber);width:18px;height:18px;flex-shrink:0;}
-  @media (max-width:900px){.contact-grid{grid-template-columns:1fr;}}
-  @media (max-width:560px){.form-row{grid-template-columns:1fr;}.form-card{padding:30px 24px;}}
-
-  /* ---------- FOOTER ---------- */
-  footer{background:var(--ink-soft);color:rgba(248,246,241,0.72);padding:64px 0 28px;}
-  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:52px;}
-  .footer-brand .logo{margin-bottom:16px;}
-  .footer-brand p{font-size:0.93rem;max-width:280px;color:rgba(248,246,241,0.6);}
-  footer h4{color:var(--paper);font-size:0.92rem;margin-bottom:18px;font-weight:600;}
-  footer ul li{margin-bottom:11px;font-size:0.92rem;}
-  footer ul a{color:rgba(248,246,241,0.68);transition:color 0.2s ease;}
-  footer ul a:hover{color:var(--amber);}
-  .footer-bottom{
-    border-top:1px solid var(--line-on-dark);padding-top:24px;
-    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:0.82rem;color:rgba(248,246,241,0.5);
-  }
-  .footer-bottom a, .footer-bottom button{color:inherit;}
-  .footer-bottom a:hover, .footer-bottom button:hover{color:var(--amber);}
-  @media (max-width:760px){.footer-grid{grid-template-columns:1fr 1fr;}.footer-brand{grid-column:1/-1;}}
-
-  @media (max-width:640px){
-    .section-pad{padding:76px 0;}
-    .hero{padding:130px 0 90px;}
-  }
-
-  /* ---------- FORM POLISH ---------- */
-  .form-head{margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid var(--line-on-dark);}
-  .form-kicker{
-    font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;
-    color:var(--amber);font-weight:600;margin-bottom:8px;
-  }
-  .form-head h3{color:var(--paper);font-size:1.55rem;margin-bottom:8px;}
-  .form-head p{font-size:0.92rem;color:rgba(248,246,241,0.68);max-width:420px;}
-  .field label .req{color:var(--amber);margin-left:2px;}
-  .field label .opt{color:rgba(248,246,241,0.42);font-weight:400;font-size:0.78rem;margin-left:6px;}
-  .field input.invalid, .field select.invalid, .field textarea.invalid{
-    border-color:#d06b4f;background:rgba(208,107,79,0.08);
-  }
-  .field-error{display:none;font-size:0.8rem;color:#e8a090;margin-top:6px;}
+  .field input::placeholder,.field textarea::placeholder{color:rgba(248,246,241,0.55);}
+  .form-card.light .field input::placeholder,
+  .form-card.light .field textarea::placeholder{color:#5c574f;}
+  .field textarea{resize:vertical;min-height:96px;}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--amber-bright);outline:none;}
+  .form-card.light .field input:focus,
+  .form-card.light .field select:focus,
+  .form-card.light .field textarea:focus{border-color:var(--amber-btn);box-shadow:0 0 0 3px rgba(163,92,22,0.2);}
+  .field input.invalid,.field select.invalid,.field textarea.invalid{border-color:#c2412d;background:rgba(194,65,45,0.08);}
+  .field-error{display:none;font-size:0.82rem;color:#ffc7b8;margin-top:6px;}
+  .form-card.light .field-error{color:#9f2d12;}
   .field-error.show{display:block;}
   .honeypot{position:absolute;left:-9999px;height:0;overflow:hidden;}
-  .form-legal{
-    font-size:0.8rem;color:rgba(248,246,241,0.55);line-height:1.5;margin:0 0 16px;
+  .checkline{display:flex;gap:10px;align-items:flex-start;margin:4px 0 16px;}
+  .checkline input{margin-top:3px;width:20px;height:20px;flex-shrink:0;accent-color:var(--amber-btn);}
+  .checkline label{font-size:0.84rem;color:rgba(248,246,241,0.8);line-height:1.45;}
+  .form-card.light .checkline label{color:var(--muted);}
+  .checkline label a{color:var(--amber-bright);font-weight:600;}
+  .form-card.light .checkline label a{color:var(--amber-text);}
+  .checkline.invalid label{color:#ffc7b8;}
+  .form-card.light .checkline.invalid label{color:#9f2d12;}
+  .form-submit-note{margin-top:10px;font-size:0.8rem;color:rgba(248,246,241,0.62);text-align:center;}
+  .form-card.light .form-submit-note{color:#3d4436;}
+  .form-msg{
+    display:none;margin-top:14px;padding:12px 14px;border-radius:var(--radius);
+    background:rgba(224,161,90,0.16);border:1px solid var(--amber-bright);
+    font-size:0.92rem;color:#fff;align-items:flex-start;gap:8px;
   }
-  .form-legal a{color:var(--amber);text-decoration:underline;text-underline-offset:2px;}
-  .checkline label a{color:var(--amber);text-decoration:underline;text-underline-offset:2px;}
-  .checkline.invalid label{color:#e8a090;}
-  .form-submit-note{margin-top:12px;font-size:0.78rem;color:rgba(248,246,241,0.45);text-align:center;}
+  .form-card.light .form-msg{background:#f4e7d4;border-color:var(--amber-btn);color:var(--ink);}
+  .form-msg.show{display:flex;}
+  .form-msg .icon{color:var(--amber-bright);width:18px;height:18px;flex-shrink:0;margin-top:2px;}
+  .form-card.light .form-msg .icon{color:var(--amber-text);}
+  @media (max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+  @media (max-width:560px){.form-row{grid-template-columns:1fr;}.form-card{padding:22px 16px 18px;}}
 
-  /* ---------- COOKIE BAR ---------- */
+  footer{background:var(--ink-soft);color:rgba(248,246,241,0.78);padding:56px 0 28px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;margin-bottom:36px;}
+  .footer-brand .logo{margin-bottom:12px;}
+  .footer-brand p{font-size:0.92rem;max-width:32ch;color:rgba(248,246,241,0.7);}
+  footer h2{color:#fff;font-family:var(--ff-body);font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px;font-weight:700;}
+  footer ul li{margin-bottom:10px;font-size:0.92rem;}
+  footer ul a{color:rgba(248,246,241,0.78);text-decoration:none;}
+  footer ul a:hover{color:var(--amber-bright);}
+  .footer-bottom{
+    border-top:1px solid var(--line-on-dark);padding-top:18px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+    font-size:0.82rem;color:rgba(248,246,241,0.55);
+  }
+  .footer-links{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;}
+  .footer-links a,.footer-links button{color:inherit;}
+  .footer-links a:hover,.footer-links button:hover{color:var(--amber-bright);}
+  @media (max-width:760px){.footer-grid{grid-template-columns:1fr 1fr;}.footer-brand{grid-column:1/-1;}}
+
   .cookie-bar{
     position:fixed;left:16px;right:16px;bottom:16px;z-index:200;
     max-width:720px;margin:0 auto;
-    background:rgba(22,33,26,0.96);color:var(--paper);
+    background:rgba(22,33,26,0.97);color:var(--paper);
     border:1px solid var(--line-on-dark);border-radius:var(--radius);
     box-shadow:0 18px 50px -18px rgba(0,0,0,0.55);
-    padding:18px 20px;backdrop-filter:blur(10px);
+    padding:16px 18px;
     transform:translateY(16px);opacity:0;pointer-events:none;
     transition:opacity 0.28s ease, transform 0.28s ease;
   }
-  .cookie-bar.show{opacity:1;transform:translateY(0);pointer-events:auto;}
-  .cookie-copy p{margin:0;}
-  .cookie-copy strong{display:block;font-size:0.92rem;font-weight:600;margin-bottom:6px;color:var(--paper);}
-  .cookie-copy span{font-size:0.82rem;color:rgba(248,246,241,0.72);line-height:1.45;}
-  .cookie-copy a{color:var(--amber);text-decoration:underline;text-underline-offset:2px;}
+  .cookie-bar.show{opacity:1;transform:none;pointer-events:auto;}
+  .cookie-copy strong{display:block;font-size:0.92rem;font-weight:700;margin-bottom:4px;color:#fff;}
+  .cookie-copy span{font-size:0.82rem;color:rgba(248,246,241,0.78);line-height:1.45;}
+  .cookie-copy a{color:var(--amber-bright);}
   .cookie-row{display:flex;align-items:flex-end;gap:16px;justify-content:space-between;}
   .cookie-actions{display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end;}
-  .cookie-actions .btn{padding:10px 16px;font-size:0.86rem;}
-  .cookie-prefs{
-    display:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--line-on-dark);
-  }
+  .cookie-actions .btn{padding:10px 14px;font-size:0.88rem;min-height:44px;}
+  .cookie-prefs{display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--line-on-dark);}
   .cookie-prefs.open{display:block;}
-  .cookie-pref{
-    display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;
-    font-size:0.82rem;color:rgba(248,246,241,0.78);
-  }
-  .cookie-pref input{margin-top:3px;accent-color:var(--amber);}
-  .cookie-pref b{display:block;color:var(--paper);font-weight:600;margin-bottom:2px;}
+  .cookie-pref{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;font-size:0.82rem;color:rgba(248,246,241,0.8);}
+  .cookie-pref input{margin-top:3px;width:18px;height:18px;accent-color:var(--amber-btn);}
+  .cookie-pref b{display:block;color:#fff;font-weight:700;margin-bottom:2px;}
   .cookie-pref-actions{display:flex;gap:8px;margin-top:8px;}
   .cookie-settings{
-    background:none;border:none;color:rgba(248,246,241,0.55);font:inherit;
-    font-size:0.78rem;cursor:pointer;padding:0;margin-top:10px;text-decoration:underline;text-underline-offset:2px;
+    background:none;border:none;color:rgba(248,246,241,0.7);font:inherit;
+    font-size:0.8rem;cursor:pointer;padding:8px 0;min-height:44px;
+    text-decoration:underline;text-underline-offset:2px;
   }
-  .cookie-settings:hover{color:var(--paper);}
+  .cookie-settings:hover{color:#fff;}
+  @media (max-width:900px){
+    .cookie-bar{bottom:calc(82px + env(safe-area-inset-bottom));}
+  }
   @media (max-width:640px){
-    .cookie-bar{left:10px;right:10px;bottom:10px;padding:16px;}
+    .cookie-bar{left:10px;right:10px;padding:14px;}
     .cookie-row{flex-direction:column;align-items:stretch;}
-    .cookie-actions .btn{flex:1;justify-content:center;}
+    .cookie-actions .btn{flex:1;}
+    .section-pad{padding:64px 0;}
   }
 </style>
 <script type="application/ld+json">
@@ -528,7 +568,7 @@
       "@id": "https://stenicestop.cz/#business",
       "name": "stenicestop.cz",
       "url": "https://stenicestop.cz/",
-      "image": "https://images.unsplash.com/photo-1756155017513-6fceb5ace3ba?auto=format&fit=crop&w=1200&q=80",
+      "image": "https://stenicestop.cz/hero-loznice.jpg",
       "telephone": "+420777551917",
       "email": "info@stenicestop.cz",
       "priceRange": "$$",
@@ -550,6 +590,7 @@
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+420777551917",
+        "email": "info@stenicestop.cz",
         "contactType": "customer service",
         "availableLanguage": "cs",
         "areaServed": "CZ"
@@ -562,6 +603,60 @@
       "name": "stenicestop.cz",
       "inLanguage": "cs",
       "publisher": { "@id": "https://stenicestop.cz/#business" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://stenicestop.cz/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Jak rychle se ozvete a kdy přijedete?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ozveme se co nejdřív, v pracovní dny obvykle ještě tentýž den. Termín zásahu držíme zpravidla do 24 hodin od poptávky. Akutní výskyt bereme přednostně, havárie řešíme i mimo Po–Pá 7:00–19:00."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kolik zásah stojí?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cenu říkáme před zahájením prací, po posouzení rozsahu. Poptávka ani prohlídka vás k ničemu nezavazují. Každý zásah je jiný — záleží na druhu škůdce a velikosti prostoru."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Je zásah bezpečný pro děti a domácí zvířata?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Používáme certifikované přípravky a předem řekneme, jak se v ošetřeném prostoru chovat, včetně toho, kdy se do něj mohou vrátit děti a zvířata."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pozná okolí, že řešíme štěnice?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Domluvu vedeme diskrétně. Do poptávky stačí napsat, že si přejete tichý průběh — přizpůsobíme příjezd i komunikaci."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Musím na dobu zásahu opustit byt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Záleží na typu zásahu. Technik předem řekne, jestli je potřeba na chvíli opustit místnost, co schovat a kdy se lze vrátit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jezdíte i do mé obce?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Jezdíme po celém Středočeském a Plzeňském kraji. Do poptávky uveďte obec a ozveme se s termínem."
+          }
+        }
+      ]
     }
   ]
 }
@@ -569,8 +664,9 @@
 </head>
 <body>
 
-<!-- ICON SPRITE -->
-<svg style="display:none">
+<a class="skip" href="#poptavka">Přejít na poptávku</a>
+
+<svg style="display:none" aria-hidden="true">
   <symbol id="i-rat" viewBox="0 0 24 24"><ellipse cx="11.3" cy="14.3" rx="6.3" ry="4.2"/><circle cx="5.7" cy="11.7" r="3"/><circle cx="4.5" cy="9.7" r=".85" fill="currentColor" stroke="none"/><path d="M17.4 13.2c2 .4 4.1-.4 5.2-2.1-1.7-.7-3.5-.4-4.7.7"/><path d="M8.2 18.3 6.9 20.6M11.6 18.6l-.3 2.4"/></symbol>
   <symbol id="i-bug" viewBox="0 0 24 24"><ellipse cx="12" cy="13.6" rx="4.3" ry="5.8"/><line x1="12" y1="7.9" x2="12" y2="19.3"/><circle cx="12" cy="6.1" r="1.6"/><path d="M11 4.4 9.8 2.8M13 4.4l1.2-1.6"/><path d="M7.9 9.6 4.1 8.2M7.7 13.6H3.4M7.9 17.6 4.1 19"/><path d="M16.1 9.6l3.8-1.4M16.3 13.6h4.3M16.1 17.6l3.8 1.4"/></symbol>
   <symbol id="i-bird" viewBox="0 0 24 24"><path d="M6.1 18.6c0-4.1 2.7-7 6.2-7 2.8 0 5 1.9 5.7 4.4.9.1 1.8-.2 2.5-1-.2 1.7-1.5 2.8-3 2.9-.4 1.6-1.9 2.7-3.7 2.7H8.5c-1.3 0-2.4-1-2.4-2Z"/><circle cx="9.5" cy="10.6" r="2.1"/><circle cx="8.8" cy="9.9" r=".5" fill="currentColor" stroke="none"/><path d="M11.4 10.1 13.3 9.4l-1.3 1.5"/><path d="M8.8 18.7v1.6M12.1 18.7v1.6"/></symbol>
@@ -584,343 +680,435 @@
   <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3.5 6.5h17M3.5 12h17M3.5 17.5h17"/></symbol>
   <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5 9 18 20 6"/></symbol>
-  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4 21 19H3L12 4Z"/><path d="M12 10v4M12 16.5v.1"/></symbol>
-  <symbol id="i-id" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><circle cx="8.6" cy="11.2" r="1.7"/><path d="M12.2 14.6c-.2-1.3-1.3-2.2-2.8-2.2s-2.6.9-2.8 2.2"/><path d="M13.6 9.6h5.2M13.6 12.4h4M13.6 15.2h3"/></symbol>
 </svg>
 
-<!-- NAV -->
 <header id="site-header">
-  <nav class="wrap">
-    <a href="#home" class="logo" aria-label="stenicestop.cz">stenice<span class="stop">stop</span><span class="tld">.cz</span></a>
+  <nav class="wrap" aria-label="Hlavní navigace">
+    <a href="#home" class="logo" aria-label="stenicestop.cz, úvod">stenice<span class="stop">stop</span><span class="tld">.cz</span></a>
     <div class="nav-links">
       <a href="#sluzby">Služby</a>
-      <a href="#proces">Jak pracujeme</a>
-      <a href="#oblast">Oblast působnosti</a>
+      <a href="#proces">Jak to probíhá</a>
       <a href="#reference">Reference</a>
+      <a href="#faq">Otázky</a>
       <a href="#kontakt">Kontakt</a>
     </div>
     <div class="nav-cta">
-      <a class="nav-phone" href="tel:+420777551917" data-track="call" data-track-loc="nav"><svg class="icon"><use href="#i-phone"/></svg>777 551 917</a>
-      <a class="btn btn-primary" href="#kontakt" data-track="cta" data-track-loc="nav">Nezávazná poptávka</a>
+      <a class="nav-phone" href="tel:+420777551917" data-track="call" data-track-loc="nav" aria-label="Zavolat 777 551 917"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span class="num">777 551 917</span></a>
+      <a class="btn btn-ghost" href="#poptavka" data-track="cta" data-track-loc="nav">Poptávka</a>
     </div>
-    <button class="burger" id="burgerBtn" aria-label="Otevřít menu" aria-expanded="false">
-      <svg class="icon"><use href="#i-menu"/></svg>
+    <button class="burger" id="burgerBtn" aria-label="Otevřít menu" aria-expanded="false" aria-controls="mobilePanel">
+      <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
     </button>
   </nav>
 </header>
 
-<div class="mobile-panel" id="mobilePanel">
+<div class="mobile-panel" id="mobilePanel" aria-hidden="true">
   <a href="#sluzby">Služby</a>
-  <a href="#proces">Jak pracujeme</a>
-  <a href="#oblast">Oblast působnosti</a>
+  <a href="#proces">Jak to probíhá</a>
   <a href="#reference">Reference</a>
+  <a href="#faq">Otázky</a>
+  <a href="#oblast">Oblast působnosti</a>
   <a href="#kontakt">Kontakt</a>
-  <a class="nav-phone" href="tel:+420777551917" data-track="call" data-track-loc="mobile"><svg class="icon"><use href="#i-phone"/></svg>777 551 917</a>
-  <a class="btn btn-primary btn-block" href="#kontakt" data-track="cta" data-track-loc="mobile">Nezávazná poptávka</a>
+  <a class="nav-phone" href="tel:+420777551917" data-track="call" data-track-loc="mobile"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>777 551 917</a>
+  <a class="btn btn-primary btn-block" href="#poptavka" data-track="cta" data-track-loc="mobile">Nezávazná poptávka</a>
+  <a class="btn btn-ghost btn-block" href="mailto:info@stenicestop.cz?subject=Popt%C3%A1vka%20ze%20stenicestop.cz&body=Dobr%C3%BD%20den%2C%0A%0APot%C5%99ebuji%20%C5%99e%C5%A1it%3A%20%0AObec%3A%20%0ATelefon%3A%20%0A" data-track="email" data-track-loc="mobile">Napsat e-mail</a>
 </div>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="wrap">
-    <div class="hero-content">
-      <p class="hero-kicker" data-reveal="1">Deratizace a dezinsekce — Středočeský a Plzeňský kraj</p>
-      <h1 data-reveal="2">Klid v domě začíná <em>tím,</em> že škůdci zmizí.</h1>
-      <p class="hero-sub" data-reveal="3">Řešíme myši, potkany, štěnice, šváby, moly i holuby — rychle, diskrétně a bez zbytečných průtahů. Technik dorazí do 24 hodin od poptávky.</p>
-      <div class="hero-actions" data-reveal="4">
-        <a href="#kontakt" class="btn btn-primary" data-track="cta" data-track-loc="hero">Objednat prohlídku</a>
-        <a href="tel:+420777551917" class="btn btn-ghost" data-track="call" data-track-loc="hero"><svg class="icon"><use href="#i-phone"/></svg>Zavolat 777 551 917</a>
-      </div>
-      <ul class="hero-trust" data-reveal="5">
-        <li><svg class="icon"><use href="#i-clock"/></svg>Zásah do 24 hodin</li>
-        <li><svg class="icon"><use href="#i-shield"/></svg>Certifikovaní technici</li>
-        <li><svg class="icon"><use href="#i-leaf"/></svg>Šetrné k dětem i zvířatům</li>
-        <li><svg class="icon"><use href="#i-lock"/></svg>Zaručená diskrétnost</li>
-      </ul>
-    </div>
+<main id="home">
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-photo" aria-hidden="true">
+    <img src="hero-loznice.jpg" alt="" width="1600" height="1083" fetchpriority="high" decoding="async">
   </div>
-  <svg class="hill-divider" viewBox="0 0 1440 110" preserveAspectRatio="none">
-    <path d="M0,70 C220,110 400,20 620,52 C860,86 1000,10 1220,44 C1320,60 1400,50 1440,42 L1440,110 L0,110 Z"/>
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="hero-kicker">Dezinsekce a deratizace · Středočeský a Plzeňský kraj</p>
+      <h1 id="hero-title">Štěnice, myši, švábi. <em>Pryč do 24 hodin.</em></h1>
+      <p class="hero-sub">Diskrétní zásah v bytě, domě i provozovně. Cenu řekneme předem a prohlídka vás k ničemu nezavazuje.</p>
+      <ul class="hero-trust">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Technik obvykle do 24 hodin</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>Certifikovaní technici</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg>Šetrné k dětem i zvířatům</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg>Domluva zůstane diskrétní</li>
+      </ul>
+      <div class="hero-actions">
+        <a href="tel:+420777551917" class="btn btn-primary" data-track="call" data-track-loc="hero"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Zavolat 777 551 917</a>
+        <a href="mailto:info@stenicestop.cz?subject=Popt%C3%A1vka%20ze%20stenicestop.cz&body=Dobr%C3%BD%20den%2C%0A%0APot%C5%99ebuji%20%C5%99e%C5%A1it%3A%20%0AObec%3A%20%0ATelefon%3A%20%0A" class="btn btn-ghost" data-track="email" data-track-loc="hero"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>Napsat e-mail</a>
+      </div>
+      <p class="chip-label" id="chipLabel">Co potřebujete vyřešit?</p>
+      <div class="problem-chips" role="group" aria-labelledby="chipLabel">
+        <button type="button" class="problem-chip" data-problem="Štěnice" aria-pressed="false">Štěnice</button>
+        <button type="button" class="problem-chip" data-problem="Hlodavci (myši, potkani, krysy)" aria-pressed="false">Myši a potkani</button>
+        <button type="button" class="problem-chip" data-problem="Švábi, mravenci, blechy nebo moly" aria-pressed="false">Švábi a moly</button>
+        <button type="button" class="problem-chip" data-problem="Ptactvo (holubi)" aria-pressed="false">Holubi</button>
+        <button type="button" class="problem-chip" data-problem="Nevím, potřebuji poradit" aria-pressed="false">Nevím, poradíte</button>
+      </div>
+    </div>
+
+      <form class="form-card light" id="poptavka" data-source="Úvodní obrazovka" novalidate aria-labelledby="hero-form-title">
+        <div class="form-head">
+          <p class="form-kicker">Nezávazná poptávka</p>
+          <h2 id="hero-form-title">Ozveme se do 24 hodin</h2>
+          <p>Stačí jméno a telefon. Údaje použijeme jen k vyřízení poptávky.</p>
+        </div>
+        <div class="honeypot" aria-hidden="true">
+          <label for="hero-website">Web</label>
+          <input type="text" id="hero-website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="hero-jmeno">Jméno a příjmení <span class="req" aria-hidden="true">*</span></label>
+          <input type="text" id="hero-jmeno" name="jmeno" autocomplete="name" required maxlength="80">
+          <span class="field-error" data-for="jmeno">Uveďte prosím jméno.</span>
+        </div>
+        <div class="field">
+          <label for="hero-telefon">Telefon <span class="req" aria-hidden="true">*</span></label>
+          <input type="tel" id="hero-telefon" name="telefon" autocomplete="tel" inputmode="tel" required maxlength="20" placeholder="6xx xxx xxx">
+          <span class="field-error" data-for="telefon">Uveďte telefon, ať se vám můžeme ozvat.</span>
+        </div>
+        <div class="field">
+          <label for="hero-typ">Co vás trápí <span class="opt">nepovinné</span></label>
+          <select id="hero-typ" name="typ">
+            <option value="" selected>Nevím, ozvěte se mi</option>
+            <option>Štěnice</option>
+            <option>Švábi, mravenci, blechy nebo moly</option>
+            <option>Hlodavci (myši, potkani, krysy)</option>
+            <option>Ptactvo (holubi)</option>
+            <option>Dezinfekce prostor</option>
+            <option>Servisní smlouva pro firmu</option>
+            <option>Nevím, potřebuji poradit</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="hero-obec">Obec <span class="opt">nepovinné</span></label>
+          <input type="text" id="hero-obec" name="obec" autocomplete="address-level2" maxlength="80" placeholder="např. Beroun">
+        </div>
+        <div class="checkline">
+          <input type="checkbox" id="hero-souhlas" name="souhlas" required>
+          <label for="hero-souhlas">Seznámil/a jsem se se <a href="ochrana-osobnich-udaju.html">zásadami zpracování osobních údajů</a>.</label>
+        </div>
+        <span class="field-error" data-for="souhlas">Pro odeslání je potřeba potvrzení výše.</span>
+        <button type="submit" class="btn btn-primary btn-block">Odeslat poptávku</button>
+        <p class="form-submit-note">Nic tím neobjednáváte. Cenu se dozvíte předem.</p>
+        <div class="form-msg" role="status">
+          <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
+          <span>Děkujeme. Ozveme se vám obvykle do 24 hodin na uvedené číslo.</span>
+        </div>
+      </form>
+  </div>
+  <svg class="hill-divider" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,48 C240,80 420,16 680,40 C960,66 1120,12 1440,36 L1440,80 L0,80 Z"/>
   </svg>
 </section>
 
-<!-- SLUZBY -->
+<section class="stats-wrap" aria-label="V číslech">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat"><b>12</b><span>let praxe v oboru DDD</span></div>
+      <div class="stat"><b>1 400</b><span>vyřešených zásahů</span></div>
+      <div class="stat"><b>24</b><span>hodin do prvního termínu</span></div>
+      <div class="stat"><b>15+</b><span>měst v oblasti působnosti</span></div>
+    </div>
+  </div>
+</section>
+
 <section class="services section-pad" id="sluzby">
   <div class="wrap">
     <div class="section-head">
-      <h2>Deratizace a dezinsekce pro domácnosti i firmy</h2>
-      <p>Hubení myší, potkanů, štěnic, švábů, mravenců a molí — od zásahu v bytě po servisní smlouvu pro provozovnu. Řešení volíme podle rozsahu problému.</p>
+      <h2>Řešíme to, kvůli čemu teď nespíte</h2>
+      <p>Nejčastěji štěnice a hlodavce. Stejný telefon platí i pro šváby, moly, holuby a pravidelný servis firem.</p>
     </div>
-  </div>
-  <div class="wrap">
-
     <div class="service-featured">
-      <a class="feature-card dark" href="tel:+420777551917" aria-label="Zavolat kvůli deratizaci na 777 551 917" data-track="call" data-track-loc="deratizace">
-        <svg class="feature-mark"><use href="#i-rat"/></svg>
-        <span class="feature-tag">Nejčastější zásah</span>
+      <article class="feature-card dark">
+        <svg class="feature-mark" aria-hidden="true"><use href="#i-bug"/></svg>
+        <p class="feature-tag">Nejčastější důvod, proč voláte</p>
+        <h3>Štěnice</h3>
+        <p>Byt, penzion i provozovna. Přijedeme diskrétně, řekneme postup i cenu předem a ohnisko zlikvidujeme.</p>
+        <div class="feature-pills"><span>Byty</span><span>Penziony</span><span>Matrace a postele</span><span>Kontrola</span></div>
+        <div class="feature-actions">
+          <button type="button" class="btn btn-primary" data-problem="Štěnice" data-track="cta" data-track-loc="stenice">Chci řešit štěnice</button>
+          <a class="feature-call" href="tel:+420777551917" data-track="call" data-track-loc="stenice"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Zavolat</a>
+        </div>
+      </article>
+      <article class="feature-card moss">
+        <svg class="feature-mark" aria-hidden="true"><use href="#i-rat"/></svg>
+        <p class="feature-tag">Domy, sklepy i okolí objektu</p>
         <h3>Deratizace</h3>
-        <p>Myši, potkani a krysy v domech, sklepích i venkovních prostorách. Najdeme vstupní body, rozmístíme nástrahy a ohnisko bezpečně zlikvidujeme.</p>
-        <div class="feature-pills"><span>Myši</span><span>Potkani</span><span>Krysy</span><span>Monitoring nor</span></div>
-        <span class="feature-call"><svg class="icon"><use href="#i-phone"/></svg>Zavolat 777 551 917</span>
-      </a>
-      <a class="feature-card moss" href="tel:+420777551917" aria-label="Zavolat kvůli dezinsekci na 777 551 917" data-track="call" data-track-loc="dezinsekce">
-        <svg class="feature-mark"><use href="#i-bug"/></svg>
-        <span class="feature-tag">Pro domácnosti i provozy</span>
-        <h3>Dezinsekce</h3>
-        <p>Štěnice, švábi, mravenci, blechy a moly. Postup volíme podle druhu hmyzu a typu prostoru — od bytu po restauraci.</p>
-        <div class="feature-pills"><span>Štěnice</span><span>Švábi</span><span>Mravenci</span><span>Moly</span></div>
-        <span class="feature-call"><svg class="icon"><use href="#i-phone"/></svg>Zavolat 777 551 917</span>
-      </a>
+        <p>Myši, potkani a krysy. Najdeme, kudy lezou dovnitř, rozmístíme nástrahy a ohnisko uzavřeme.</p>
+        <div class="feature-pills"><span>Myši</span><span>Potkani</span><span>Krysy</span><span>Vstupy do domu</span></div>
+        <div class="feature-actions">
+          <button type="button" class="btn btn-primary" data-problem="Hlodavci (myši, potkani, krysy)" data-track="cta" data-track-loc="deratizace">Chci řešit hlodavce</button>
+          <a class="feature-call" href="tel:+420777551917" data-track="call" data-track-loc="deratizace"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Zavolat</a>
+        </div>
+      </article>
     </div>
-
     <div class="service-list">
       <div class="service-row">
         <div class="service-row-head">
-          <div class="service-row-icon"><svg class="icon"><use href="#i-bird"/></svg></div>
-          <h4>Ochrana proti ptactvu</h4>
+          <div class="service-row-icon"><svg class="icon" aria-hidden="true"><use href="#i-bug"/></svg></div>
+          <h3>Švábi, mravenci, blechy, moly</h3>
         </div>
-        <p>Sítě, hroty a odpuzovače proti holubům na fasádách, střechách a průmyslových objektech — bez ublížení zvířatům.</p>
+        <p>Postup volíme podle druhu hmyzu a typu prostoru — od bytu po kuchyň a restauraci.</p>
+        <button type="button" class="btn btn-outline btn-small" data-problem="Švábi, mravenci, blechy nebo moly" data-track="cta" data-track-loc="hmyz">Poptat</button>
       </div>
       <div class="service-row">
         <div class="service-row-head">
-          <div class="service-row-icon"><svg class="icon"><use href="#i-shield"/></svg></div>
-          <h4>Servisní smlouvy pro firmy</h4>
+          <div class="service-row-icon"><svg class="icon" aria-hidden="true"><use href="#i-bird"/></svg></div>
+          <h3>Ochrana proti holubům</h3>
         </div>
-        <p>Pravidelný monitoring pro sklady, provozovny a zemědělské objekty s protokolem podle hygienických požadavků HACCP.</p>
+        <p>Sítě, hroty a odpuzovače na fasádách, střechách a průmyslových objektech — bez ublížení zvířatům.</p>
+        <button type="button" class="btn btn-outline btn-small" data-problem="Ptactvo (holubi)" data-track="cta" data-track-loc="ptactvo">Poptat</button>
       </div>
       <div class="service-row">
         <div class="service-row-head">
-          <div class="service-row-icon"><svg class="icon"><use href="#i-leaf"/></svg></div>
-          <h4>Dezinfekce prostor</h4>
+          <div class="service-row-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></div>
+          <h3>Servisní smlouvy pro firmy</h3>
         </div>
-        <p>Likvidace plísní, virů a bakterií po zásahu škůdců nebo jako samostatná služba pro citlivé provozy.</p>
+        <p>Pravidelný monitoring skladů a provozoven s protokolem podle hygienických požadavků HACCP.</p>
+        <button type="button" class="btn btn-outline btn-small" data-problem="Servisní smlouva pro firmu" data-track="cta" data-track-loc="firma">Poptat</button>
       </div>
       <div class="service-row">
         <div class="service-row-head">
-          <div class="service-row-icon"><svg class="icon"><use href="#i-clock"/></svg></div>
-          <h4>Havarijní zásah</h4>
+          <div class="service-row-icon"><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg></div>
+          <h3>Dezinfekce prostor</h3>
         </div>
-        <p>Akutní výskyt hlodavců nebo hmyzu řešíme přednostně — technik na místě obvykle do 24 hodin.</p>
+        <p>Plísně, viry a bakterie po zásahu škůdců, nebo jako samostatná služba pro citlivý provoz.</p>
+        <button type="button" class="btn btn-outline btn-small" data-problem="Dezinfekce prostor" data-track="cta" data-track-loc="dezinfekce">Poptat</button>
+      </div>
+      <div class="service-row">
+        <div class="service-row-head">
+          <div class="service-row-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></div>
+          <h3>Havarijní zásah</h3>
+        </div>
+        <p>Akutní výskyt bereme přednostně. Technik na místě obvykle do 24 hodin, i mimo běžnou pracovní dobu.</p>
+        <a class="btn btn-outline btn-small" href="tel:+420777551917" data-track="call" data-track-loc="havarie">Zavolat hned</a>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- PROCES -->
 <section class="process section-pad" id="proces">
   <div class="wrap">
     <div class="section-head on-dark">
-      <h2>Jak zásah probíhá</h2>
-      <p>Čtyři kroky od prvního telefonátu po klid v domě. Bez skrytých poplatků a bez tlaku na zbytečné služby.</p>
+      <h2>Čtyři kroky a víte, na čem jste</h2>
+      <p>Bez skrytých poplatků a bez tlaku na služby, které nepotřebujete.</p>
     </div>
-    <div class="process-list">
-      <div class="process-item">
+    <ol class="process-list">
+      <li class="process-item">
         <span class="process-num">01</span>
-        <h3>Poptávka a konzultace</h3>
-        <p>Zavoláte, napíšete nebo vyplníte formulář. Ozveme se obvykle do 24 hodin a probereme rozsah problému.</p>
-      </div>
-      <div class="process-item">
+        <h3>Ozvete se</h3>
+        <p>Zavoláte, napíšete nebo vyplníte formulář. Ozveme se co nejdřív a domluvíme termín.</p>
+      </li>
+      <li class="process-item">
         <span class="process-num">02</span>
-        <h3>Prohlídka na místě</h3>
-        <p>Technik posoudí situaci, najde vstupní body škůdců a navrhne konkrétní postup i cenu předem.</p>
-      </div>
-      <div class="process-item">
+        <h3>Prohlídka a cena</h3>
+        <p>Technik najde, kudy se škůdci dostávají dovnitř, a cenu řekne před zahájením prací.</p>
+      </li>
+      <li class="process-item">
         <span class="process-num">03</span>
-        <h3>Samotný zásah</h3>
-        <p>Aplikujeme certifikované přípravky bezpečné pro obyvatele domu i domácí zvířata, včetně preventivních opatření.</p>
-      </div>
-      <div class="process-item">
+        <h3>Zásah</h3>
+        <p>Certifikované přípravky a postup, který předem vysvětlíme včetně bezpečí dětí a zvířat.</p>
+      </li>
+      <li class="process-item">
         <span class="process-num">04</span>
-        <h3>Kontrola výsledku</h3>
-        <p>Po dohodnuté době provedeme kontrolní návštěvu a ověříme, že je v domě opravdu klid. V případě potřeby doporučíme další preventivní kroky.</p>
-      </div>
-    </div>
+        <h3>Kontrola</h3>
+        <p>Po dohodnuté době ověříme výsledek. Když je potřeba, domluvíme další preventivní krok.</p>
+      </li>
+    </ol>
   </div>
 </section>
 
-<!-- STATS -->
-<section class="stats-wrap">
-  <svg class="contour" viewBox="0 0 1200 300" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M-20,60 C200,110 350,10 600,55 C850,100 950,20 1220,70" stroke="#f8f6f1" stroke-width="1.4" fill="none"/>
-    <path d="M-20,120 C220,170 380,80 620,115 C860,150 970,90 1220,135" stroke="#f8f6f1" stroke-width="1.4" fill="none"/>
-    <path d="M-20,180 C240,225 400,150 640,180 C870,205 990,155 1220,195" stroke="#f8f6f1" stroke-width="1.4" fill="none"/>
-    <path d="M-20,240 C250,275 420,215 660,240 C880,262 1000,220 1220,252" stroke="#f8f6f1" stroke-width="1.4" fill="none"/>
-  </svg>
-  <div class="wrap">
-    <div class="stats-grid">
-      <div class="stat"><b data-count="12">0</b><span>let praxe v oboru DDD</span></div>
-      <div class="stat"><b data-count="1400">0</b><span>vyřešených zásahů</span></div>
-      <div class="stat"><b data-count="24">0</b><span>hodin do prvního termínu</span></div>
-      <div class="stat"><b data-count="15" data-suffix="+">0</b><span>měst v oblasti působnosti</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- OBLAST PUSOBENI -->
-<section class="oblast section-pad" id="oblast">
-  <div class="wrap">
-    <div class="oblast-layout">
-      <div class="oblast-text">
-        <div class="section-head" style="margin-bottom:0;">
-          <h2>Jezdíme po celých středních a západních Čechách</h2>
-          <p>Zasahujeme ve Středočeském a Plzeňském kraji — od domácností po průmyslové a zemědělské provozy.</p>
-        </div>
-        <div class="town-chip-list">
-          <span class="town-chip main">Středočeský kraj</span>
-          <span class="town-chip main">Plzeňský kraj</span>
-        </div>
-        <div class="oblast-note">
-          <svg class="icon"><use href="#i-pin"/></svg>
-          <p>Působíme po celém Středočeském a Plzeňském kraji. Stačí napsat obec do poptávky a ozveme se s termínem.</p>
-        </div>
-      </div>
-      <div class="oblast-image">
-        <iframe id="oblastMap" title="Mapa Středočeského a Plzeňského kraje" src="https://maps.google.com/maps?ll=49.85,14.05&z=8&hl=cs&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REFERENCE -->
 <section class="reference section-pad" id="reference">
   <div class="wrap">
     <div class="section-head">
       <h2>Co říkají lidé z okolí</h2>
       <p>Ukázky reakcí od domácností a provozoven, se kterými jsme v regionu spolupracovali.</p>
     </div>
-    <div class="ref-carousel" aria-label="Reference zákazníků">
-      <div class="ref-track">
-        <article class="ref-card">
-          <p class="quote">„Myši ve sklepě zmizely do týdne a technik nám vysvětlil, kudy se dostávaly dovnitř. Konečně klid.“</p>
-          <div class="ref-person">
-            <div class="ref-avatar">J.</div>
-            <div><b>Jana K.</b><span>Rodinný dům, Středočeský kraj</span></div>
-          </div>
-        </article>
-        <article class="ref-card">
-          <p class="quote">„Řešili jsme štěnice v penzionu, potřebovali jsme to rychle a diskrétně. Termín drželi a hosté nic nepoznali.“</p>
-          <div class="ref-person">
-            <div class="ref-avatar">P.</div>
-            <div><b>Petr M.</b><span>Penzion, Plzeňský kraj</span></div>
-          </div>
-        </article>
-        <article class="ref-card">
-          <p class="quote">„Máme s nimi servisní smlouvu na sklad, chodí pravidelně a protokoly jsou v pořádku i při kontrole hygieny.“</p>
-          <div class="ref-person">
-            <div class="ref-avatar">L.</div>
-            <div><b>Lenka S.</b><span>Provozovna, Středočeský kraj</span></div>
-          </div>
-        </article>
-        <article class="ref-card">
-          <p class="quote">„Štěnice v bytě. Nechtěl jsem, aby o tom věděli sousedi. Přijeli včas a bez řečí.“</p>
-          <div class="ref-person">
-            <div class="ref-avatar">A.</div>
-            <div><b>Anonym</b><span>Byt, Středočeský kraj</span></div>
-          </div>
-        </article>
-        <article class="ref-card">
-          <p class="quote">„Potkani u kontejnerů a pak už i u domu. Zásah byl jasný, cena předem, problém zmizel.“</p>
-          <div class="ref-person">
-            <div class="ref-avatar">A.</div>
-            <div><b>Anonym</b><span>Rodinný dům, Plzeňský kraj</span></div>
-          </div>
-        </article>
-        <article class="ref-card">
-          <p class="quote">„Moly ve skříních ničily oblečení. Po ošetření je klid a poradili i prevenci.“</p>
-          <div class="ref-person">
-            <div class="ref-avatar">M.</div>
-            <div><b>Marie D.</b><span>Byt, Plzeňský kraj</span></div>
-          </div>
-        </article>
-        <article class="ref-card" aria-hidden="true">
-          <p class="quote">„Myši ve sklepě zmizely do týdne a technik nám vysvětlil, kudy se dostávaly dovnitř. Konečně klid.“</p>
-          <div class="ref-person">
-            <div class="ref-avatar">J.</div>
-            <div><b>Jana K.</b><span>Rodinný dům, Středočeský kraj</span></div>
-          </div>
-        </article>
-        <article class="ref-card" aria-hidden="true">
-          <p class="quote">„Řešili jsme štěnice v penzionu, potřebovali jsme to rychle a diskrétně. Termín drželi a hosté nic nepoznali.“</p>
-          <div class="ref-person">
-            <div class="ref-avatar">P.</div>
-            <div><b>Petr M.</b><span>Penzion, Plzeňský kraj</span></div>
-          </div>
-        </article>
-        <article class="ref-card" aria-hidden="true">
-          <p class="quote">„Máme s nimi servisní smlouvu na sklad, chodí pravidelně a protokoly jsou v pořádku i při kontrole hygieny.“</p>
-          <div class="ref-person">
-            <div class="ref-avatar">L.</div>
-            <div><b>Lenka S.</b><span>Provozovna, Středočeský kraj</span></div>
-          </div>
-        </article>
-        <article class="ref-card" aria-hidden="true">
-          <p class="quote">„Štěnice v bytě. Nechtěl jsem, aby o tom věděli sousedi. Přijeli včas a bez řečí.“</p>
-          <div class="ref-person">
-            <div class="ref-avatar">A.</div>
-            <div><b>Anonym</b><span>Byt, Středočeský kraj</span></div>
-          </div>
-        </article>
-        <article class="ref-card" aria-hidden="true">
-          <p class="quote">„Potkani u kontejnerů a pak už i u domu. Zásah byl jasný, cena předem, problém zmizel.“</p>
-          <div class="ref-person">
-            <div class="ref-avatar">A.</div>
-            <div><b>Anonym</b><span>Rodinný dům, Plzeňský kraj</span></div>
-          </div>
-        </article>
-        <article class="ref-card" aria-hidden="true">
-          <p class="quote">„Moly ve skříních ničily oblečení. Po ošetření je klid a poradili i prevenci.“</p>
-          <div class="ref-person">
-            <div class="ref-avatar">M.</div>
-            <div><b>Marie D.</b><span>Byt, Plzeňský kraj</span></div>
-          </div>
-        </article>
+  </div>
+  <div class="ref-carousel" aria-label="Hodnocení zákazníků">
+    <div class="ref-track">
+      <article class="ref-card">
+        <p class="quote">„Štěnice v bytě. Nechtěl jsem, aby o tom věděli sousedi. Přijeli včas a bez řečí.“</p>
+        <div class="ref-person">
+          <div class="ref-avatar" aria-hidden="true">A</div>
+          <div><b>Anonym</b><span>Byt, Středočeský kraj</span></div>
+        </div>
+      </article>
+      <article class="ref-card">
+        <p class="quote">„Řešili jsme štěnice v penzionu, potřebovali jsme to rychle a diskrétně. Termín drželi a hosté nic nepoznali.“</p>
+        <div class="ref-person">
+          <div class="ref-avatar" aria-hidden="true">P</div>
+          <div><b>Petr M.</b><span>Penzion, Plzeňský kraj</span></div>
+        </div>
+      </article>
+      <article class="ref-card">
+        <p class="quote">„Myši ve sklepě zmizely do týdne a technik nám vysvětlil, kudy se dostávaly dovnitř. Konečně klid.“</p>
+        <div class="ref-person">
+          <div class="ref-avatar" aria-hidden="true">J</div>
+          <div><b>Jana K.</b><span>Rodinný dům, Středočeský kraj</span></div>
+        </div>
+      </article>
+      <article class="ref-card">
+        <p class="quote">„Potkani u kontejnerů a pak už i u domu. Zásah byl jasný, cena předem, problém zmizel.“</p>
+        <div class="ref-person">
+          <div class="ref-avatar" aria-hidden="true">A</div>
+          <div><b>Anonym</b><span>Rodinný dům, Plzeňský kraj</span></div>
+        </div>
+      </article>
+      <article class="ref-card">
+        <p class="quote">„Moly ve skříních ničily oblečení. Po ošetření je klid a poradili i prevenci.“</p>
+        <div class="ref-person">
+          <div class="ref-avatar" aria-hidden="true">M</div>
+          <div><b>Marie D.</b><span>Byt, Plzeňský kraj</span></div>
+        </div>
+      </article>
+      <article class="ref-card">
+        <p class="quote">„Máme s nimi servisní smlouvu na sklad, chodí pravidelně a protokoly jsou v pořádku i při kontrole hygieny.“</p>
+        <div class="ref-person">
+          <div class="ref-avatar" aria-hidden="true">L</div>
+          <div><b>Lenka S.</b><span>Provozovna, Středočeský kraj</span></div>
+        </div>
+      </article>
+      <article class="ref-card" aria-hidden="true">
+        <p class="quote">„Štěnice v bytě. Nechtěl jsem, aby o tom věděli sousedi. Přijeli včas a bez řečí.“</p>
+        <div class="ref-person">
+          <div class="ref-avatar" aria-hidden="true">A</div>
+          <div><b>Anonym</b><span>Byt, Středočeský kraj</span></div>
+        </div>
+      </article>
+      <article class="ref-card" aria-hidden="true">
+        <p class="quote">„Řešili jsme štěnice v penzionu, potřebovali jsme to rychle a diskrétně. Termín drželi a hosté nic nepoznali.“</p>
+        <div class="ref-person">
+          <div class="ref-avatar" aria-hidden="true">P</div>
+          <div><b>Petr M.</b><span>Penzion, Plzeňský kraj</span></div>
+        </div>
+      </article>
+      <article class="ref-card" aria-hidden="true">
+        <p class="quote">„Myši ve sklepě zmizely do týdne a technik nám vysvětlil, kudy se dostávaly dovnitř. Konečně klid.“</p>
+        <div class="ref-person">
+          <div class="ref-avatar" aria-hidden="true">J</div>
+          <div><b>Jana K.</b><span>Rodinný dům, Středočeský kraj</span></div>
+        </div>
+      </article>
+      <article class="ref-card" aria-hidden="true">
+        <p class="quote">„Potkani u kontejnerů a pak už i u domu. Zásah byl jasný, cena předem, problém zmizel.“</p>
+        <div class="ref-person">
+          <div class="ref-avatar" aria-hidden="true">A</div>
+          <div><b>Anonym</b><span>Rodinný dům, Plzeňský kraj</span></div>
+        </div>
+      </article>
+      <article class="ref-card" aria-hidden="true">
+        <p class="quote">„Moly ve skříních ničily oblečení. Po ošetření je klid a poradili i prevenci.“</p>
+        <div class="ref-person">
+          <div class="ref-avatar" aria-hidden="true">M</div>
+          <div><b>Marie D.</b><span>Byt, Plzeňský kraj</span></div>
+        </div>
+      </article>
+      <article class="ref-card" aria-hidden="true">
+        <p class="quote">„Máme s nimi servisní smlouvu na sklad, chodí pravidelně a protokoly jsou v pořádku i při kontrole hygieny.“</p>
+        <div class="ref-person">
+          <div class="ref-avatar" aria-hidden="true">L</div>
+          <div><b>Lenka S.</b><span>Provozovna, Středočeský kraj</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="faq section-pad" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Než nás kontaktujete</h2>
+      <p>Krátké odpovědi na to, co lidé řeší, než zavolají nebo vyplní poptávku.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Jak rychle se ozvete a kdy přijedete?</summary>
+        <p>Ozveme se co nejdřív, v pracovní dny obvykle ještě tentýž den. Termín zásahu držíme zpravidla do 24 hodin od poptávky. Akutní výskyt bereme přednostně, havárie řešíme i mimo Po–Pá 7:00–19:00.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Kolik zásah stojí?</summary>
+        <p>Cenu říkáme před zahájením prací, po posouzení rozsahu. Poptávka ani prohlídka vás k ničemu nezavazují. Každý zásah je jiný — záleží na druhu škůdce a velikosti prostoru.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Je zásah bezpečný pro děti a domácí zvířata?</summary>
+        <p>Používáme certifikované přípravky a předem řekneme, jak se v ošetřeném prostoru chovat, včetně toho, kdy se do něj mohou vrátit děti a zvířata.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Pozná okolí, že řešíme štěnice?</summary>
+        <p>Domluvu vedeme diskrétně. Do poptávky nebo do telefonu stačí říct, že si přejete tichý průběh — přizpůsobíme příjezd i komunikaci.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Musím na dobu zásahu opustit byt?</summary>
+        <p>Záleží na typu zásahu. Technik předem řekne, jestli je potřeba na chvíli opustit místnost, co schovat a kdy se lze vrátit.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Jezdíte i do mé obce?</summary>
+        <p>Jezdíme po celém Středočeském a Plzeňském kraji. Do poptávky uveďte obec a ozveme se s termínem.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="oblast section-pad" id="oblast">
+  <div class="wrap">
+    <div class="oblast-layout">
+      <div>
+        <div class="section-head" style="margin-bottom:0;">
+          <h2>Středočeský a Plzeňský kraj</h2>
+          <p>Domácnosti, penziony i provozy. Stačí napsat obec — ozveme se, jestli a kdy můžeme přijet.</p>
+        </div>
+        <div class="town-chip-list">
+          <span class="town-chip">Středočeský kraj</span>
+          <span class="town-chip">Plzeňský kraj</span>
+        </div>
+        <div class="oblast-note">
+          <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
+          <p>Mimo tyto dva kraje běžně nejezdíme. Když si nejste jistí, napište obec do poptávky a odpovíme na rovinu.</p>
+        </div>
+      </div>
+      <div class="oblast-image">
+        <iframe title="Mapa Středočeského a Plzeňského kraje" src="https://maps.google.com/maps?ll=49.85,14.05&z=8&hl=cs&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA BANNER -->
-<section class="cta-banner">
+<section class="cta-banner" aria-labelledby="cta-title">
   <div class="wrap">
-    <h2>Čím dřív zavoláte, tím menší je zásah.</h2>
+    <h2 id="cta-title">Čím dřív se ozvete, tím menší je zásah.</h2>
     <div class="cta-banner-actions">
-      <a href="#kontakt" class="btn btn-primary" data-track="cta" data-track-loc="banner">Chci nezávaznou nabídku</a>
-      <a href="tel:+420777551917" class="btn btn-ghost" data-track="call" data-track-loc="banner"><svg class="icon"><use href="#i-phone"/></svg>777 551 917</a>
+      <a href="#poptavka" class="btn btn-primary" data-track="cta" data-track-loc="banner">Nezávazná poptávka</a>
+      <a href="tel:+420777551917" class="btn btn-ghost" data-track="call" data-track-loc="banner"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>777 551 917</a>
+      <a href="mailto:info@stenicestop.cz?subject=Popt%C3%A1vka%20ze%20stenicestop.cz&body=Dobr%C3%BD%20den%2C%0A%0APot%C5%99ebuji%20%C5%99e%C5%A1it%3A%20%0AObec%3A%20%0ATelefon%3A%20%0A" class="btn btn-ghost" data-track="email" data-track-loc="banner"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>E-mail</a>
     </div>
   </div>
 </section>
 
-<!-- KONTAKT -->
 <section class="contact section-pad" id="kontakt">
   <div class="wrap">
     <div class="contact-grid">
       <div class="contact-info">
-        <h2>Domluvme si prohlídku</h2>
-        <p>Napište pár slov o tom, co vás trápí, a ozveme se s termínem prohlídky nebo rovnou s cenovým odhadem.</p>
-
-        <div class="contact-detail">
-          <div class="icon-wrap"><svg class="icon"><use href="#i-phone"/></svg></div>
-          <div><b><a href="tel:+420777551917" data-track="call" data-track-loc="kontakt">777 551 917</a></b><span>Po–Pá 7:00–19:00, havárie i mimo pracovní dobu</span></div>
+        <h2>Zavolejte, napište, nebo nechte číslo</h2>
+        <p>Stejný výsledek, tři cesty. Telefon je nejrychlejší, když je to akutní.</p>
+        <div class="reach">
+          <a class="reach-card" href="tel:+420777551917" data-track="call" data-track-loc="kontakt">
+            <span class="reach-kicker">Nejrychlejší</span>
+            <strong>777 551 917</strong>
+            <span>Po–Pá 7:00–19:00, havárie i mimo pracovní dobu</span>
+          </a>
+          <a class="reach-card mail" href="mailto:info@stenicestop.cz?subject=Popt%C3%A1vka%20ze%20stenicestop.cz&body=Dobr%C3%BD%20den%2C%0A%0APot%C5%99ebuji%20%C5%99e%C5%A1it%3A%20%0AObec%3A%20%0ATelefon%3A%20%0A" data-track="email" data-track-loc="kontakt">
+            <span class="reach-kicker">Nebo e-mail</span>
+            <strong>info@stenicestop.cz</strong>
+            <span>Odpovídáme obvykle do jednoho pracovního dne</span>
+          </a>
         </div>
-        <div class="contact-detail">
-          <div class="icon-wrap"><svg class="icon"><use href="#i-mail"/></svg></div>
-          <div><b><a href="mailto:info@stenicestop.cz" data-track="email" data-track-loc="kontakt">info@stenicestop.cz</a></b><span>Odpovídáme obvykle do jednoho pracovního dne</span></div>
-        </div>
-        <div class="contact-detail">
-          <div class="icon-wrap"><svg class="icon"><use href="#i-id"/></svg></div>
-          <div><b>IČO 47128453</b><span>Oficiální identifikační číslo provozovatele</span></div>
-        </div>
-        <div class="contact-detail">
-          <div class="icon-wrap"><svg class="icon"><use href="#i-pin"/></svg></div>
-          <div><b>Středočeský a Plzeňský kraj</b><span>Zásahy po celých středních a západních Čechách</span></div>
-        </div>
+        <p class="contact-meta">IČO 47128453 · Středočeský a Plzeňský kraj</p>
       </div>
 
-      <form class="form-card" id="contactForm" novalidate>
+      <form class="form-card" id="contactForm" data-source="Spodní kontakt" novalidate aria-labelledby="contact-form-title">
         <div class="form-head">
-          <p class="form-kicker">Nezávazná poptávka</p>
-          <h3>Napište, co potřebujete vyřešit</h3>
-          <p>Ozveme se obvykle do 24 hodin. Údaje použijeme výhradně k vyřízení vaší poptávky.</p>
+          <p class="form-kicker">Nebo napište sem</p>
+          <h2 id="contact-form-title">Jméno a telefon stačí</h2>
+          <p>Zbytek je dobrovolný. Ozveme se na číslo, které uvedete.</p>
         </div>
         <div class="honeypot" aria-hidden="true">
           <label for="website">Web</label>
@@ -929,80 +1117,74 @@
         <div class="form-row">
           <div class="field">
             <label for="jmeno">Jméno a příjmení <span class="req" aria-hidden="true">*</span></label>
-            <input type="text" id="jmeno" name="jmeno" placeholder="Jan Novák" autocomplete="name" required>
+            <input type="text" id="jmeno" name="jmeno" autocomplete="name" required maxlength="80">
             <span class="field-error" data-for="jmeno">Uveďte prosím jméno.</span>
           </div>
           <div class="field">
             <label for="telefon">Telefon <span class="req" aria-hidden="true">*</span></label>
-            <input type="tel" id="telefon" name="telefon" placeholder="777 551 917" autocomplete="tel" inputmode="tel" required>
+            <input type="tel" id="telefon" name="telefon" autocomplete="tel" inputmode="tel" required maxlength="20" placeholder="6xx xxx xxx">
             <span class="field-error" data-for="telefon">Uveďte telefon, ať se vám můžeme ozvat.</span>
           </div>
         </div>
         <div class="form-row">
           <div class="field">
-            <label for="email">E-mail <span class="req" aria-hidden="true">*</span></label>
-            <input type="email" id="email" name="email" placeholder="vas@email.cz" autocomplete="email" required>
-            <span class="field-error" data-for="email">Zadejte platný e-mail.</span>
+            <label for="obec">Obec <span class="opt">nepovinné</span></label>
+            <input type="text" id="obec" name="obec" autocomplete="address-level2" maxlength="80" placeholder="např. Beroun">
           </div>
           <div class="field">
-            <label for="obec">Obec <span class="req" aria-hidden="true">*</span></label>
-            <input type="text" id="obec" name="obec" placeholder="Obec ve Středočeském nebo Plzeňském kraji" autocomplete="address-level2" required>
-            <span class="field-error" data-for="obec">Uveďte obec zásahu.</span>
+            <label for="typ">Co vás trápí <span class="opt">nepovinné</span></label>
+            <select id="typ" name="typ">
+              <option value="" selected>Nevím, ozvěte se mi</option>
+              <option>Štěnice</option>
+              <option>Švábi, mravenci, blechy nebo moly</option>
+              <option>Hlodavci (myši, potkani, krysy)</option>
+              <option>Ptactvo (holubi)</option>
+              <option>Dezinfekce prostor</option>
+              <option>Servisní smlouva pro firmu</option>
+              <option>Nevím, potřebuji poradit</option>
+            </select>
           </div>
-        </div>
-        <div class="field">
-          <label for="typ">Čeho se problém týká <span class="req" aria-hidden="true">*</span></label>
-          <select id="typ" name="typ" required>
-            <option value="" disabled selected>Vyberte možnost</option>
-            <option>Hlodavci (myši, potkani, krysy)</option>
-            <option>Hmyz (štěnice, švábi, mravenci, moly)</option>
-            <option>Ptactvo (holubi)</option>
-            <option>Servisní smlouva pro firmu</option>
-            <option>Nevím, potřebuji poradit</option>
-          </select>
-          <span class="field-error" data-for="typ">Vyberte typ problému.</span>
         </div>
         <div class="field">
           <label for="zprava">Popis situace <span class="opt">nepovinné</span></label>
-          <textarea id="zprava" name="zprava" placeholder="Kde se škůdci vyskytují, jak dlouho a jak velký je prostor…"></textarea>
+          <textarea id="zprava" name="zprava" maxlength="2000" placeholder="Kde se škůdci vyskytují a jak dlouho…"></textarea>
         </div>
-        <p class="form-legal">Odesláním poptávky berete na vědomí <a href="ochrana-osobnich-udaju.html">zásady zpracování osobních údajů</a>. Právním základem je jednání o smlouvě a odpověď na vaši žádost (čl. 6 odst. 1 písm. b) GDPR).</p>
-        <div class="checkline" id="souhlasLine">
+        <div class="checkline">
           <input type="checkbox" id="souhlas" name="souhlas" required>
-          <label for="souhlas">Potvrzuji, že jsem se seznámil/a se <a href="ochrana-osobnich-udaju.html">zásadami zpracování osobních údajů</a> a souhlasím s použitím uvedených údajů k vyřízení této poptávky.</label>
+          <label for="souhlas">Seznámil/a jsem se se <a href="ochrana-osobnich-udaju.html">zásadami zpracování osobních údajů</a>.</label>
         </div>
         <span class="field-error" data-for="souhlas">Pro odeslání je potřeba potvrzení výše.</span>
-        <button type="submit" class="btn btn-primary btn-block" id="formSubmit">Odeslat poptávku</button>
-        <p class="form-submit-note">Odpovídáme v pracovní dny, havárie řešíme i mimo hodiny.</p>
-        <div class="form-msg" id="formMsg">
-          <svg class="icon"><use href="#i-check"/></svg>
-          <span>Děkujeme, poptávku jsme přijali. Ozveme se vám obvykle do 24 hodin.</span>
+        <button type="submit" class="btn btn-primary btn-block">Odeslat poptávku</button>
+        <p class="form-submit-note">Odpovídáme v pracovní dny. Havárie řešíme i mimo ně.</p>
+        <div class="form-msg" role="status">
+          <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
+          <span>Děkujeme. Ozveme se vám obvykle do 24 hodin na uvedené číslo.</span>
         </div>
       </form>
     </div>
   </div>
 </section>
+</main>
 
-<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="#home" class="logo" aria-label="stenicestop.cz">stenice<span class="stop">stop</span><span class="tld">.cz</span></a>
+        <a href="#home" class="logo" aria-label="stenicestop.cz, úvod">stenice<span class="stop">stop</span><span class="tld">.cz</span></a>
         <p>Deratizace, dezinsekce a ochrana před škůdci pro domácnosti i firmy ve Středočeském a Plzeňském kraji.</p>
       </div>
       <div>
-        <h4>Navigace</h4>
+        <h2>Navigace</h2>
         <ul>
           <li><a href="#sluzby">Služby</a></li>
-          <li><a href="#proces">Jak pracujeme</a></li>
+          <li><a href="#proces">Jak to probíhá</a></li>
+          <li><a href="#faq">Otázky</a></li>
           <li><a href="#oblast">Oblast působnosti</a></li>
-          <li><a href="#reference">Reference</a></li>
           <li><a href="#kontakt">Kontakt</a></li>
         </ul>
       </div>
       <div>
-        <h4>Kontakt</h4>
+        <h2>Kontakt</h2>
         <ul>
           <li><a href="tel:+420777551917" data-track="call" data-track-loc="footer">777 551 917</a></li>
           <li><a href="mailto:info@stenicestop.cz" data-track="email" data-track-loc="footer">info@stenicestop.cz</a></li>
@@ -1014,22 +1196,26 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 stenicestop.cz. Všechna práva vyhrazena.</span>
-      <span>
+      <span class="footer-links">
         <a href="ochrana-osobnich-udaju.html">Ochrana osobních údajů</a>
-        ·
         <a href="cookies.html">Cookies</a>
-        ·
-        <button type="button" class="cookie-settings" id="cookieReopen" style="margin:0;text-decoration:underline;color:inherit;">Nastavení cookies</button>
+        <button type="button" class="cookie-settings" id="cookieReopen">Nastavení cookies</button>
       </span>
     </div>
   </div>
 </footer>
 
+<nav class="dock" aria-label="Rychlý kontakt">
+  <a class="dock-call" href="tel:+420777551917" data-track="call" data-track-loc="dock"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Zavolat</a>
+  <a class="dock-mail" href="mailto:info@stenicestop.cz?subject=Popt%C3%A1vka%20ze%20stenicestop.cz&body=Dobr%C3%BD%20den%2C%0A%0APot%C5%99ebuji%20%C5%99e%C5%A1it%3A%20%0AObec%3A%20%0ATelefon%3A%20%0A" data-track="email" data-track-loc="dock"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>E-mail</a>
+  <a class="dock-form" href="#poptavka" data-track="cta" data-track-loc="dock">Poptávka</a>
+</nav>
+
 <div class="cookie-bar" id="cookieBar" role="dialog" aria-modal="false" aria-labelledby="cookieTitle" aria-describedby="cookieText">
   <div class="cookie-row">
     <div class="cookie-copy">
       <p><strong id="cookieTitle">Soubory cookies</strong></p>
-      <p><span id="cookieText">K chodu webu používáme jen nezbytné uložení vaší volby. Měření návštěvnosti a kliků na telefon, poptávku a formulář zapneme výhradně se souhlasem. <a href="cookies.html">Podrobnosti</a></span></p>
+      <p><span id="cookieText">K chodu webu používáme jen nezbytné uložení vaší volby. Měření návštěvnosti zapneme výhradně se souhlasem. <a href="cookies.html">Podrobnosti</a></span></p>
     </div>
     <div class="cookie-actions">
       <button type="button" class="btn btn-ghost" id="cookieNecessary">Pouze nezbytné</button>
@@ -1044,7 +1230,7 @@
     </label>
     <label class="cookie-pref">
       <input type="checkbox" id="cookieAnalyticsPref">
-      <span><b>Analytika</b> Prvotřídní měření návštěvnosti a kliků (Vercel Web Analytics a Speed Insights) po vašem souhlasu.</span>
+      <span><b>Analytika</b> Měření návštěvnosti a kliků (Vercel Web Analytics a Speed Insights) po vašem souhlasu.</span>
     </label>
     <div class="cookie-pref-actions">
       <button type="button" class="btn btn-ghost" id="cookieSave">Uložit volbu</button>
@@ -1055,199 +1241,240 @@
 <script>
 (function(){
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var menuIcon = '<svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>';
+  var closeIcon = '<svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>';
 
-  // Hero entrance
-  var hero = document.querySelector('.hero');
-  requestAnimationFrame(function(){
-    setTimeout(function(){ hero.classList.add('loaded'); }, 60);
-  });
-
-  // Sticky header
-  var header = document.getElementById('site-header');
-  function onScroll(){
-    if(window.scrollY > 40){ header.classList.add('scrolled'); }
-    else{ header.classList.remove('scrolled'); }
-  }
-  document.addEventListener('scroll', onScroll, {passive:true});
-  onScroll();
-
-  // Mobile menu
   var burger = document.getElementById('burgerBtn');
   var panel = document.getElementById('mobilePanel');
-  burger.addEventListener('click', function(){
-    var open = panel.classList.toggle('open');
+  function setMenu(open){
+    panel.classList.toggle('open', open);
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    burger.innerHTML = open
-      ? '<svg class="icon"><use href="#i-close"/></svg>'
-      : '<svg class="icon"><use href="#i-menu"/></svg>';
+    burger.setAttribute('aria-label', open ? 'Zavřít menu' : 'Otevřít menu');
+    panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+    document.body.classList.toggle('menu-open', open);
+    burger.innerHTML = open ? closeIcon : menuIcon;
+    if(open){
+      var first = panel.querySelector('a');
+      if(first) first.focus();
+    }
+  }
+  burger.addEventListener('click', function(){
+    var open = !panel.classList.contains('open');
+    setMenu(open);
+    if(!open) burger.focus();
   });
   panel.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){
-      panel.classList.remove('open');
-      burger.setAttribute('aria-expanded','false');
-      burger.innerHTML = '<svg class="icon"><use href="#i-menu"/></svg>';
-    });
+    a.addEventListener('click', function(){ setMenu(false); });
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && panel.classList.contains('open')){
+      setMenu(false);
+      burger.focus();
+    }
   });
 
-  // Contour parallax on hero scroll (single deliberate motion)
-  var contour = document.querySelector('.stats-wrap .contour');
-  if(!reduceMotion && contour){
-    document.addEventListener('scroll', function(){
-      var statsSection = document.querySelector('.stats-wrap');
-      var rect = statsSection.getBoundingClientRect();
-      var progress = 1 - Math.min(Math.max(rect.top / window.innerHeight, 0), 1);
-      contour.style.transform = 'translateY(' + (-14 * progress) + 'px)';
-    }, {passive:true});
+  var ATTRIB_KEY = 'stenice_attrib';
+  (function captureAttrib(){
+    var params = new URLSearchParams(location.search);
+    var keys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','gad_source'];
+    var found = {};
+    keys.forEach(function(k){ if(params.get(k)) found[k] = params.get(k).slice(0, 180); });
+    if(!Object.keys(found).length) return;
+    try { sessionStorage.setItem(ATTRIB_KEY, JSON.stringify(found)); } catch(err){}
+  })();
+  function readAttrib(){
+    try { return JSON.parse(sessionStorage.getItem(ATTRIB_KEY) || '{}') || {}; }
+    catch(err){ return {}; }
   }
 
-  // Animated stat counters
-  var counters = document.querySelectorAll('[data-count]');
-  var counted = false;
-  function animateCounters(){
-    if(counted) return;
-    counted = true;
-    counters.forEach(function(el){
-      var target = parseInt(el.getAttribute('data-count'), 10);
-      var suffix = el.getAttribute('data-suffix') || '';
-      if(reduceMotion){ el.textContent = target + suffix; return; }
-      var duration = 1200;
-      var startTime = null;
-      function step(ts){
-        if(!startTime) startTime = ts;
-        var progress = Math.min((ts - startTime) / duration, 1);
-        var eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.round(eased * target) + (progress === 1 ? suffix : '');
-        if(progress < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
+  var problemMap = {
+    stenice: 'Štěnice',
+    svabi: 'Švábi, mravenci, blechy nebo moly',
+    hmyz: 'Švábi, mravenci, blechy nebo moly',
+    hlodavci: 'Hlodavci (myši, potkani, krysy)',
+    mysi: 'Hlodavci (myši, potkani, krysy)',
+    ptactvo: 'Ptactvo (holubi)',
+    holubi: 'Ptactvo (holubi)',
+    dezinfekce: 'Dezinfekce prostor',
+    firma: 'Servisní smlouva pro firmu',
+    poradit: 'Nevím, potřebuji poradit'
+  };
+  function syncProblem(value){
+    document.querySelectorAll('select[name="typ"]').forEach(function(sel){
+      sel.value = value;
+      if(!value) return;
+      sel.classList.remove('invalid');
+      sel.setAttribute('aria-invalid', 'false');
+      var form = sel.closest('form');
+      var err = form && form.querySelector('.field-error[data-for="typ"]');
+      if(err) err.classList.remove('show');
+    });
+    document.querySelectorAll('.problem-chip').forEach(function(chip){
+      var on = chip.getAttribute('data-problem') === value;
+      chip.classList.toggle('is-on', on);
+      chip.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
   }
-  var statsSection = document.querySelector('.stats-wrap');
-  if('IntersectionObserver' in window && statsSection){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){ animateCounters(); io.disconnect(); }
-      });
-    }, {threshold:0.4});
-    io.observe(statsSection);
-  } else {
-    animateCounters();
-  }
-
-  // Contact form
-  var form = document.getElementById('contactForm');
-  var msg = document.getElementById('formMsg');
-  var submitBtn = document.getElementById('formSubmit');
-
-  function setFieldError(id, on){
-    var el = document.getElementById(id);
-    var err = document.querySelector('.field-error[data-for="'+id+'"]');
-    if(el){ el.classList.toggle('invalid', on); }
-    if(id === 'souhlas'){
-      document.getElementById('souhlasLine').classList.toggle('invalid', on);
-    }
-    if(err){ err.classList.toggle('show', on); }
-  }
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('[data-problem]');
+    if(!btn) return;
+    syncProblem(btn.getAttribute('data-problem'));
+    var form = document.getElementById('poptavka');
+    form.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest'});
+    var name = form.querySelector('[name="jmeno"]');
+    window.setTimeout(function(){
+      if(name) name.focus({preventScroll: true});
+    }, reduceMotion ? 0 : 280);
+  });
+  document.querySelectorAll('select[name="typ"]').forEach(function(sel){
+    sel.addEventListener('change', function(){ syncProblem(sel.value); });
+  });
+  var requested = new URLSearchParams(location.search).get('problem');
+  if(requested && problemMap[requested.toLowerCase()]) syncProblem(problemMap[requested.toLowerCase()]);
 
   function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
-  function validPhone(v){ return v.replace(/\s+/g,'').replace(/^\+?420/, '').length >= 9; }
+  function validPhone(v){
+    var digits = v.replace(/\D/g, '');
+    if(digits.indexOf('420') === 0) digits = digits.slice(3);
+    return digits.length >= 9 && digits.length <= 12;
+  }
 
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var hp = document.getElementById('website');
-    if(hp && hp.value){ return; }
-
-    var jmeno = document.getElementById('jmeno');
-    var telefon = document.getElementById('telefon');
-    var email = document.getElementById('email');
-    var obec = document.getElementById('obec');
-    var typ = document.getElementById('typ');
-    var souhlas = document.getElementById('souhlas');
-    var zprava = document.getElementById('zprava');
-
-    var ok = true;
-    setFieldError('jmeno', !jmeno.value.trim()); if(!jmeno.value.trim()) ok = false;
-    setFieldError('telefon', !validPhone(telefon.value)); if(!validPhone(telefon.value)) ok = false;
-    setFieldError('email', !validEmail(email.value)); if(!validEmail(email.value)) ok = false;
-    setFieldError('obec', !obec.value.trim()); if(!obec.value.trim()) ok = false;
-    setFieldError('typ', !typ.value); if(!typ.value) ok = false;
-    setFieldError('souhlas', !souhlas.checked); if(!souhlas.checked) ok = false;
-    if(!ok){
-      var first = form.querySelector('.invalid, .checkline.invalid');
-      if(first) first.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth', block: 'center'});
-      return;
+  function bindLeadForm(form){
+    var msg = form.querySelector('.form-msg');
+    var msgText = msg.querySelector('span');
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var defaultLabel = submitBtn.textContent;
+    function field(name){ return form.querySelector('[name="'+name+'"]'); }
+    function setFieldError(name, on){
+      var el = field(name);
+      var err = form.querySelector('.field-error[data-for="'+name+'"]');
+      if(el){
+        el.classList.toggle('invalid', on);
+        el.setAttribute('aria-invalid', on ? 'true' : 'false');
+        if(err){
+          if(!err.id) err.id = (form.id || 'form') + '-err-' + name;
+          if(on) el.setAttribute('aria-describedby', err.id);
+          else el.removeAttribute('aria-describedby');
+        }
+      }
+      if(name === 'souhlas'){
+        var line = form.querySelector('.checkline');
+        if(line) line.classList.toggle('invalid', on);
+      }
+      if(err) err.classList.toggle('show', on);
     }
+    ['jmeno','telefon','email','obec','typ','souhlas'].forEach(function(name){
+      var el = field(name);
+      if(!el) return;
+      el.addEventListener('input', function(){ setFieldError(name, false); });
+      el.addEventListener('change', function(){ setFieldError(name, false); });
+    });
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var hp = field('website');
+      if(hp && hp.value) return;
+      var jmeno = field('jmeno');
+      var telefon = field('telefon');
+      var email = field('email');
+      var obec = field('obec');
+      var typ = field('typ');
+      var souhlas = field('souhlas');
+      var zprava = field('zprava');
+      var ok = true;
+      function check(name, bad){ setFieldError(name, bad); if(bad) ok = false; }
+      check('jmeno', !jmeno.value.trim());
+      check('telefon', !validPhone(telefon.value));
+      if(email && email.value.trim()) check('email', !validEmail(email.value.trim()));
+      if(obec && obec.required) check('obec', !obec.value.trim());
+      if(typ && typ.required) check('typ', !typ.value);
+      check('souhlas', !souhlas.checked);
+      if(!ok){
+        var focusEl = form.querySelector('input.invalid, select.invalid, textarea.invalid');
+        if(!focusEl && form.querySelector('.checkline.invalid')) focusEl = field('souhlas');
+        if(focusEl) focusEl.focus();
+        return;
+      }
 
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Odesílám…';
-    track('form_submit', { typ: typ.value });
+      var values = {
+        jmeno: jmeno.value.trim(),
+        telefon: telefon.value.trim(),
+        email: email ? email.value.trim() : '',
+        obec: obec ? obec.value.trim() : '',
+        typ: typ && typ.value ? typ.value : 'Neuvedeno',
+        zprava: zprava ? zprava.value.trim() : ''
+      };
+      var source = form.getAttribute('data-source') || 'web';
+      var attrib = readAttrib();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Odesílám…';
+      track('form_submit', { typ: values.typ, loc: source });
 
-    var values = {
-      jmeno: jmeno.value.trim(),
-      telefon: telefon.value.trim(),
-      email: email.value.trim(),
-      obec: obec.value.trim(),
-      typ: typ.value,
-      zprava: zprava.value.trim()
-    };
-    var mailSubject = 'Poptávka ze stenicestop.cz — ' + values.obec + ' — ' + values.typ;
-    var mailBody = [
-      'Nová poptávka ze stenicestop.cz',
-      '================================',
-      '',
-      'Jméno a příjmení:  ' + values.jmeno,
-      'Telefon:           ' + values.telefon,
-      'E-mail:            ' + values.email,
-      'Obec:              ' + values.obec,
-      'Typ problému:      ' + values.typ,
-      '',
-      'Popis situace',
-      '-------------',
-      values.zprava || 'Neuveden',
-      '',
-      'Souhlas se zpracováním osobních údajů: ano'
-    ].join('\n');
+      var mailSubject = 'Poptávka ze stenicestop.cz — ' + values.jmeno;
+      if(values.obec) mailSubject += ' — ' + values.obec;
+      if(values.typ && values.typ !== 'Neuvedeno') mailSubject += ' — ' + values.typ;
+      var lines = [
+        'Nová poptávka ze stenicestop.cz',
+        '================================',
+        '',
+        'Jméno a příjmení:  ' + values.jmeno,
+        'Telefon:           ' + values.telefon,
+        'E-mail:            ' + (values.email || 'Neuveden'),
+        'Obec:              ' + (values.obec || 'Neuvedena'),
+        'Typ problému:      ' + values.typ,
+        'Formulář:          ' + source,
+        '',
+        'Popis situace',
+        '-------------',
+        values.zprava || 'Neuveden',
+        '',
+        'Seznámení se zásadami zpracování osobních údajů: ano'
+      ];
+      Object.keys(attrib).forEach(function(k){ lines.push(k + ': ' + attrib[k]); });
+      var mailBody = lines.join('\n');
+      var payload = {
+        _subject: mailSubject,
+        _template: 'table',
+        _captcha: 'false',
+        'Jméno a příjmení': values.jmeno,
+        'Telefon': values.telefon,
+        'E-mail': values.email || 'Neuveden',
+        'Obec': values.obec || 'Neuvedena',
+        'Typ problému': values.typ,
+        'Popis situace': values.zprava || 'Neuveden',
+        'Formulář': source,
+        'Seznámení se zásadami': 'Ano'
+      };
+      if(values.email) payload._replyto = values.email;
+      Object.keys(attrib).forEach(function(k){ payload[k] = attrib[k]; });
 
-    var payload = {
-      _subject: mailSubject,
-      _template: 'table',
-      _captcha: 'false',
-      _replyto: values.email,
-      'Jméno a příjmení': values.jmeno,
-      'Telefon': values.telefon,
-      'E-mail': values.email,
-      'Obec': values.obec,
-      'Typ problému': values.typ,
-      'Popis situace': values.zprava || 'Neuveden',
-      'Souhlas se zpracováním údajů': 'Ano'
-    };
-
-    fetch('https://formsubmit.co/ajax/info@stenicestop.cz', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json','Accept':'application/json'},
-      body: JSON.stringify(payload)
-    }).then(function(res){ return res.json().catch(function(){ return {}; }); })
-      .then(function(){
+      function succeed(){
+        msgText.textContent = 'Děkujeme. Ozveme se vám obvykle do 24 hodin na uvedené číslo.';
         msg.classList.add('show');
         submitBtn.textContent = 'Odesláno';
         form.querySelectorAll('input, select, textarea').forEach(function(el){ el.disabled = true; });
-      })
-      .catch(function(){
-        window.location.href = 'mailto:info@stenicestop.cz?subject=' + encodeURIComponent(mailSubject) +
-          '&body=' + encodeURIComponent(mailBody);
+      }
+      function fail(){
+        msgText.textContent = 'Online odeslání se nepovedlo. Otevřeli jsme e-mail — pokud se nic nestalo, napište na info@stenicestop.cz nebo zavolejte 777 551 917.';
+        msg.classList.add('show');
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Odeslat poptávku';
-      });
-  });
+        submitBtn.textContent = defaultLabel;
+        window.location.href = 'mailto:info@stenicestop.cz?subject=' + encodeURIComponent(mailSubject) + '&body=' + encodeURIComponent(mailBody);
+      }
 
-  ['jmeno','telefon','email','obec','typ','souhlas'].forEach(function(id){
-    var el = document.getElementById(id);
-    if(!el) return;
-    el.addEventListener('input', function(){ setFieldError(id, false); });
-    el.addEventListener('change', function(){ setFieldError(id, false); });
-  });
+      fetch('https://formsubmit.co/ajax/info@stenicestop.cz', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json','Accept':'application/json'},
+        body: JSON.stringify(payload)
+      }).then(function(res){
+        return res.json().catch(function(){ return {}; }).then(function(body){
+          if(!res.ok || body.success === false || body.success === 'false') throw new Error('fail');
+          succeed();
+        });
+      }).catch(fail);
+    });
+  }
+  document.querySelectorAll('form.form-card').forEach(bindLeadForm);
 
-  // Cookie consent — analytics only after opt-in (ePrivacy / GDPR)
   var CONSENT_KEY = 'stenice_consent_v1';
   var cookieBar = document.getElementById('cookieBar');
   var cookiePrefs = document.getElementById('cookiePrefs');
@@ -1300,7 +1527,6 @@
   });
   function hideBar(){ cookieBar.classList.remove('show'); }
   function showBar(){ cookieBar.classList.add('show'); }
-
   function applyConsent(c){
     if(c && c.analytics) loadAnalytics();
     hideBar();
