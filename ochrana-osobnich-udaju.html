@@ -3,6 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var googleGranted = false;
+  try {
+    var storedConsent = JSON.parse(localStorage.getItem('stenice_consent_v2') || 'null');
+    googleGranted = !!(storedConsent && storedConsent.analytics);
+  } catch (e) {}
+  gtag('consent', 'default', {
+    ad_storage: googleGranted ? 'granted' : 'denied',
+    ad_user_data: googleGranted ? 'granted' : 'denied',
+    ad_personalization: googleGranted ? 'granted' : 'denied',
+    analytics_storage: googleGranted ? 'granted' : 'denied',
+    wait_for_update: 500
+  });
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18463943420"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'AW-18463943420');
+</script>
 <title>Zásady zpracování osobních údajů — stenicestop.cz</title>
 <meta name="description" content="Informace o zpracování osobních údajů podle nařízení GDPR pro web a služby stenicestop.cz.">
 <link rel="canonical" href="https://stenicestop.cz/ochrana-osobnich-udaju">
@@ -88,7 +110,7 @@
           <td>Po dobu promlčecích lhůt</td>
         </tr>
         <tr>
-          <td>Měření návštěvnosti webu (analytika)</td>
+          <td>Měření návštěvnosti a reklam (analytika, Google Ads)</td>
           <td>Čl. 6 odst. 1 písm. a) GDPR — souhlas, který můžete kdykoli odvolat</td>
           <td>Podle nastavení analytických nástrojů, max. 24 měsíců; souhlas evidujeme 12 měsíců</td>
         </tr>
@@ -101,13 +123,14 @@
     <ul>
       <li>poskytovatel hostingu a doručení webu (Vercel),</li>
       <li>zpracování poptávek z formuláře (e-mailová schránka a případný zprostředkovatel odeslání formuláře),</li>
-      <li>analytický nástroj Vercel Web Analytics / Speed Insights — pouze pokud udělíte souhlas s analytikou,</li>
+      <li>analytický nástroj Vercel Web Analytics / Speed Insights — pouze pokud udělíte souhlas s měřením,</li>
+      <li>Google Ireland Limited (značka Google Ads) — pouze pokud udělíte souhlas s měřením,</li>
       <li>orgány veřejné moci, pokud to ukládá zákon.</li>
     </ul>
     <p>Někteří poskytovatelé mohou zpracovávat data mimo EU. V takovém případě vyžadujeme záruky podle GDPR (standardní smluvní doložky nebo rozhodnutí o odpovídající ochraně).</p>
 
     <h2>5. Vaše práva</h2>
-    <p>Máte právo na přístup k údajům, opravu, výmaz, omezení zpracování, přenositelnost a vznést námitku proti zpracování založenému na oprávněném zájmu. Souhlas s analytikou můžete odvolat v <button type="button" onclick="try{localStorage.removeItem('stenice_consent_v1')}catch(e){} location.href='index.html';" style="border:none;background:none;padding:0;font:inherit;color:var(--amber);cursor:pointer;text-decoration:underline;">nastavení cookies</button> nebo nám napsat.</p>
+    <p>Máte právo na přístup k údajům, opravu, výmaz, omezení zpracování, přenositelnost a vznést námitku proti zpracování založenému na oprávněném zájmu. Souhlas s měřením můžete odvolat v <button type="button" onclick="try{localStorage.removeItem('stenice_consent_v1');localStorage.removeItem('stenice_consent_v2')}catch(e){} location.href='index.html';" style="border:none;background:none;padding:0;font:inherit;color:var(--amber);cursor:pointer;text-decoration:underline;">nastavení cookies</button> nebo nám napsat.</p>
     <p>Stížnost můžete podat u Úřadu pro ochranu osobních údajů, Pplk. Sochora 27, 170 00 Praha 7, <a href="https://www.uoou.cz">www.uoou.cz</a>.</p>
 
     <h2>6. Zabezpečení</h2>

@@ -3,6 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var googleGranted = false;
+  try {
+    var storedConsent = JSON.parse(localStorage.getItem('stenice_consent_v2') || 'null');
+    googleGranted = !!(storedConsent && storedConsent.analytics);
+  } catch (e) {}
+  gtag('consent', 'default', {
+    ad_storage: googleGranted ? 'granted' : 'denied',
+    ad_user_data: googleGranted ? 'granted' : 'denied',
+    ad_personalization: googleGranted ? 'granted' : 'denied',
+    analytics_storage: googleGranted ? 'granted' : 'denied',
+    wait_for_update: 500
+  });
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18463943420"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'AW-18463943420');
+</script>
 <title>Zásady používání cookies — stenicestop.cz</title>
 <meta name="description" content="Informace o cookies a měření návštěvnosti na webu stenicestop.cz.">
 <link rel="canonical" href="https://stenicestop.cz/cookies">
@@ -45,7 +67,7 @@
     <h1>Zásady používání cookies</h1>
     <p class="meta">Účinnost od 20. 9. 2026 · Souvisí se <a href="ochrana-osobnich-udaju.html">zásadami zpracování osobních údajů</a></p>
 
-    <p>Tento web ukládá informace do vašeho zařízení jen v rozsahu, který zákon připouští. Analytiku nespouštíme, dokud k tomu nedáte souhlas. Volbu můžete kdykoli změnit v liště cookies (odkaz v zápatí webu).</p>
+    <p>Tento web ukládá informace do vašeho zařízení jen v rozsahu, který zákon připouští. Měření návštěvnosti a reklam nespouštíme naplno, dokud k tomu nedáte souhlas. Volbu můžete kdykoli změnit v liště cookies (odkaz v zápatí webu).</p>
 
     <h2>1. Co používáme</h2>
     <table>
@@ -54,9 +76,9 @@
       </thead>
       <tbody>
         <tr>
-          <td><code>stenice_consent_v1</code></td>
+          <td><code>stenice_consent_v2</code></td>
           <td>Nezbytné (localStorage)</td>
-          <td>Uložení vaší volby ohledně cookies a analytiky</td>
+          <td>Uložení vaší volby ohledně cookies, analytiky a měření reklam</td>
           <td>12 měsíců</td>
           <td>Není potřeba — nutné k dodržení vašeho nastavení</td>
         </tr>
@@ -65,6 +87,13 @@
           <td>Analytika (first-party, bez vlastních reklamních cookies)</td>
           <td>Počty návštěv, zobrazené stránky, přibližná země, odkazující zdroj a kliknutí na telefon, poptávku a formulář</td>
           <td>Agregovaná statistika u poskytovatele hostingu</td>
+          <td>Ano</td>
+        </tr>
+        <tr>
+          <td>Google Ads (gtag.js, AW-18463943420)</td>
+          <td>Měření reklam</td>
+          <td>Zjištění návštěvy z reklamy a měření konverzí. Cookies nastavuje Google až po souhlasu.</td>
+          <td>Podle nastavení Google, obvykle do 90 dnů</td>
           <td>Ano</td>
         </tr>
         <tr>
@@ -79,14 +108,14 @@
 
     <h2>2. Jak souhlas funguje</h2>
     <ul>
-      <li><strong>Souhlasím</strong> — spustíme analytiku a měření výkonu, abychom web mohli zlepšovat.</li>
+      <li><strong>Souhlasím</strong> — spustíme analytiku, měření výkonu a měření reklam Google Ads.</li>
       <li><strong>Pouze nezbytné</strong> — web funguje dál, měření nespouštíme.</li>
-      <li><strong>Nastavení</strong> — analytiku můžete zapnout nebo vypnout zvlášť.</li>
+      <li><strong>Nastavení</strong> — měření můžete zapnout nebo vypnout zvlášť.</li>
     </ul>
-    <p>Odvolání souhlasu nemá vliv na zákonnost zpracování do okamžiku odvolání. Reklamní ani remarketingové cookies nepoužíváme.</p>
+    <p>Odvolání souhlasu nemá vliv na zákonnost zpracování do okamžiku odvolání. Značka Google je na stránce přítomná hned, ale do souhlasu má ukládání reklamních a analytických cookies vypnuté.</p>
 
-    <h2>3. Proč nepoužíváme skryté sledování</h2>
-    <p>Podle pravidel ePrivacy a pokynů dozorových úřadů nelze analytiku opírat jen o oprávněný zájem, pokud ukládá nebo čte informace v zařízení. Proto čekáme na souhlas. Po jeho udělení používáme prvotřídní (first-party) měření Vercelu — bez reklamní sítě třetích stran.</p>
+    <h2>3. Proč čekáme na souhlas</h2>
+    <p>Podle pravidel ePrivacy a pokynů dozorových úřadů nelze měření, které ukládá nebo čte informace v zařízení, opírat jen o oprávněný zájem. Proto Google značka běží v režimu souhlasu. Po jeho udělení může Google uložit cookies potřebné k měření reklam a Vercel měří návštěvnost. Bez souhlasu reklamní cookies nenastavujeme.</p>
 
     <h2>4. Změna volby</h2>
     <p>Vraťte se na <a href="index.html">úvodní stránku</a> a v zápatí zvolte „Nastavení cookies“. Prohlížeč můžete také nastavit tak, aby blokoval ukládání dat; nezbytné uložení volby pak nemusí fungovat.</p>

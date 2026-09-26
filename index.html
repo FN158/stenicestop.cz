@@ -3,6 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var googleGranted = false;
+  try {
+    var storedConsent = JSON.parse(localStorage.getItem('stenice_consent_v2') || 'null');
+    googleGranted = !!(storedConsent && storedConsent.analytics);
+  } catch (e) {}
+  gtag('consent', 'default', {
+    ad_storage: googleGranted ? 'granted' : 'denied',
+    ad_user_data: googleGranted ? 'granted' : 'denied',
+    ad_personalization: googleGranted ? 'granted' : 'denied',
+    analytics_storage: googleGranted ? 'granted' : 'denied',
+    wait_for_update: 500
+  });
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18463943420"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'AW-18463943420');
+</script>
 <title>Štěnice, myši, švábi — zásah do 24 hodin | stenicestop.cz</title>
 <meta name="description" content="Štěnice v posteli, myši nebo švábi? Diskrétní dezinsekce a deratizace ve Středočeském a Plzeňském kraji. Technik obvykle do 24 hodin. Zavolejte 777 551 917 nebo pošlete nezávaznou poptávku.">
 <meta name="author" content="stenicestop.cz">
@@ -1221,7 +1243,7 @@
   <div class="cookie-row">
     <div class="cookie-copy">
       <p><strong id="cookieTitle">Soubory cookies</strong></p>
-      <p><span id="cookieText">K chodu webu používáme jen nezbytné uložení vaší volby. Měření návštěvnosti zapneme výhradně se souhlasem. <a href="cookies.html">Podrobnosti</a></span></p>
+      <p><span id="cookieText">K chodu webu používáme jen nezbytné uložení vaší volby. Měření návštěvnosti a reklam zapneme výhradně se souhlasem. <a href="cookies.html">Podrobnosti</a></span></p>
     </div>
     <div class="cookie-actions">
       <button type="button" class="btn btn-ghost" id="cookieNecessary">Pouze nezbytné</button>
@@ -1236,7 +1258,7 @@
     </label>
     <label class="cookie-pref">
       <input type="checkbox" id="cookieAnalyticsPref">
-      <span><b>Analytika</b> Měření návštěvnosti a kliků (Vercel Web Analytics a Speed Insights) po vašem souhlasu.</span>
+      <span><b>Měření</b> Návštěvnost a reklamy (Vercel a Google Ads) po vašem souhlasu.</span>
     </label>
     <div class="cookie-pref-actions">
       <button type="button" class="btn btn-ghost" id="cookieSave">Uložit volbu</button>
@@ -1481,7 +1503,7 @@
   }
   document.querySelectorAll('form.form-card').forEach(bindLeadForm);
 
-  var CONSENT_KEY = 'stenice_consent_v1';
+  var CONSENT_KEY = 'stenice_consent_v2';
   var cookieBar = document.getElementById('cookieBar');
   var cookiePrefs = document.getElementById('cookiePrefs');
   var analyticsPref = document.getElementById('cookieAnalyticsPref');
@@ -1533,8 +1555,20 @@
   });
   function hideBar(){ cookieBar.classList.remove('show'); }
   function showBar(){ cookieBar.classList.add('show'); }
+  function updateGoogleConsent(granted){
+    if(typeof window.gtag !== 'function') return;
+    var state = granted ? 'granted' : 'denied';
+    window.gtag('consent', 'update', {
+      ad_storage: state,
+      ad_user_data: state,
+      ad_personalization: state,
+      analytics_storage: state
+    });
+  }
   function applyConsent(c){
-    if(c && c.analytics) loadAnalytics();
+    var granted = !!(c && c.analytics);
+    if(granted) loadAnalytics();
+    updateGoogleConsent(granted);
     hideBar();
   }
 
